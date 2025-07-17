@@ -1,7 +1,14 @@
 import React from 'react';
+import TopBar from './components/TopBar';
 
 const App = () => {
-	return <div className="text-dustyRose font-black uppercase underline tracking-widest">App</div>;
+	return (
+		<>
+			<div className="app">
+				<TopBar />
+			</div>
+		</>
+	);
 };
 
 export default App;
