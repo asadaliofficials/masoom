@@ -22,9 +22,9 @@ const Nav = ({ count = 55 }) => {
 
 	return (
 		<>
-			<div className="nav py-2 px-8 flex w-full justify-between items-center">
+			<div className="nav py-3 px-8 flex w-full justify-between items-center">
 				<div className="logo flex items-center gap-1">
-					<img src="/src/assets/images/logo.png" width="30px" alt="logo" />
+					<img src="/src/assets/images/logo.png" width="40px" alt="logo" />
 					<h1 className="font-bold tracking-wide">MASOOM</h1>
 				</div>
 				{/* seach div */}
@@ -104,10 +104,10 @@ const Nav = ({ count = 55 }) => {
 							viewBox="0 0 24 24"
 							fill="none"
 							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="lucide lucide-search-icon lucide-search"
+							strokeWidth="2"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							className="lucide lucide-search-icon lucide-search"
 						>
 							<path d="m21 21-4.34-4.34" />
 							<circle cx="11" cy="11" r="8" />

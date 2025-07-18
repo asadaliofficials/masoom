@@ -1,4 +1,4 @@
-import HomeHero from '../layouts/HomeHero';
+import HomeHero from '../layouts/home/HomeHero';
 
 const Home = () => {
 	return (

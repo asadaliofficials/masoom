@@ -8,7 +8,7 @@ const App = () => {
 			<BrowserRouter>
 				<div className="app max-w-[1440px] bg-white">
 					<TopBar />
-					<hr style={{ opacity: '0.4' }} />
+					<hr style={{ opacity: '0.3' }} />
 					<Home />
 				</div>
 			</BrowserRouter>

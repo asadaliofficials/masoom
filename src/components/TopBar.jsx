@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router-dom';
 import '../styles/topBar.css';
-import { Menu } from 'lucide-react';
 const TopBar = () => {
 	// Tailwind class common for all links
 	const baseClass =
@@ -10,7 +9,23 @@ const TopBar = () => {
 		<div className="topBar  w-[100%] py-1.5 px-8 flex justify-between">
 			<p className="noOneBrand text-muted">#1 Fashion Brand in ASIA</p>
 			<div className="links flex gap-16 select-none">
-				<Menu className="hidden menuIcon" />
+				<svg
+					className="hidden menuIcon"
+					xmlns="http://www.w3.org/2000/svg"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					stroke="currentColor"
+					strokeWidth="2"
+					strokeLinecap="round"
+					strokeLinejoin="round"
+					// class="lucide lucide-menu-icon lucide-menu"
+				>
+					<path d="M4 12h16" />
+					<path d="M4 18h16" />
+					<path d="M4 6h16" />
+				</svg>
 				<p className="noOneBrandCenter hidden text-muted">#1 Fashion Brand in ASIA</p>
 				<ul className="flex gap-4 ">
 					<NavLink
