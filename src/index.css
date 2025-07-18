@@ -20,3 +20,21 @@
 	--shadow-input: 0 1px 3px rgba(0, 0, 0, 0.08);
 	--shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+body {
+	width: 100vw;
+	height: 100vh;
+	/* background-color: red; */
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+	align-items: center;
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 1440px;
+	width: 100%;
+	/* background-color: yellow; */
+}
