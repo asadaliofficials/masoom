@@ -7,7 +7,7 @@ const TopBar = () => {
 		'w-max opacity-40 hover:opacity-100 transition-all duration-300 cursor-pointer font-semibold';
 
 	return (
-		<div className="topBar  w-[100%] py-1.5 px-8 border-b-2 border-[#F2F2F2] flex justify-between">
+		<div className="topBar  w-[100%] py-1.5 px-8 flex justify-between">
 			<p className="noOneBrand text-muted">#1 Fashion Brand in ASIA</p>
 			<div className="links flex gap-16 select-none">
 				<Menu className="hidden menuIcon" />
