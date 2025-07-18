@@ -1,0 +1,24 @@
+@media (max-width: 870px) {
+	.categoryDropdownDiv {
+		display: none;
+	}
+	.searchInputDiv {
+		width: 60%;
+	}
+}
+@media (max-width: 650px) {
+	.searchInputDiv {
+		width: 40%;
+	}
+}
+@media (max-width: 500px) {
+	.searchInputDiv {
+		display: none;
+	}
+	.seachIconMobile {
+		display: flex;
+	}
+	.navIconsParent {
+		gap: 0;
+	}
+}

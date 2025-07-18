@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
-
+import '../../styles/navbar.css';
 const categories = ['All Category', 'Woman', 'Mens', 'Winter', 'Summer'];
 
 const Nav = ({ count = 55 }) => {
@@ -9,7 +10,6 @@ const Nav = ({ count = 55 }) => {
 	const [selected, setSelected] = useState('All Category');
 	const dropdownRef = useRef(null);
 
-	// Optional: Close dropdown on outside click
 	useEffect(() => {
 		const handleClickOutside = e => {
 			if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -23,16 +23,13 @@ const Nav = ({ count = 55 }) => {
 	return (
 		<>
 			<div className="nav py-2 px-8 flex w-full justify-between items-center">
-				{/* Logo */}
 				<div className="logo flex items-center gap-1">
 					<img src="/src/assets/images/logo.png" width="30px" alt="logo" />
 					<h1 className="font-bold tracking-wide">MASOOM</h1>
 				</div>
-
-				{/* Search with Category Dropdown */}
-				<div className="flex items-center border border-gray-300 rounded-md w-full max-w-xl bg-white relative z-20">
-					{/* Category Dropdown */}
-					<div className="relative" ref={dropdownRef}>
+				{/* seach div */}
+				<div className="flex items-center border border-gray-300 rounded-md w-full max-w-xl bg-white relative z-20 searchInputDiv">
+					<div className="relative categoryDropdownDiv" ref={dropdownRef}>
 						<button
 							onClick={() => setOpen(prev => !prev)}
 							className="w-[160px] flex items-center justify-between bg-gray-100 text-gray-700 px-4 py-2 border-r border-gray-300 focus:outline-none"
@@ -49,7 +46,6 @@ const Nav = ({ count = 55 }) => {
 							</svg>
 						</button>
 
-						{/* Animated Dropdown Panel */}
 						<AnimatePresence>
 							{open && (
 								<motion.ul
@@ -76,8 +72,7 @@ const Nav = ({ count = 55 }) => {
 						</AnimatePresence>
 					</div>
 
-					{/* Search Input */}
-					<div className="relative flex-1">
+					<div className="relative flex-1 ">
 						<input
 							type="text"
 							placeholder="Search product or brand here..."
@@ -100,9 +95,25 @@ const Nav = ({ count = 55 }) => {
 						</div>
 					</div>
 				</div>
-				<div className="flex gap-2">
+				<div className="flex gap-2 navIconsParent">
+					<div className="seachIconMobile hidden relative w-10 h-10 items-center justify-center text-gray-700 hover:bg-gray-100 rounded-4xl cursor-pointer transition-all duration-200">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="lucide lucide-search-icon lucide-search"
+						>
+							<path d="m21 21-4.34-4.34" />
+							<circle cx="11" cy="11" r="8" />
+						</svg>
+					</div>
 					<div className="relative w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 rounded-4xl cursor-pointer transition-all duration-200">
-						{/* Cart Icon */}
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="24"
@@ -119,7 +130,6 @@ const Nav = ({ count = 55 }) => {
 						</svg>
 					</div>
 					<div className="relative w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 rounded-4xl cursor-pointer">
-						{/* Cart Icon */}
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							width="24"
@@ -137,7 +147,6 @@ const Nav = ({ count = 55 }) => {
 							<path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
 						</svg>
 
-						{/* Badge */}
 						{count > 0 && (
 							<span className="absolute top-1 right-1 transform translate-x-1/2 -translate-y-1/2 bg-gray-600 text-white text-xs font-bold rounded-full px-1.5 h-5 min-w-[20px] flex items-center justify-center">
 								{displayCount}
