@@ -1,9 +1,14 @@
 // eslint-disable-next-line no-unused-vars
 import { motion, scale } from 'framer-motion';
-function Category({ svg, title }) {
+function Category({ svg, title, delay }) {
 	return (
-		<motion.div className=" container p-4 w-30 h-38 flex justify-center items-center flex-col">
-			<div className="bg-gray-200 rounded-full overflow-hidden pt-4 h-full  flex items-center justify-center w-25">
+		<motion.div
+			initial={{ opacity: 0, scale: 0.5 }}
+			animate={{ opacity: 1, scale: 1 }}
+			transition={{ duration: 0.4, delay: delay }}
+			className=" container p-4 w-30 h-38 flex justify-center items-center flex-col"
+		>
+			<div className="bg-gray-200 hover:scale-110 duration-300 cursor-pointer rounded-full overflow-hidden pt-4 h-full  flex items-center justify-center w-25">
 				{svg}
 			</div>
 			<p className="font-semibold text-center opacity-70">{title}</p>
@@ -13,7 +18,7 @@ function Category({ svg, title }) {
 const Categories = () => {
 	return (
 		<>
-			<div className="categores  flex gap-8 justify-start items-start px-12 py-1">
+			<div className="categores overflow-x-auto flex gap-8 justify-start items-start px-12 py-1">
 				<Category
 					svg={
 						<svg
@@ -46,6 +51,7 @@ const Categories = () => {
 						</svg>
 					}
 					title={'T-Shirts'}
+					delay={1.1}
 				/>
 				<Category
 					svg={
@@ -121,6 +127,7 @@ const Categories = () => {
 						</svg>
 					}
 					title={'Jackets'}
+					delay={1.2}
 				/>
 				<Category
 					svg={
@@ -161,6 +168,7 @@ const Categories = () => {
 						</svg>
 					}
 					title={'Jeans'}
+					delay={1.3}
 				/>
 				<Category
 					svg={
@@ -210,6 +218,7 @@ const Categories = () => {
 						</svg>
 					}
 					title={'Skirts'}
+					delay={1.4}
 				/>
 				<Category
 					svg={
@@ -255,6 +264,7 @@ const Categories = () => {
 						</svg>
 					}
 					title={'Brides'}
+					delay={1.5}
 				/>
 				<Category
 					svg={
@@ -308,6 +318,7 @@ const Categories = () => {
 						</svg>
 					}
 					title={'Gym Shorts'}
+					delay={1.6}
 				/>
 				<Category
 					svg={
@@ -390,6 +401,7 @@ c-34 21 -63 43 -63 49 -1 5 21 13 48 18 64 10 211 74 461 198 164 82 214 102
 						</svg>
 					}
 					title={'Shoes'}
+					delay={1.7}
 				/>
 				<Category
 					svg={
@@ -453,9 +465,15 @@ c-34 21 -63 43 -63 49 -1 5 21 13 48 18 64 10 211 74 461 198 164 82 214 102
 						</svg>
 					}
 					title={'Bags'}
+					delay={1.8}
 				/>
-				<motion.div className=" container p-4 w-30 h-38 flex justify-center items-center flex-col">
-					<div className="border-2 border-gray-300 rounded-full overflow-hidden h-full  flex items-center justify-center w-25">
+				<motion.div
+					initial={{ opacity: 0, scale: 0.5 }}
+					animate={{ opacity: 1, scale: 1 }}
+					transition={{ duration: 0.4, delay: 1.9 }}
+					className=" container p-4 w-30 h-38 flex justify-center items-center flex-col"
+				>
+					<div className="border-2 scale-90 hover:scale-100 duration-300 cursor-pointer border-gray-300 rounded-full overflow-hidden h-full  flex items-center justify-center w-25">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							// xmlns:xlink="http://www.w3.org/1999/xlink"

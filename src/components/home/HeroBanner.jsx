@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 
 const HeroBanner = () => {
 	return (
-		<div className="heroBanner  w-full h-[430px] bg-gray-100 flex">
+		<div className="heroBanner  w-full h-[430px] bg-gray-50 flex">
 			<div className="left relative  flex flex-col items-start justify-center p-12 w-[50%] ">
 				{/* Animated static texts with Framer Motion */}
 				<motion.p
