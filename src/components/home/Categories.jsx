@@ -4,11 +4,11 @@ function Category({ svg, title, delay }) {
 	return (
 		<motion.div
 			initial={{ opacity: 0, scale: 0.5 }}
-			animate={{ opacity: 1, scale: 1 }}
+			animate={{ opacity: 1, scale: 0.9 }}
 			transition={{ duration: 0.4, delay: delay }}
 			className=" container p-4 w-30 h-38 flex justify-center items-center flex-col"
 		>
-			<div className="bg-gray-200 hover:scale-110 duration-300 cursor-pointer rounded-full overflow-hidden pt-4 h-full  flex items-center justify-center w-25">
+			<div className="bg-gray-200 scale-90 hover:scale-100 duration-300 cursor-pointer rounded-full overflow-hidden pt-4 h-full  flex items-center justify-center w-25">
 				{svg}
 			</div>
 			<p className="font-semibold text-center opacity-70">{title}</p>
@@ -469,7 +469,7 @@ c-34 21 -63 43 -63 49 -1 5 21 13 48 18 64 10 211 74 461 198 164 82 214 102
 				/>
 				<motion.div
 					initial={{ opacity: 0, scale: 0.5 }}
-					animate={{ opacity: 1, scale: 1 }}
+					animate={{ opacity: 1, scale: 0.9 }}
 					transition={{ duration: 0.4, delay: 1.9 }}
 					className=" container p-4 w-30 h-38 flex justify-center items-center flex-col"
 				>
