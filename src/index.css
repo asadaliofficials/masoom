@@ -29,6 +29,7 @@ body {
 	/* justify-content: center; */
 	align-items: center;
 	/* background-color: rgb(244, 244, 244); */
+	overflow-x: hidden !important;
 }
 
 #root {
