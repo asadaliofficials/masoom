@@ -23,12 +23,22 @@ const Nav = ({ count = 55 }) => {
 	return (
 		<>
 			<div className="nav py-3 px-8 flex w-full justify-between items-center">
-				<div className="logo flex items-center gap-1">
+				<motion.div
+					initial={{ opacity: 0, x: -30 }}
+					animate={{ opacity: 1, x: 0 }}
+					transition={{ duration: 0.6, delay: 0.3 }}
+					className="logo flex items-center gap-1"
+				>
 					<img src="/src/assets/images/logo.png" width="40px" alt="logo" />
 					<h1 className="font-bold tracking-wide">MASOOM</h1>
-				</div>
+				</motion.div>
 				{/* seach div */}
-				<div className="flex items-center border border-gray-300 rounded-md w-full max-w-xl bg-white relative z-20 searchInputDiv">
+				<motion.div
+					initial={{ opacity: 0 }}
+					animate={{ opacity: 1 }}
+					transition={{ duration: 0.6, delay: 0.3 }}
+					className="flex items-center border border-gray-300 rounded-md w-full max-w-xl bg-white relative z-20 searchInputDiv"
+				>
 					<div className="relative categoryDropdownDiv" ref={dropdownRef}>
 						<button
 							onClick={() => setOpen(prev => !prev)}
@@ -94,65 +104,82 @@ const Nav = ({ count = 55 }) => {
 							</svg>
 						</div>
 					</div>
-				</div>
+				</motion.div>
 				<div className="flex gap-2 navIconsParent">
-					<div className="seachIconMobile hidden relative w-10 h-10 items-center justify-center text-gray-700 hover:bg-gray-100 rounded-4xl cursor-pointer transition-all duration-200">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							strokeWidth="2"
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							className="lucide lucide-search-icon lucide-search"
-						>
-							<path d="m21 21-4.34-4.34" />
-							<circle cx="11" cy="11" r="8" />
-						</svg>
-					</div>
-					<div className="relative w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 rounded-4xl cursor-pointer transition-all duration-200">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							strokeWidth="2"
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							className="lucide lucide-heart-icon lucide-heart"
-						>
-							<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-						</svg>
-					</div>
-					<div className="relative w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 rounded-4xl cursor-pointer">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							strokeWidth="2"
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							className="lucide lucide-shopping-cart-icon lucide-shopping-cart"
-						>
-							<circle cx="8" cy="21" r="1" />
-							<circle cx="19" cy="21" r="1" />
-							<path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
-						</svg>
-
-						{count > 0 && (
-							<span className="absolute top-1 right-1 transform translate-x-1/2 -translate-y-1/2 bg-gray-600 text-white text-xs font-bold rounded-full px-1.5 h-5 min-w-[20px] flex items-center justify-center">
-								{displayCount}
-							</span>
-						)}
-					</div>
+					<motion.div
+						initial={{ opacity: 0, x: 30 }}
+						animate={{ opacity: 1, x: 0 }}
+						transition={{ duration: 0.5, delay: 0.2 }}
+					>
+						<div className="seachIconMobile hidden relative w-10 h-10 items-center justify-center text-gray-700 hover:bg-gray-100 rounded-4xl cursor-pointer transition-all duration-200">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								strokeWidth="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								className="lucide lucide-search-icon lucide-search"
+							>
+								<path d="m21 21-4.34-4.34" />
+								<circle cx="11" cy="11" r="8" />
+							</svg>
+						</div>
+					</motion.div>
+					<motion.div
+						initial={{ opacity: 0, x: 30 }}
+						animate={{ opacity: 1, x: 0 }}
+						transition={{ duration: 0.5, delay: 0.4 }}
+					>
+						<div className="relative w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 rounded-4xl cursor-pointer transition-all duration-200">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								strokeWidth="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								className="lucide lucide-heart-icon lucide-heart"
+							>
+								<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+							</svg>
+						</div>
+					</motion.div>
+					<motion.div
+						initial={{ opacity: 0, x: 30 }}
+						animate={{ opacity: 1, x: 0 }}
+						transition={{ duration: 0.5, delay: 0.6 }}
+					>
+						<div className="relative w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 rounded-4xl cursor-pointer">
+							{count > 0 && (
+								<span className="absolute top-1 right-1 transform translate-x-1/2 -translate-y-1/2 bg-gray-600 text-white text-xs font-bold rounded-full px-1.5 h-5 min-w-[20px] flex items-center justify-center">
+									{displayCount}
+								</span>
+							)}
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="24"
+								height="24"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								strokeWidth="2"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								className="lucide lucide-shopping-cart-icon lucide-shopping-cart"
+							>
+								<circle cx="8" cy="21" r="1" />
+								<circle cx="19" cy="21" r="1" />
+								<path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" />
+							</svg>
+						</div>
+					</motion.div>
 				</div>
 			</div>
 		</>
