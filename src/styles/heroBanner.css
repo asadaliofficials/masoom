@@ -30,6 +30,9 @@
 	.heroBanner .splitText {
 		font-size: 7vw;
 	}
+	.heroBanner .left {
+		padding-top: 40px;
+	}
 	.heroBanner .saleLottie {
 		top: -28px;
 		left: 35%;
@@ -44,6 +47,7 @@
 	.heroBanner .right {
 		padding: 20px 30px;
 	}
+
 	.heroBanner .splitText {
 		font-size: 9vw;
 	}
@@ -70,7 +74,7 @@
 }
 @media (max-width: 390px) {
 	.heroBanner .saleLottie {
-		top: -58px;
-		left: 45%;
+		top: -98px;
+		left: 16%;
 	}
 }
