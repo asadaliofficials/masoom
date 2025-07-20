@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
-import '../../styles/navbar.css';
+import '../../styles/home/navbar.css';
 const categories = ['All Category', 'Woman', 'Mens', 'Winter', 'Summer'];
 
 const Nav = ({ count = 33 }) => {

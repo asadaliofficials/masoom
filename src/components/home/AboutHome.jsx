@@ -3,7 +3,7 @@ import ScrollFloat from '../react-bits/ScrollFloat/ScrollFloat';
 // eslint-disable-next-line no-unused-vars
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import '../../styles/aboutHome.css';
+import '../../styles/home/aboutHome.css';
 const AboutHome = () => {
 	const imgRef = useRef(null);
 

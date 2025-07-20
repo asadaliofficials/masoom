@@ -1,6 +1,6 @@
 import SplitText from '../../components/react-bits/SplitText/SplitText';
 import CircularText from '../../components/react-bits/CircularText/CircularText';
-import '../../styles/heroBanner.css';
+import '../../styles/home/heroBanner.css';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 

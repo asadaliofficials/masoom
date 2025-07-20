@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import '../styles/topBar.css';
+import '../styles/home/topBar.css';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 const TopBar = () => {
