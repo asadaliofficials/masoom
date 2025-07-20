@@ -29,7 +29,7 @@ const Nav = ({ count = 33 }) => {
 					transition={{ duration: 0.6, delay: 0.3 }}
 					className="logo flex items-center gap-1"
 				>
-					<img src="/src/assets/images/logo.png" width="40px" alt="logo" />
+					<img src="/images/logo.png" width="40px" alt="logo" />
 					<h1 className="font-bold tracking-wide select-none">MASOOM</h1>
 				</motion.div>
 				{/* seach div */}
