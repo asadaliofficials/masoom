@@ -150,26 +150,21 @@
 @media (max-width: 725px) {
 	.about-home {
 		flex-direction: column;
-		align-items: center;
-		justify-content: flex-start;
-		padding: 12px;
-		gap: 18px;
-		width: 100vw;
-		min-width: 0;
-		overflow-x: hidden;
+		max-height: max-content !important ;
+		padding-bottom: 2rem;
+		padding-top: 2rem;
 	}
 
 	.about-home .left,
 	.about-home .right {
 		width: 100%;
-		/* max-width: 420px; */
 		margin: 0 auto;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
 		overflow: visible;
-		}
+	}
 
 	.about-home .aboutHomeImg {
 		width: 90vw;
@@ -191,7 +186,7 @@
 	.about-home .about-des {
 		font-size: 1rem;
 		padding: 1rem;
-		text-align: center;
+		/* text-align: center; */
 	}
 
 	.about-home .buttons,
@@ -206,5 +201,18 @@
 	.about-home .buttons button {
 		width: 100%;
 		font-size: 1rem;
+	}
+	.about-home h2 {
+		/* font-size: 0.9rem; */
+		padding: 0;
+		margin: 0 !important;
+		/* text-align: center; */
+	}
+}
+
+@media (max-width: 400px) {
+	.about-home .buttons {
+		flex-direction: column;
+		gap: 5px;
 	}
 }

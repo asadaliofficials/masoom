@@ -34,8 +34,8 @@ const AboutHome = () => {
 	};
 
 	return (
-		<div className="about-home bg-gray-50 bg-red-300  w-full p-10 max-h-screen h-full  flex  gap-14">
-			<div className="left bg-green-300 w-[30%] h-full flex flex-col items-center overflow-hidden">
+		<div className="about-home bg-gray-50   w-full p-10 max-h-screen h-full  flex  gap-14">
+			<div className="left  w-[30%] h-full flex flex-col items-center overflow-hidden">
 				<motion.div
 					ref={imgRef}
 					initial={{ opacity: 0, scale: 0.7 }}
@@ -44,8 +44,8 @@ const AboutHome = () => {
 					transition={{ duration: 0.6 }}
 					className="rounded-lg mb-2 overflow-hidden w-[80%] aboutHomeImg"
 				>
-					<img
-						className="w-full h-full object-cover "
+					<motion.img
+						className="w-full h-full object-cover rounded-lg"
 						loading="lazy"
 						src="https://images.squarespace-cdn.com/content/v1/61dfb87e2c156a1e80b21579/4a4b8ab5-5d61-4f39-9ed2-8a93547e6648/Masoom+Minawala.PNG"
 						alt="about img"
@@ -57,7 +57,6 @@ const AboutHome = () => {
 						}}
 						onMouseMove={handleMouseMove}
 						onMouseLeave={handleMouseLeave}
-						// Set no tilt initially
 						onMouseEnter={() => {
 							x.set(center);
 							y.set(center);
@@ -73,7 +72,7 @@ const AboutHome = () => {
 					transition={{ duration: 0.6 }}
 				>
 					{' '}
-					<ul className="wrapper bg-blue-400 ">
+					<ul className="wrapper  ">
 						<li className="icon youtube">
 							<span className="tooltip">YouTube</span>
 							<svg
@@ -101,13 +100,12 @@ const AboutHome = () => {
 						<li className="icon x">
 							<span className="tooltip">X.com</span>
 							<svg
-								height="1.8em"
-								fill="currentColor"
-								viewBox="0 0 48 48"
 								xmlns="http://www.w3.org/2000/svg"
-								className="x"
+								height="1.5em"
+								fill="currentColor"
+								viewBox="0 0 50 50"
 							>
-								<path d="M42,12.429c-1.323,0.586-2.746,0.977-4.247,1.162c1.526-0.906,2.7-2.351,3.251-4.058c-1.428,0.837-3.01,1.452-4.693,1.776C34.967,9.884,33.05,9,30.926,9c-4.08,0-7.387,3.278-7.387,7.32c0,0.572,0.067,1.129,0.193,1.67c-6.138-0.308-11.582-3.226-15.224-7.654c-0.64,1.082-1,2.349-1,3.686c0,2.541,1.301,4.778,3.285,6.096c-1.211-0.037-2.351-0.374-3.349-0.914c0,0.022,0,0.055,0,0.086c0,3.551,2.547,6.508,5.923,7.181c-0.617,0.169-1.269,0.263-1.941,0.263c-0.477,0-0.942-0.054-1.392-0.135c0.94,2.902,3.667,5.023,6.898,5.086c-2.528,1.96-5.712,3.134-9.174,3.134c-0.598,0-1.183-0.034-1.761-0.104C9.268,36.786,13.152,38,17.321,38c13.585,0,21.017-11.156,21.017-20.834c0-0.317-0.01-0.633-0.025-0.945C39.763,15.197,41.013,13.905,42,12.429"></path>
+								<path d="M 6.9199219 6 L 21.136719 26.726562 L 6.2285156 44 L 9.40625 44 L 22.544922 28.777344 L 32.986328 44 L 43 44 L 28.123047 22.3125 L 42.203125 6 L 39.027344 6 L 26.716797 20.261719 L 16.933594 6 L 6.9199219 6 z"></path>
 							</svg>
 						</li>
 						<li className="icon instagram">
@@ -125,7 +123,7 @@ const AboutHome = () => {
 					</ul>
 				</motion.div>
 			</div>
-			<div className="right bg-yellow-300 w-[65%] h-min ">
+			<div className="right w-[65%] h-min ">
 				<ScrollFloat textClassName={'about-title text-5xl font-bold'}>Masoom MinaWala</ScrollFloat>
 				<ScrollReveal
 					textClassName={'about-des text-2xl'}
