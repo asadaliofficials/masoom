@@ -1,7 +1,5 @@
 import SplitText from '../../components/react-bits/SplitText/SplitText';
 import CircularText from '../../components/react-bits/CircularText/CircularText';
-import Lottie from 'lottie-react';
-import saleAnimation from '../../assets/animations/Sale.json';
 import '../../styles/heroBanner.css';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
@@ -54,19 +52,6 @@ const HeroBanner = () => {
 					Refresh your wardrobe with pieces that balance comfort and confidence. Discover styles
 					made for real life, every day.
 				</motion.p>
-				<motion.div
-					className="saleLottie absolute w-35 h-35 top-0 left-50"
-					initial={{ opacity: 0, y: -20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.6, delay: 1 }}
-				>
-					<Lottie
-						className="w-full h-full"
-						animationData={saleAnimation}
-						loop={true}
-						autoplay={true}
-					/>
-				</motion.div>
 				<motion.div
 					className="flex gap-4 justify-center items-center mt-4 pl-2"
 					initial={{ opacity: 0, y: 30 }}

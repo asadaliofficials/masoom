@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import '../../styles/navbar.css';
 const categories = ['All Category', 'Woman', 'Mens', 'Winter', 'Summer'];
 
-const Nav = ({ count = 55 }) => {
+const Nav = ({ count = 33 }) => {
 	const displayCount = count > 9 ? '9+' : count;
 	const [open, setOpen] = useState(false);
 	const [selected, setSelected] = useState('All Category');
@@ -158,7 +158,7 @@ const Nav = ({ count = 55 }) => {
 					>
 						<div className="relative w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 rounded-4xl cursor-pointer">
 							{count > 0 && (
-								<span className="absolute top-1 right-1 transform translate-x-1/2 -translate-y-1/2 bg-gray-600 text-white text-xs font-bold rounded-full px-1.5 h-5 min-w-[20px] flex items-center justify-center">
+								<span className="absolute top-1 right-1 transform translate-x-1/2 -translate-y-1/2 bg-gray-500 text-white text-sm font-bold rounded-full px-1.5 h-5 min-w-[20px] flex items-center justify-center">
 									{displayCount}
 								</span>
 							)}

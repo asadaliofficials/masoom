@@ -6,7 +6,7 @@ const App = () => {
 	return (
 		<>
 			<BrowserRouter>
-				<div className="app max-w-[1440px] bg-white">
+				<div className="app max-w-[1440px] bg-white overflow-x-hidden	">
 					<TopBar />
 					<hr style={{ opacity: '0.3' }} />
 					<Home />

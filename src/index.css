@@ -20,16 +20,20 @@
 	--shadow-input: 0 1px 3px rgba(0, 0, 0, 0.08);
 	--shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+html,
 body {
-	width: 100vw;
-	height: 100vh;
+	scroll-behavior: smooth;
+}
+body {
+	width: 100%;
+	/* height: 100vh; */
 	/* background-color: red; */
 	display: flex;
 	flex-direction: column;
 	/* justify-content: center; */
 	align-items: center;
 	/* background-color: rgb(244, 244, 244); */
-	overflow-x: hidden !important;
+	/* overflow-x: hidden !important; */
 }
 
 #root {
