@@ -12,8 +12,8 @@ const FlashSaleCard = memo(({ delay }) => {
 		<motion.div
 			initial={{ opacity: 0, scale: 0.5, y: 20 }}
 			whileInView={{ opacity: 1, scale: 1, y: 0 }}
-			viewport={{ once: false, amount: 0.4 }}
-			transition={{ duration: 0.3, ease: 'easeInOut' }}
+			viewport={{ once: true, amount: 0.4 }}
+			transition={{ duration: 0.3, ease: 'easeInOut', delay: delay }}
 			className="flashSaleCard rounded-lg flex flex-col w-[300px] flex-shrink-0 h-[420px] shadow-xl bg-white border-b border-gray-300"
 		>
 			<div className="w-full h-2/3  flex items-center justify-center relative select-none">
