@@ -39,8 +39,7 @@ const FlashSale = () => {
 		return () => clearInterval(interval);
 	}, []);
 
-	// Arrow scroll logic
-	const scrollAmount = 320; // Card width + gap
+	const scrollAmount = 320;
 
 	const handleScrollLeft = () => {
 		if (cardsRef.current) {
@@ -54,33 +53,32 @@ const FlashSale = () => {
 		}
 	};
 
-
 	return (
 		<>
 			<div className="flash-sale w-full px-12 py-12 ">
-				<div className="text-2xl font-bold flex items-center gap-2 relative">
-					<motion.div
-						animate={{ opacity: [1, 0.3, 1] }}
-						transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-					>
-						<svg
-							version="1.1"
-							id="Layer_1"
-							xmlns="http://www.w3.org/2000/svg"
-							xmlnsXlink="http://www.w3.org/1999/xlink"
-							x="0px"
-							y="0px"
-							width="50"
-							viewBox="0 0 720 720"
-							enableBackground="new 0 0 720 720"
-							xmlSpace="preserve"
+				<div className="header text-2xl font-bold flex items-center justify-between">
+					<div className="flex items-center justify-center gap-1">
+						<motion.div
+							animate={{ opacity: [1, 0.3, 1] }}
+							transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
 						>
-							<path
-								fill="#000000"
-								opacity="1.000000"
-								stroke="none"
-								d="
-M333.230225,609.099243 
+							<svg
+								version="1.1"
+								id="Layer_1"
+								xmlns="http://www.w3.org/2000/svg"
+								xmlnsXlink="http://www.w3.org/1999/xlink"
+								x="0px"
+								y="0px"
+								width="50"
+								viewBox="0 0 720 720"
+								enableBackground="new 0 0 720 720"
+								xmlSpace="preserve"
+							>
+								<path
+									fill="#000000"
+									opacity="1.000000"
+									stroke="none"
+									d="M333.230225,609.099243 
 	C301.931091,605.198853 272.459229,596.696533 244.964233,582.093567 
 	C188.794266,552.261047 149.191177,507.574005 126.531593,448.131714 
 	C114.218849,415.831970 108.904160,382.237946 110.983032,347.732391 
@@ -115,64 +113,67 @@ M312.454651,415.811188
 	C324.950134,360.664276 326.343414,362.470459 324.614716,369.172028 
 	C320.670044,384.464142 316.681183,399.744843 312.454651,415.811188 
 z"
-							/>
-						</svg>
-					</motion.div>
-					<h2 className="text-3xl">Flash Sale</h2>
+								/>
+							</svg>
+						</motion.div>
+						<h2 className="text-3xl">Flash Sale</h2>
 
-					<div className="flex items-center justify-center gap-2 ml-4">
-						<div className="flex items-center justify-center gap-1">
-							<div className="bg-rose-500 rounded-full p-1 text-white text-sm tracking-wider flex justify-center items-center h-7 w-7">
-								{format(time.hours)}
-							</div>
-							<span className="text-md font-semibold">:</span>
-							<div className="bg-rose-500 rounded-full p-1 text-white text-sm tracking-wider flex justify-center items-center h-7 w-7">
-								{format(time.minutes)}
-							</div>
-							<span className="text-md font-semibold">:</span>
-							<div className="bg-rose-500 rounded-full p-1 text-white text-sm tracking-wider flex justifyCenter items-center h-7 w-7">
-								{format(time.seconds)}
+						<div className="flex items-center justify-center gap-2 ml-4">
+							<div className="flex items-center justify-center gap-1">
+								<div className="bg-rose-500 rounded-full p-1 text-white text-sm tracking-wider flex justify-center items-center h-7 w-7">
+									{format(time.hours)}
+								</div>
+								<span className="text-md font-semibold">:</span>
+								<div className="bg-rose-500 rounded-full p-1 text-white text-sm tracking-wider flex justify-center items-center h-7 w-7">
+									{format(time.minutes)}
+								</div>
+								<span className="text-md font-semibold">:</span>
+								<div className="bg-rose-500 rounded-full p-1 text-white text-sm tracking-wider flex justifyCenter items-center h-7 w-7">
+									{format(time.seconds)}
+								</div>
 							</div>
 						</div>
 					</div>
-					<div className="absolute right-3 flex justify-center items-center gap-4">
-						<div
-							className="px-1 rounded-lg border-2 border-gray-300 opacity-60 hover:opacity-100 transition-all duration-300 cursor-pointer"
-							onClick={handleScrollLeft}
-						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="35"
-								height="35"
-								fill="currentColor"
-								className="bi bi-arrow-left-short"
-								viewBox="0 0 16 16"
+				
+						<div className="scrollButtons flex justify-center items-center gap-4">
+							<div
+								className="px-1 rounded-lg border-2 border-gray-300 opacity-60 hover:opacity-100 transition-all duration-300 cursor-pointer"
+								onClick={handleScrollLeft}
 							>
-								<path
-									fillRule="evenodd"
-									d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5"
-								/>
-							</svg>
-						</div>
-						<div
-							className="px-1 rounded-lg border-2 border-gray-300 opacity-60 hover:opacity-100 transition-all duration-300 cursor-pointer"
-							onClick={handleScrollRight}
-						>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="35"
-								height="35"
-								fill="currentColor"
-								className="bi bi-arrow-right-short"
-								viewBox="0 0 16 16"
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="35"
+									height="35"
+									fill="currentColor"
+									className="bi bi-arrow-left-short"
+									viewBox="0 0 16 16"
+								>
+									<path
+										fillRule="evenodd"
+										d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5"
+									/>
+								</svg>
+							</div>
+							<div
+								className="px-1 rounded-lg border-2 border-gray-300 opacity-60 hover:opacity-100 transition-all duration-300 cursor-pointer"
+								onClick={handleScrollRight}
 							>
-								<path
-									fillRule="evenodd"
-									d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
-								/>
-							</svg>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="35"
+									height="35"
+									fill="currentColor"
+									className="bi bi-arrow-right-short"
+									viewBox="0 0 16 16"
+								>
+									<path
+										fillRule="evenodd"
+										d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
+									/>
+								</svg>
+							</div>
 						</div>
-					</div>
+				
 				</div>
 
 				<div

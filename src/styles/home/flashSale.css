@@ -14,3 +14,14 @@
 .flash-sale .cards::-webkit-scrollbar {
 	display: none;
 }
+
+@media (max-width: 580px){
+	.flash-sale .header{
+		flex-direction: column;
+		gap: 1rem;
+		align-items: flex-start;
+	}
+	.flash-sale .header .scrollButtons {
+		margin-left: 1rem;
+	}
+}
