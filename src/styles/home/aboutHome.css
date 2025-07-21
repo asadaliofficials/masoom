@@ -97,19 +97,10 @@
 		padding: 12px;
 		gap: 10px;
 	}
-	/* .about-home .left {
-		width: 40%;
-	}
-	.about-home .right {
-		width: 60%;
-	} */
 	.about-home .name {
 		font-size: 1.8vw;
 	}
-	.about-home .buttons {
-		flex-direction: column-reverse;
-		gap: 5px;
-	}
+
 	.about-home .buttons button {
 		width: 100%;
 	}
@@ -208,6 +199,11 @@
 		margin: 0 !important;
 		/* text-align: center; */
 	}
+		 .about-home .buttons {
+		flex-direction: column;
+		gap: 5px;
+		width: 100%;
+	} 
 }
 
 @media (max-width: 400px) {

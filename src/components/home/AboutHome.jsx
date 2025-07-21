@@ -68,7 +68,7 @@ const AboutHome = () => {
 					className="socialButtons flex  items-center  pl-2 gap-8"
 					initial={{ opacity: 0, y: 50 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: false, amount: 0.3 }}
+					viewport={{ once: false, amount: 0.4 }}
 					transition={{ duration: 0.6 }}
 				>
 					{' '}
@@ -142,19 +142,19 @@ const AboutHome = () => {
 					female entrepreneurs worldwide as well as CNN's '20 under 40' list.
 				</ScrollReveal>
 				<motion.div
-					className="buttons flex  items-center  pl-2 mt-12 gap-8"
-					initial={{ opacity: 0, y: 50 }}
-					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: false, amount: 0.5 }}
+					className="buttons flex  items-center  pl-2 mt-12 gap-8  w-max"
+					initial={{ opacity: 0 }}
+					whileInView={{ opacity: 1 }}
+					viewport={{ once: false, amount: 0.7 }}
 					transition={{ duration: 0.6 }}
 				>
-					<button className="active:scale-90 w-max relative inline-block px-4 py-3 font-semibold text-black border border-black rounded-2xl cursor-pointer overflow-hidden group transition-all duration-300 ease-in-out">
+					<button className="active:scale-90 w-max relative inline-block px-4 py-3 font-semibold text-black border border-black rounded-2xl cursor-pointer overflow-hidden group transition-all duration-300 ease-in-out whitespace-nowrap">
 						<span className="absolute inset-0 w-full h-full bg-black transform scale-x-0 origin-left transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
 						<span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-white">
 							Meet Masoom
 						</span>
 					</button>
-					<button className="active:scale-90 relative inline-block px-4 py-3 font-semibold text-white bg-black border border-black rounded-2xl cursor-pointer overflow-hidden group transition-all duration-300 ease-in-out">
+					<button className="active:scale-90 relative inline-block px-4 py-3 font-semibold text-white bg-black border border-black rounded-2xl cursor-pointer overflow-hidden group transition-all duration-300 ease-in-out whitespace-nowrap">
 						<span className="absolute inset-0 w-full h-full bg-white transform scale-x-0 origin-right transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
 						<span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
 							Masoom's Success

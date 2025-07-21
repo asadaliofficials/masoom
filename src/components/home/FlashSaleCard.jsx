@@ -1,15 +1,19 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import Counter from '../../components/react-bits/Counter/Counter';
 import '../../styles/home/flashSale.css';
 
-const FlashSaleCard = () => {
+const FlashSaleCard = memo(({ delay }) => {
 	const [count, setCount] = useState(0);
 	const [fav, setFav] = useState(false);
-
+	console.log('delay', delay);
 	return (
-		<div
+		<motion.div
+			initial={{ opacity: 0, scale: 0.5, y: 20 }}
+			whileInView={{ opacity: 1, scale: 1, y: 0 }}
+			viewport={{ once: false, amount: 0.4 }}
+			transition={{ duration: 0.3, ease: 'easeInOut' }}
 			className="flashSaleCard rounded-lg flex flex-col w-[300px] flex-shrink-0 h-[420px] shadow-xl bg-white border-b border-gray-300"
 		>
 			<div className="w-full h-2/3  flex items-center justify-center relative select-none">
@@ -99,8 +103,8 @@ const FlashSaleCard = () => {
 					<p className="text-nowrap tracking-wide">7/10 Sold</p>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
-};
+});
 
 export default FlashSaleCard;

@@ -180,7 +180,7 @@ z"
 					className="cards mt-6 flex flex-nowrap gap-8 overflow-x-auto w-full min-w-0"
 					ref={cardsRef}
 				>
-					<FlashSaleCard />
+					<FlashSaleCard  />
 					<FlashSaleCard />
 					<FlashSaleCard />
 					<FlashSaleCard />
