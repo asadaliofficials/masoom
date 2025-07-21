@@ -1,9 +1,16 @@
 // eslint-disable-next-line no-unused-vars
-import { motion, scale } from 'framer-motion';
+import { motion } from 'framer-motion';
 import '../../styles/home/categories.css';
-function Category({ svg, title, delay }) {
+import { useRef, useState } from 'react';
+function Category({ svg, title, delay, shouldHandleClick }) {
+	const handleOnClick = e => {
+		if (shouldHandleClick) {
+			console.log('category clicked...');
+		}
+	};
 	return (
 		<motion.div
+			onClick={handleOnClick}
 			initial={{ opacity: 0, scale: 0.5 }}
 			animate={{ opacity: 1, scale: 0.9 }}
 			transition={{ duration: 0.4, delay: delay }}
@@ -17,9 +24,51 @@ function Category({ svg, title, delay }) {
 	);
 }
 const Categories = () => {
+	const containerRef = useRef(null);
+	const [isDragging, setIsDragging] = useState(false);
+	const [startX, setStartX] = useState(0);
+	const [scrollLeft, setScrollLeft] = useState(0);
+	const [hasMoved, setHasMoved] = useState(false);
+
+	const handleMouseDown = e => {
+		setIsDragging(true);
+		setStartX(e.pageX - containerRef.current.offsetLeft);
+		setScrollLeft(containerRef.current.scrollLeft);
+		document.body.style.cursor = 'grabbing';
+		setHasMoved(false);
+	};
+
+	const handleMouseLeave = () => {
+		setIsDragging(false);
+		document.body.style.cursor = '';
+	};
+
+	const handleMouseUp = () => {
+		setIsDragging(false);
+		document.body.style.cursor = '';
+	};
+
+	const handleMouseMove = e => {
+		if (!isDragging) return;
+		e.preventDefault();
+		const x = e.pageX - containerRef.current.offsetLeft;
+		const walk = (x - startX) * 1.5; // scroll-fast
+		containerRef.current.scrollLeft = scrollLeft - walk;
+		if (Math.abs(x - startX) > 0) {
+			setHasMoved(true);
+		}
+	};
+
 	return (
 		<>
-			<div className="categores overflow-x-auto flex gap-8 justify-start items-start px-12 py-1">
+			<div
+				ref={containerRef}
+				onMouseDown={handleMouseDown}
+				onMouseLeave={handleMouseLeave}
+				onMouseUp={handleMouseUp}
+				onMouseMove={handleMouseMove}
+				className="categores overflow-x-auto flex gap-8 justify-start items-start px-12 py-1"
+			>
 				<Category
 					svg={
 						<svg
@@ -53,6 +102,7 @@ const Categories = () => {
 					}
 					title={'T-Shirts'}
 					delay={1.1}
+					shouldHandleClick={!hasMoved}
 				/>
 				<Category
 					svg={
@@ -129,6 +179,7 @@ const Categories = () => {
 					}
 					title={'Jackets'}
 					delay={1.2}
+					shouldHandleClick={!hasMoved}
 				/>
 				<Category
 					svg={
@@ -170,6 +221,7 @@ const Categories = () => {
 					}
 					title={'Jeans'}
 					delay={1.3}
+					shouldHandleClick={!hasMoved}
 				/>
 				<Category
 					svg={
@@ -220,6 +272,7 @@ const Categories = () => {
 					}
 					title={'Skirts'}
 					delay={1.4}
+					shouldHandleClick={!hasMoved}
 				/>
 				<Category
 					svg={
@@ -266,6 +319,7 @@ const Categories = () => {
 					}
 					title={'Brides'}
 					delay={1.5}
+					shouldHandleClick={!hasMoved}
 				/>
 				<Category
 					svg={
@@ -314,6 +368,7 @@ const Categories = () => {
 					}
 					title={'Gym Shorts'}
 					delay={1.6}
+					shouldHandleClick={!hasMoved}
 				/>
 				<Category
 					svg={
@@ -397,6 +452,7 @@ c-34 21 -63 43 -63 49 -1 5 21 13 48 18 64 10 211 74 461 198 164 82 214 102
 					}
 					title={'Shoes'}
 					delay={1.7}
+					shouldHandleClick={!hasMoved}
 				/>
 				<Category
 					svg={
@@ -461,6 +517,7 @@ c-34 21 -63 43 -63 49 -1 5 21 13 48 18 64 10 211 74 461 198 164 82 214 102
 					}
 					title={'Bags'}
 					delay={1.8}
+					shouldHandleClick={!hasMoved}
 				/>
 				<motion.div
 					initial={{ opacity: 0, scale: 0.5 }}

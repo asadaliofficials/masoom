@@ -1,10 +1,9 @@
-import { div } from 'framer-motion/client';
 import ScrollStack, {
 	ScrollStackItem,
 } from '../../components/react-bits/ScrollStack/ScrollStack.jsx';
 const StackCards = () => {
 	return (
-		<div className='p-15 h-screen w-full overflow-hidden'>
+		<div className="p-15 h-screen w-full overflow-hidden">
 			<ScrollStack>
 				<ScrollStackItem>
 					<h2>Card 1</h2>
