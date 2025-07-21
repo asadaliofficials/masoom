@@ -9,7 +9,9 @@ const FlashSaleCard = () => {
 	const [fav, setFav] = useState(false);
 
 	return (
-		<div className="flashSaleCard rounded-lg shadow-md flex flex-col w-[300px] h-[410px] ">
+		<div
+			className="flashSaleCard rounded-lg flex flex-col w-[300px] flex-shrink-0 h-[420px] shadow-xl bg-white border-b border-gray-300"
+		>
 			<div className="w-full h-2/3  flex items-center justify-center relative select-none">
 				<img
 					className="w-full h-full object-cover rounded-t-lg object-center"

@@ -124,7 +124,7 @@ const AboutHome = () => {
 				</motion.div>
 			</div>
 			<div className="right w-[65%] h-min ">
-				<ScrollFloat textClassName={'about-title text-5xl font-bold'}>Masoom MinaWala</ScrollFloat>
+				<ScrollFloat textClassName={'about-title text-5xl font-bold'}>Masoom Minawala</ScrollFloat>
 				<ScrollReveal
 					textClassName={'about-des text-2xl'}
 					baseOpacity={0}
