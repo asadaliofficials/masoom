@@ -6,12 +6,12 @@ import BestSellerHome from '../layouts/home/BestSellerHome';
 const Home = () => {
 	return (
 		<>
-		 {/* <HomeHero />
+			<HomeHero />
 			<hr style={{ opacity: '0.3' }} />
 			<AboutHome />
 			<hr style={{ opacity: '0.3' }} />
 			<FlashSale />
-			<hr style={{ opacity: '0.3' }} />  */}
+			<hr style={{ opacity: '0.3' }} />
 			<BestSellerHome />
 		</>
 	);
