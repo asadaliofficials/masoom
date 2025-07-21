@@ -1,9 +1,6 @@
-/* From Uiverse.io by david-mohseni */
 .wrapper {
 	display: inline-flex;
 	list-style: none;
-	/* height: 120px; */
-	/* width: 100%; */
 	padding-top: 50px;
 	font-family: 'Poppins', sans-serif;
 	justify-content: center;
@@ -100,10 +97,6 @@
 	.about-home .name {
 		font-size: 1.8vw;
 	}
-
-	.about-home .buttons button {
-		width: 100%;
-	}
 	.about-home .about-des {
 		font-size: 1.7vw;
 		padding: 2rem;
@@ -177,7 +170,6 @@
 	.about-home .about-des {
 		font-size: 1rem;
 		padding: 1rem;
-		/* text-align: center; */
 	}
 
 	.about-home .buttons,
@@ -194,16 +186,14 @@
 		font-size: 1rem;
 	}
 	.about-home h2 {
-		/* font-size: 0.9rem; */
 		padding: 0;
 		margin: 0 !important;
-		/* text-align: center; */
 	}
-		 .about-home .buttons {
+	.about-home .buttons {
 		flex-direction: column;
 		gap: 5px;
 		width: 100%;
-	} 
+	}
 }
 
 @media (max-width: 400px) {

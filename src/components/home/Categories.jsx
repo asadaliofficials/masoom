@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import { motion, scale } from 'framer-motion';
+import '../../styles/home/categories.css';
 function Category({ svg, title, delay }) {
 	return (
 		<motion.div

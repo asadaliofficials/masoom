@@ -2,9 +2,9 @@ import { useState, memo } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import Counter from '../../components/react-bits/Counter/Counter';
-import '../../styles/home/flashSale.css';
+import '../../styles/home/todayForYou.css';
 
-const FlashSaleCard = memo(({ delay }) => {
+const TodayForYouCard = memo(({ delay }) => {
 	const [count, setCount] = useState(0);
 	const [fav, setFav] = useState(false);
 	console.log('delay', delay);
@@ -14,10 +14,11 @@ const FlashSaleCard = memo(({ delay }) => {
 			whileInView={{ opacity: 1, scale: 1, y: 0 }}
 			viewport={{ once: true, amount: 0.4 }}
 			transition={{ duration: 0.3, ease: 'easeInOut', delay: delay }}
-			className="flashSaleCard rounded-lg flex flex-col w-[300px] flex-shrink-0 h-[420px] shadow-xl bg-white border-b border-gray-300"
+			className="todayForYouCard rounded-lg flex flex-col w-[300px] flex-shrink-0 h-[420px] shadow-xl bg-white border-b border-gray-300"
 		>
 			<div className="w-full h-2/3  flex items-center justify-center relative select-none">
-				<img loading='lazy'
+				<img
+					loading="lazy"
 					className="w-full h-full object-cover rounded-t-lg object-center"
 					src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/b1e780ee-b4e3-4511-aef8-c68a1012a6b9/WMNS+JORDAN+CMFT+ERA.png"
 					alt=""
@@ -91,20 +92,28 @@ const FlashSaleCard = memo(({ delay }) => {
 				<h1 className="title text-base font-semibold leading-tight">
 					Speed and Water Proof Shoes best for sports and swimming and it has too long title
 				</h1>
-				<div className="flex gap-2 mt-3 items-center">
-					<p className="text-2xl font-bold">Rs. 1500</p>
-					<p className="line-through text-rose-500 font-semibold">Rs. 2500</p>
+				<div className='flex  px-x mt-2 gap-2 items-center'>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="20"
+						height="20"
+						viewBox="0 0 16 16"
+						fill="#FFC107"
+					>
+						<path
+							d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.276 6.765c-.33-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.08 4.327 
+  4.898.696c.441.062.612.636.283.95l-3.421 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
+						/>
+					</svg>
+					4.8 ● 4K Sold
 				</div>
-				<hr style={{ opacity: '0.3' }} />
-				<div className="flex gap-3 justify-center items-center mt-1">
-					<div className="w-full h-3 rounded-full  bg-gray-200">
-						<div className="w-[70%] h-full bg-black rounded-full"></div>
-					</div>
-					<p className="text-nowrap tracking-wide">7/10 Sold</p>
+				<div className="flex gap-2 mt-3 items-center pl-1">
+					<p className="text-2xl font-bold">Rs. 1500</p>
+					<p className="line-through text-gray-400 font-semibold">Rs. 2500</p>
 				</div>
 			</div>
 		</motion.div>
 	);
 });
 
-export default FlashSaleCard;
+export default TodayForYouCard;
