@@ -1,6 +1,6 @@
 import React from 'react';
 import TodayForYouCard from '../../components/home/TodayForYouCard';
-
+import '../../styles/home/todayForYou.css';
 const TodayForYou = () => {
 	return (
 		<div className="today-for-you  p-12">

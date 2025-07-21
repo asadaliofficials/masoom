@@ -12,7 +12,7 @@ const TodayForYouCard = memo(({ delay }) => {
 		<motion.div
 			initial={{ opacity: 0, scale: 0.5, y: 20 }}
 			whileInView={{ opacity: 1, scale: 1, y: 0 }}
-			viewport={{ once: true, amount: 0.4 }}
+			viewport={{ once: false, amount: 0.2 }}
 			transition={{ duration: 0.3, ease: 'easeInOut', delay: delay }}
 			className="todayForYouCard rounded-lg flex flex-col w-[300px] flex-shrink-0 h-[420px] shadow-xl bg-white border-b border-gray-300"
 		>
@@ -92,7 +92,7 @@ const TodayForYouCard = memo(({ delay }) => {
 				<h1 className="title text-base font-semibold leading-tight">
 					Speed and Water Proof Shoes best for sports and swimming and it has too long title
 				</h1>
-				<div className='flex  px-x mt-2 gap-2 items-center'>
+				<div className="flex  px-x mt-2 gap-2 items-center">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						width="20"

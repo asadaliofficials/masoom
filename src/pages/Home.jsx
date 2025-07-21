@@ -7,14 +7,14 @@ import TodayForYou from '../sections/home/TodayForYou';
 const Home = () => {
 	return (
 		<>
-			{/* <HomeHero />
+			<HomeHero />
 			<hr style={{ opacity: '0.3' }} />
 			<AboutHome />
 			<hr style={{ opacity: '0.3' }} />
 			<FlashSale />
 			<hr style={{ opacity: '0.3' }} />
 			<BestSellerHome />
-			<hr style={{ opacity: '0.3' }} /> */}
+			<hr style={{ opacity: '0.3' }} />
 			<TodayForYou />
 		</>
 	);
