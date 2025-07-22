@@ -79,7 +79,8 @@ const HeroBanner = () => {
 					initial={{ opacity: 0, y: -30 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8, delay: 0.2 }}
-					src="/images/hero-bg.png"
+					loading="eager"
+					src="https://res.cloudinary.com/dyibkikle/image/upload/v1753201796/hero-bg_w21blv.webp"
 					alt=""
 				/>
 				<motion.div

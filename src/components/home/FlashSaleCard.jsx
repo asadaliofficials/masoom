@@ -7,7 +7,6 @@ import '../../styles/home/flashSale.css';
 const FlashSaleCard = memo(({ delay }) => {
 	const [count, setCount] = useState(0);
 	const [fav, setFav] = useState(false);
-	console.log('delay', delay);
 	return (
 		<motion.div
 			initial={{ opacity: 0, scale: 0.5, y: 20 }}
@@ -17,7 +16,8 @@ const FlashSaleCard = memo(({ delay }) => {
 			className="flashSaleCard rounded-lg flex flex-col w-[300px] flex-shrink-0 h-[420px] shadow-xl bg-white border-b border-gray-300"
 		>
 			<div className="w-full h-2/3  flex items-center justify-center relative select-none">
-				<img loading='lazy'
+				<img
+					loading="lazy"
 					className="w-full h-full object-cover rounded-t-lg object-center"
 					src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/b1e780ee-b4e3-4511-aef8-c68a1012a6b9/WMNS+JORDAN+CMFT+ERA.png"
 					alt=""

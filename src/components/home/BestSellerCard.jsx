@@ -3,7 +3,6 @@ import '../../styles/home/bestSeller.css';
 import { motion } from 'framer-motion';
 
 const BestSellerCard = ({ url, delay = 0 }) => {
-	console.log(url);
 	return (
 		<motion.div
 			initial={{ opacity: 0, y: 50 }}

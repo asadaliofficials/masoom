@@ -323,7 +323,13 @@ const Categories = () => {
 				/>
 				<Category
 					svg={
-						<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+						<svg
+							width="110"
+							height="90"
+							version="1.1"
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 500 500"
+						>
 							<g id="Background"></g>
 							<g id="Objects">
 								<path

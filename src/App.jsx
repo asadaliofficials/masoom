@@ -11,7 +11,7 @@ const App = () => {
 		<>
 			<BrowserRouter>
 				<div className="app max-w-[1440px] bg-white	">
-				 <RoutesConfig />
+					<RoutesConfig />
 				</div>
 			</BrowserRouter>
 		</>

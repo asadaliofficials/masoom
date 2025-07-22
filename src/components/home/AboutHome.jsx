@@ -47,7 +47,7 @@ const AboutHome = () => {
 					<motion.img
 						className="w-full h-full object-cover rounded-lg"
 						loading="lazy"
-						src="https://images.squarespace-cdn.com/content/v1/61dfb87e2c156a1e80b21579/4a4b8ab5-5d61-4f39-9ed2-8a93547e6648/Masoom+Minawala.PNG"
+						src="https://res.cloudinary.com/dyibkikle/image/upload/v1753201796/Masoom_Minawala_kl5uxl.webp"
 						alt="about img"
 						style={{
 							rotateX,
