@@ -1,0 +1,196 @@
+.marquee-column {
+	width: 33%;
+	height: 90vh;
+	overflow: hidden;
+	position: relative;
+}
+
+/* Gradient overlays at top and bottom */
+.marquee-column::before,
+.marquee-column::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 10%; /* adjust as needed */
+	pointer-events: none;
+	z-index: 3;
+}
+
+.marquee-column::before {
+	top: 0;
+	background: linear-gradient(to bottom, white, transparent);
+}
+
+.marquee-column::after {
+	bottom: 0;
+	background: linear-gradient(to top, white, transparent);
+}
+
+.marquee-inner {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	position: absolute;
+	left: 0;
+	will-change: transform; /* Optimize animation performance */
+}
+
+/* Up direction animation: animate continuously from 0 to -50% */
+.marquee-up .marquee-inner {
+	animation: marquee-up linear infinite;
+}
+
+@keyframes marquee-up {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(-50%);
+	}
+}
+
+/* Down direction animation: start at -50% then animate continuously to 0 */
+.marquee-down .marquee-inner {
+	transform: translateY(-50%);
+	animation: marquee-down linear infinite;
+}
+
+@keyframes marquee-down {
+	0% {
+		transform: translateY(-50%);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.marquee-column img {
+	width: 100%;
+	/* height: 20vh; */
+	min-height: 20vh;
+	/* max-height: 20vh; */
+	border-radius: 1rem;
+	object-fit: cover;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.marquee-inner img {
+	/* height: 20vh; */
+	min-height: 20vh;
+	/* max-height: 20vh; */
+	width: 100%;
+	object-fit: cover;
+}
+.marquee-inner.offset-first {
+	animation-delay: -4s;
+}
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+	.masoomsFashion .title {
+		font-size: 3rem;
+	}
+}
+@media (max-width: 1010px) {
+	.masoomsFashion .title {
+		font-size: 2.5rem;
+	}
+}
+@media (max-width: 880px) {
+	.masoomsFashion .title {
+		font-size: 2rem;
+	}
+	.masoomsFashion .tag {
+		font-size: 1rem;
+	}
+	.masoomsFashion .slogen {
+		font-size: 1.2rem;
+	}
+	.masoomsFashion .des {
+		font-size: 0.9rem;
+	}
+}
+@media (max-width: 766px) {
+	.masoomsFashion .left {
+		padding: 3rem;
+	}
+	.masoomsFashion .title {
+		font-size: 1.8rem;
+	}
+	.masoomsFashion .tag {
+		font-size: 1rem;
+	}
+	.masoomsFashion .slogen {
+		font-size: 1rem;
+	}
+	.masoomsFashion .des {
+		font-size: 0.9rem;
+	}
+}
+
+@media (max-width: 640px) {
+	.masoomsFashion .left {
+		padding: 2rem;
+	}
+	.masoomsFashion .title {
+		font-size: 1.5rem;
+	}
+	.masoomsFashion .tag {
+		font-size: 0.9rem;
+	}
+	.masoomsFashion .slogen {
+		font-size: 0.9rem;
+	}
+	.masoomsFashion .des {
+		font-size: 0.8rem;
+	}
+}
+
+@media (max-width: 600px) {
+	/* Adjust layout to column */
+	.masoomsFashion{
+		height: auto ;
+	}
+	.masoomsFashionInner {
+		flex-direction: column !important;
+		overflow-y: auto;
+		height: auto !important;
+	}
+
+	/* Adjust left/right panels to full width with proper padding */
+	.masoomsFashion .left,
+	.masoomsFashion .right {
+		width: 100%;
+		padding: 1rem;
+	}
+
+	/* Adjust typography for mobile */
+	.masoomsFashion .title {
+		font-size: 1.5rem;
+	}
+	.masoomsFashion .tag {
+		font-size: 0.9rem;
+	}
+	.masoomsFashion .slogen {
+		font-size: 1rem;
+	}
+	.masoomsFashion .des {
+		font-size: 0.8rem;
+	}
+
+	/* Adjust marquee columns for mobile */
+	.marquee-column {
+		width: 100% !important;
+		height: 80vh;
+	}
+	/* Increase gradient overlay height if desired */
+	.marquee-column::before,
+	.marquee-column::after {
+		height: 15%;
+	}
+	/* Adjust image sizes within the marquee */
+	.marquee-inner img {
+		/* min-height: 8vh; */
+		/* max-height: 8vh; */
+	}
+}

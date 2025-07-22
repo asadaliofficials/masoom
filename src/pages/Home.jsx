@@ -4,7 +4,7 @@ import FlashSale from '../sections/home/FlashSale';
 import BestSellerHome from '../sections/home/BestSellerHome';
 import TodayForYou from '../sections/home/TodayForYou';
 import StackCards from '../sections/home/StackCards';
-import MasoomPickHome from '../sections/home/MasoomPickHome';
+import MasoomStyleHome from '../sections/home/MasoomStyleHome';
 
 const Home = () => {
 	return (
@@ -17,11 +17,11 @@ const Home = () => {
 			<hr style={{ opacity: '0.3' }} />
 			<BestSellerHome />
 			<hr style={{ opacity: '0.3' }} />
-			<TodayForYou /> */}
-			{/* <hr style={{ opacity: '0.3' }} />
-			<StackCards /> */}
-			{/* <hr style={{ opacity: '0.3' }} /> */}
-			<MasoomPickHome />
+			<TodayForYou />
+		 <hr style={{ opacity: '0.3' }} />
+			<StackCards /> 
+			<hr style={{ opacity: '0.3' }} /> */}
+			<MasoomStyleHome />
 		</>
 	);
 };
