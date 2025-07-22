@@ -1,0 +1,86 @@
+.marquee-column {
+	width: 33%;
+	height: 90vh;
+	overflow: hidden;
+	position: relative;
+	/* Remove extra margins/padding */
+	/* margin: 0;
+	padding: 0; */
+}
+
+.marquee-inner {
+	display: flex;
+	flex-direction: column;
+	/* Remove gap to avoid extra spacing at the duplicate junction */
+	/* gap: 0; */
+	width: 100%;
+	position: absolute;
+	left: 0;
+	will-change: transform; /* Optimize animation performance */
+}
+
+/* Up direction animation: animate continuously from 0 to -50% */
+.marquee-up .marquee-inner {
+	animation: marquee-up linear infinite;
+}
+
+@keyframes marquee-up {
+	0% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(-50%);
+	}
+}
+
+/* Down direction animation: start at -50% then animate continuously to 0 */
+.marquee-down .marquee-inner {
+	transform: translateY(-50%);
+	animation: marquee-down linear infinite;
+}
+
+@keyframes marquee-down {
+	0% {
+		transform: translateY(-50%);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+.marquee-column img {
+	width: 100%;
+	/* height: 20vh; */
+	min-height: 20vh;
+	/* max-height: 20vh; */
+	border-radius: 1rem;
+	object-fit: cover;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.marquee-inner img {
+	/* height: 20vh; */
+	min-height: 20vh;
+	/* max-height: 20vh; */
+	width: 100%;
+	object-fit: cover;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+	.marquee-column {
+		width: 100%;
+		height: 40vh;
+		margin: 0;
+		padding: 0;
+	}
+	.marquee-inner {
+		/* Remove gap adjustment */
+		height: calc(5 * 8vh);
+	}
+	.marquee-inner img {
+		height: 8vh;
+		min-height: 8vh;
+		max-height: 8vh;
+	}
+}

@@ -2,17 +2,10 @@
 
 @theme {
 	/* Colors */
-	--color-white: #ffffff;
 	--color-ivory: #faf8f6;
-	--color-beige: #fdfcfb;
 	--color-softRose: #f7e4e1;
-	--color-gold: #d6ad60;
-	--color-dustyRose: #b76e79;
-	--color-dustyRoseHover: #a15c66;
 	--color-muted: #888888;
 	--color-textPrimary: #2b2b2b;
-	--color-border: #e5e5e5;
-	--color-lightGray: #f5f5f5;
 	--color-faded: rgba(0, 0, 0, 0.6);
 
 	/* Box Shadows */
@@ -34,6 +27,8 @@ body {
 	align-items: center;
 	/* background-color: rgb(244, 244, 244); */
 	/* overflow-x: hidden !important; */
+	/* height:fit-content;
+	overflow-y: hidden; */
 }
 
 #root {

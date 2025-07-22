@@ -1,0 +1,8 @@
+.stackcards-noscroll {
+	/* Hide scrollbars for the wrapper div */
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+.stackcards-noscroll::-webkit-scrollbar {
+	display: none;
+}
