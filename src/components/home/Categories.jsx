@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import '../../styles/home/categories.css';
 import { useRef, useState } from 'react';
 function Category({ svg, title, delay, shouldHandleClick }) {
-	const handleOnClick = e => {
+	const handleOnClick = () => {
 		if (shouldHandleClick) {
 			console.log('category clicked...');
 		}

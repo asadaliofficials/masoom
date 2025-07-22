@@ -13,7 +13,7 @@ const TodayForYouCard = memo(() => {
 			whileInView={{ opacity: 1, scale: 1, y: 0 }}
 			viewport={{ once: false, amount: 0.2 }}
 			transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.1 }}
-			className="todayForYouCard rounded-lg flex flex-col w-[300px] flex-shrink-0 h-[420px] shadow-xl bg-white border-b border-gray-300"
+			className="todayForYouCard rounded-lg flex flex-col w-[300px] flex-shrink-0 h-[380px] shadow-xl bg-white border-b border-gray-300"
 		>
 			<div className="w-full h-2/3  flex items-center justify-center relative select-none">
 				<img
@@ -87,15 +87,15 @@ const TodayForYouCard = memo(() => {
 				</div>
 			</div>
 
-			<div className="flex flex-col h-full p-2">
-				<h1 className="title text-base font-semibold leading-tight">
+			<div className="flex flex-col h-full p-3">
+				<h1 className="title text-base font-semibold leading-1">
 					Speed and Water Proof Shoes best for sports and swimming and it has too long title
 				</h1>
-				<div className="flex  px-x mt-2 gap-2 items-center">
+				<div className="flex  px-1 text-sm mt-1 gap-2 items-center">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
-						width="20"
-						height="20"
+						width="18"
+						height="18"
 						viewBox="0 0 16 16"
 						fill="#FFC107"
 					>
@@ -106,8 +106,8 @@ const TodayForYouCard = memo(() => {
 					</svg>
 					4.8 ● 4K Sold
 				</div>
-				<div className="flex gap-2 mt-3 items-center pl-1">
-					<p className="text-2xl font-bold">Rs. 1500</p>
+				<div className="flex gap-2 mt-1 items-center pl-1">
+					<p className="text-xl font-bold">Rs. 1500</p>
 					<p className="line-through text-gray-400 font-semibold">Rs. 2500</p>
 				</div>
 			</div>
