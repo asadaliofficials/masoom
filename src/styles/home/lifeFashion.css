@@ -1,0 +1,24 @@
+@media (max-width: 900px) {
+	.lifeFashion .title {
+		font-size: 3rem;
+	}
+}
+@media (max-width: 640px) {
+	.lifeFashion {
+		width: 80%;
+	}
+}
+@media (max-width: 455px) {
+	.lifeFashion {
+		width: 90%;
+	}
+  .lifeFashion .title {
+    font-size: 2rem;
+  }
+  .lifeFashion .tag{
+    font-size: 1.2rem;
+  }
+  .lifeFashion .des {
+    font-size: 1rem;
+  }
+}

@@ -140,20 +140,14 @@ class ImageTrailVariant4 {
 				img.DOM.inner,
 				{
 					scale: 2,
-					filter: `brightness(${Math.max((400 * distance) / 100, 100)}%) contrast(${Math.max(
-						(400 * distance) / 100,
-						100
-					)}%)`,
 				},
 				{
 					duration: 0.4,
 					ease: 'power1',
 					scale: 1,
-					filter: 'brightness(100%) contrast(100%)',
 				},
 				0
 			)
-			// Delay the fade out by starting this tween at 2 seconds
 			.to(
 				img.DOM.el,
 				{
@@ -161,7 +155,7 @@ class ImageTrailVariant4 {
 					ease: 'power3',
 					opacity: 0,
 				},
-				1
+				1.2
 			)
 			.to(
 				img.DOM.el,

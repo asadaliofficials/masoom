@@ -1,4 +1,5 @@
 import ImageTrail from '../react-bits/ImageTrail/ImageTrail.jsx';
+import '../../styles/home/lifeFashion.css'
 const LifeIsAFashion = () => {
 	return (
 		<div style={{ height: '92vh', position: 'relative', overflow: 'hidden' }}>
@@ -17,7 +18,27 @@ const LifeIsAFashion = () => {
 				]}
 				variant={4}
 			/>
-			<h1 className="text-4xl font-bold text-white">Life is a Fashion</h1>
+			<div
+				// Add pointerEvents: 'none' so that pointer events pass through to the ImageTrail
+				className="lifeFashion flex flex-col items-center justify-center gap-4"
+				style={{
+					position: 'absolute',
+					top: '50%',
+					left: '50%',
+					transform: 'translate(-50%, -50%)',
+					zIndex: 101,
+					pointerEvents: 'none',
+				}}
+			>
+				<h1 className="title text-6xl font-bold text-black text-center">Life is a Fashion</h1>
+				<h2 className="text-2xl opacity-60 text-center font-semibold tag">Elegance in Every Thread</h2>
+				<p className=" text-center opacity-80 des">
+					Style is a reflection of personality, woven with care and confidence. Every detail, from
+					fabric to fit, tells a story of grace and intention. It’s not just about appearance — it’s
+					about presence. True sophistication lies in how effortlessly you carry yourself, making
+					even the simplest look feel refined and thoughtfully crafted.
+				</p>
+			</div>
 		</div>
 	);
 };
