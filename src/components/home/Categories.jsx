@@ -14,7 +14,7 @@ function Category({ svg, title, delay, shouldHandleClick }) {
 			initial={{ opacity: 0, scale: 0.5 }}
 			animate={{ opacity: 1, scale: 0.9 }}
 			transition={{ duration: 0.4, delay: delay }}
-			className=" container p-4 w-30 h-38 flex justify-center items-center flex-col"
+			className="p-4 w-30 h-38 flex justify-center items-center flex-col"
 		>
 			<div className="bg-gray-200 scale-90 hover:scale-100 duration-300 cursor-pointer rounded-full overflow-hidden pt-4 h-full  flex items-center justify-center w-25">
 				{svg}
@@ -523,7 +523,7 @@ c-34 21 -63 43 -63 49 -1 5 21 13 48 18 64 10 211 74 461 198 164 82 214 102
 					initial={{ opacity: 0, scale: 0.5 }}
 					animate={{ opacity: 1, scale: 0.9 }}
 					transition={{ duration: 0.4, delay: 1.9 }}
-					className=" container p-4 w-30 h-38 flex justify-center items-center flex-col"
+					className="p-4 w-30 h-38 flex justify-center items-center flex-col"
 				>
 					<div className="border-2 scale-90 hover:scale-100 duration-300 cursor-pointer border-gray-300 rounded-full overflow-hidden h-full  flex items-center justify-center w-25">
 						<svg
