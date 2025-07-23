@@ -1,6 +1,6 @@
 /* Main Footer Styles */
 .new_footer_area {
-	background: #fbfbfd;
+	background: #f2f2fa;
 	width: 100%;
 	position: relative;
 	overflow: hidden;
@@ -53,11 +53,11 @@
 		max-width: 50%;
 	}
 }
- @media (max-width: 1256px) and (min-width: 986px) {
+@media (max-width: 1256px) and (min-width: 986px) {
 	.col-lg-3 {
 		max-width: 20%;
 	}
-} 
+}
 
 /* Widget Styles */
 .f_widget {

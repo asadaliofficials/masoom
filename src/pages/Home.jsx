@@ -12,21 +12,14 @@ const Home = () => {
 	return (
 		<>
 			<HomeHero />
-			<hr style={{ opacity: '0.3' }} />
 			<AboutHome />
-			<hr style={{ opacity: '0.3' }} />
 			<FlashSale />
-			<hr style={{ opacity: '0.3' }} />
 			<BestSellerHome />
-			<hr style={{ opacity: '0.3' }} />
 			<TodayForYou />
-			<hr style={{ opacity: '0.3' }} />
 			<MasoomStyleHome />
-			<hr style={{ opacity: '0.3' }} />
 			<StackCards />
 			<hr style={{ opacity: '0.3' }} />
 			<LifeIsAFashion />
-			<hr style={{ opacity: '0.3' }} />
 		</>
 	);
 };

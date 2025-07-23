@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const HeroBanner = () => {
 	return (
-		<div className="heroBanner  w-full h-[430px] bg-gray-50 flex">
+		<div className="heroBanner  w-full h-[460px]  flex ">
 			<div className="left relative  flex flex-col items-start justify-center p-12 w-[50%] ">
 				{/* Animated static texts with Framer Motion */}
 				<motion.p
@@ -48,6 +48,7 @@ const HeroBanner = () => {
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 0.5 }}
 					transition={{ duration: 0.6, delay: 1 }}
+					className="mt-4"
 				>
 					Refresh your wardrobe with pieces that balance comfort and confidence. Discover styles
 					made for real life, every day.
