@@ -71,8 +71,7 @@ const AboutHome = () => {
 					viewport={{ once: false, amount: 0.4 }}
 					transition={{ duration: 0.6 }}
 				>
-					{' '}
-					<ul className="wrapper  ">
+					<ul className="AboutSMWrapper  ">
 						<li className="icon youtube">
 							<span className="tooltip">YouTube</span>
 							<svg

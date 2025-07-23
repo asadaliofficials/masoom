@@ -11,7 +11,7 @@ const MasoomStyleHome = lazy(() => import('../sections/home/MasoomStyleHome'));
 const Home = () => {
 	return (
 		<>
-			{/* <HomeHero />
+			<HomeHero />
 			<hr style={{ opacity: '0.3' }} />
 			<AboutHome />
 			<hr style={{ opacity: '0.3' }} />
@@ -22,10 +22,11 @@ const Home = () => {
 			<TodayForYou />
 			<hr style={{ opacity: '0.3' }} />
 			<MasoomStyleHome />
-			<hr style={{ opacity: '0.3' }} /> */}
+			<hr style={{ opacity: '0.3' }} />
 			{/* <StackCards />
 			<hr style={{ opacity: '0.3' }} /> */}
 			<LifeIsAFashion />
+			<hr style={{ opacity: '0.3' }} />
 		</>
 	);
 };

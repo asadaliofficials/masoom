@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from '../pages/Home';
 import Login from '../components/login/login';
 import TopBar from '../components/TopBar';
+import Footer from '../components/Footer';
 
 const RoutesConfig = () => {
 	return (
@@ -13,6 +14,7 @@ const RoutesConfig = () => {
 					<>
 						<TopBar />
 						<Home />
+						<Footer />
 					</>
 				}
 			/>

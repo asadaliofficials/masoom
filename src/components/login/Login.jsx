@@ -3,7 +3,7 @@ import '../../styles/login.css';
 
 const Login = () => {
 	useEffect(() => {
-		const container = document.querySelector('.container');
+		const container = document.querySelector('.loginContainer');
 		const registerBtn = document.querySelector('.register-btn');
 		const loginBtn = document.querySelector('.login-btn');
 		if (registerBtn && loginBtn && container) {
@@ -25,7 +25,7 @@ const Login = () => {
 
 	return (
 		<div className="w-full max-w-[1200px] mx-auto my-auto h-screen overflow-y-hidden  flex justify-center items-center ">
-			<div className="container w-screen flex justify-center items-center h-screen ">
+			<div className="loginContainer w-screen flex justify-center items-center h-screen ">
 				<div className="form-box login w-screen ">
 					<form action="#">
 						<h1 className="font-bold">Login</h1>

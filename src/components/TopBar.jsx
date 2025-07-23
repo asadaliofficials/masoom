@@ -9,7 +9,7 @@ const TopBar = () => {
 
 	return (
 		<>
-			<div className="topBar sticky top-0 z-10 bg-white right-0 border-b border-gray-300  w-[100%] py-3 px-8 flex justify-between">
+			<div className="topBar sticky top-0 z-110 bg-white right-0 border-b border-gray-300  w-[100%] py-3 px-8 flex justify-between">
 				<motion.p
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
