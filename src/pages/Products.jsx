@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { delay, motion } from 'framer-motion';
 import ProductPageCard from '../components/products/ProductPageCard';
 const options = [

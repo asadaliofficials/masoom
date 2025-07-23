@@ -4,6 +4,7 @@ import Login from '../components/login/login';
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
 import Products from '../pages/Products';
+import ProductDetails from '../components/productDetails/ProductDeatils';
 
 const Layout = () => {
 	return (
@@ -24,6 +25,7 @@ const RoutesConfig = () => {
 			<Route path="/" element={<Layout />}>
 				<Route index element={<Home />} />
 				<Route path="products" element={<Products />} />
+				<Route path="product/:id" element={<ProductDetails />} />
 			</Route>
 
 			{/* Route without layout */}
