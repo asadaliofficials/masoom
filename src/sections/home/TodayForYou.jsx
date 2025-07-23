@@ -18,6 +18,9 @@ const TodayForYou = () => {
 				<TodayForYouCard />
 				<TodayForYouCard />
 				<TodayForYouCard />
+				<TodayForYouCard />
+				<TodayForYouCard />
+				<TodayForYouCard />
 			</div>
 		</div>
 	);
