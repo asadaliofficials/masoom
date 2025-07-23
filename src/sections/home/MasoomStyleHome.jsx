@@ -51,7 +51,7 @@ const MarqueeColumn = ({ images, direction = 'up', duration = 20, className = ''
 
 const MasoomStyleHome = () => {
 	return (
-		<div className="masoomsFashion h-[95vh] w-full flex items-center justify-center bg-gray-50">
+		<div className="masoomsFashion h-screen w-full flex items-center justify-center bg-gray-50">
 			<div className="masoomsFashionInner flex  overflow-hidden ">
 				<div className="left w-[50%] flex flex-col justify-center px-16 py-12 bg-white bg-opacity-80">
 					<h1 className="title text-6xl font-extrabold text-left mb-6  text-black drop-shadow-lg">

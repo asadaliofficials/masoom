@@ -201,8 +201,9 @@ const Footer = () => {
 								<p className="mb-0 f_400">All Rights Reserved | &copy; Copyright 2025</p>
 							</div>
 							<div className="col-lg-6 col-sm-5 text-right">
-								<p className='f_400'>
-									Designed & Developed by <span className='font-bold'>ASAD ALI s/o Khadim Hussain</span>
+								<p className="f_400">
+									Designed & Developed by{' '}
+									<span className="font-bold">ASAD ALI s/o Khadim Hussain</span>
 								</p>
 							</div>
 						</div>

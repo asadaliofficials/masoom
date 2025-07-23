@@ -21,7 +21,7 @@
 }
 @media (max-width: 500px) {
 	.navIconsParent {
-		gap: 0;
+		gap: 5px;
 	}
 	.nav .loginButton {
 		margin-left: 16px;

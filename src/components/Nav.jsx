@@ -112,29 +112,6 @@ const Nav = ({ count1 = 33, count2 = 5 }) => {
 				<motion.div
 					initial={{ opacity: 0, x: 30 }}
 					animate={{ opacity: 1, x: 0 }}
-					transition={{ duration: 0.5, delay: 0.2 }}
-				>
-					<div className="relative w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 rounded-4xl cursor-pointer transition-all duration-200">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							strokeWidth="2"
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							className="lucide lucide-search-icon lucide-search"
-						>
-							<path d="m21 21-4.34-4.34" />
-							<circle cx="11" cy="11" r="8" />
-						</svg>
-					</div>
-				</motion.div>
-				<motion.div
-					initial={{ opacity: 0, x: 30 }}
-					animate={{ opacity: 1, x: 0 }}
 					transition={{ duration: 0.5, delay: 0.4 }}
 					className="relative"
 				>

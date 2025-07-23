@@ -9,35 +9,35 @@ const projects = [
 		description:
 			'Get your orders delivered to your doorstep at no extra cost. Shop more, save more with our free delivery service. Enjoy the convenience of fast, reliable shipping on every purchase. With our commitment to customer satisfaction, you can shop with confidence knowing that delivery charges are never a concern.',
 		link: 'https://res.cloudinary.com/dyibkikle/image/upload/v1753291280/Adobe_Express_-_file_k3ekyc.webp',
-		color: '#0078D5',
+		color: '#38bdf8',
 	},
 	{
 		title: 'Membership Card',
 		description:
 			'Become a member and enjoy exclusive discounts, early access to sales, and special rewards tailored just for you. Unlock a world of benefits designed to enhance your shopping journey, including personalized offers, priority customer support, and invitations to members-only events.',
 		link: 'https://res.cloudinary.com/dyibkikle/image/upload/v1753291642/fetchpik.com-iconscout-uQ962hvTVP_quyblu.png',
-		color: '#EF7219',
+		color: '#f59e0b',
 	},
 	{
 		title: 'Extended Warranty',
 		description:
 			'Extend the protection of your products with our comprehensive warranty plans for peace of mind. Safeguard your purchases against unexpected issues and enjoy hassle-free repairs or replacements when needed. Our extended warranty ensures that you can use your products worry-free.',
 		link: 'https://res.cloudinary.com/dyibkikle/image/upload/v1753291280/10117751_lewgb4.webp',
-		color: '#0078D5',
+		color: '#38bdf8',
 	},
 	{
 		title: 'Easy Installments',
 		description:
 			'Split your payments into easy monthly installments and enjoy shopping without financial stress. Our flexible payment options allow you to purchase what you need now and pay over time, making budgeting simpler and more manageable.',
 		link: 'https://res.cloudinary.com/dyibkikle/image/upload/v1753291280/12484933_kme920.webp',
-		color: '#EF7219',
+		color: '#f59e0b',
 	},
 	{
 		title: 'Easy Return Policy',
 		description:
 			'Shop confidently with our hassle-free return policy. If you’re not satisfied, returning is simple and quick. We prioritize your satisfaction by offering a straightforward process for returns and exchanges.',
 		link: 'https://res.cloudinary.com/dyibkikle/image/upload/v1753291281/return-product-3d-icon-download-in-png-blend-fbx-gltf-file-formats--box-package-parcel-ecommerce-pack-e-commerce-shopping-icons-10053368_om8el2.webp',
-		color: '#0078D5',
+		color: '#38bdf8',
 	},
 ];
 
