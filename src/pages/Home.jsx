@@ -23,8 +23,8 @@ const Home = () => {
 			<hr style={{ opacity: '0.3' }} />
 			<MasoomStyleHome />
 			<hr style={{ opacity: '0.3' }} />
-			{/* <StackCards />
-			<hr style={{ opacity: '0.3' }} /> */}
+			<StackCards />
+			<hr style={{ opacity: '0.3' }} />
 			<LifeIsAFashion />
 			<hr style={{ opacity: '0.3' }} />
 		</>

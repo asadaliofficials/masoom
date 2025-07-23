@@ -11,14 +11,31 @@
 		width: 40%;
 	}
 }
-@media (max-width: 500px) {
-	.searchInputDiv {
+@media (max-width: 920px) {
+	.nav .linksList {
 		display: none;
 	}
-	.seachIconMobile {
+	.nav .menuIcon {
 		display: flex;
 	}
+}
+@media (max-width: 500px) {
 	.navIconsParent {
 		gap: 0;
+	}
+	.nav .loginButton {
+		margin-left: 16px;
+	}
+	.nav .logoWraper {
+		gap: 2px;
+	}
+	.nav {
+		padding-inline: 8px;
+	}
+}
+
+@media (max-width: 380px) {
+	.nav .webLogotext {
+		display: none;
 	}
 }
