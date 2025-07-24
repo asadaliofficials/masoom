@@ -124,7 +124,7 @@ const AboutHome = () => {
 			<div className="right w-[65%] h-min ">
 				<ScrollFloat textClassName={'about-title text-5xl font-bold'}>Masoom Minawala</ScrollFloat>
 				<ScrollReveal
-					textClassName={'about-des text-2xl'}
+					textClassName={'about-des text-lg tracking-wide'}
 					baseOpacity={0}
 					enableBlur={true}
 					baseRotation={0}
@@ -139,6 +139,39 @@ const AboutHome = () => {
 					Asia’s 30 Under 30 list, GQ’s Most Influential Young Indians, HSBC's list of leading
 					female entrepreneurs worldwide as well as CNN's '20 under 40' list.
 				</ScrollReveal>
+				{/* Achievements/Tags Row */}
+				<motion.div
+					className="flex flex-wrap gap-4 mt-4 mb-6"
+					initial={{ opacity: 0, y: 30 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: false, amount: 0.3 }}
+					transition={{ duration: 0.7, delay: 0.4 }}
+				>
+					<div className="flex items-center gap-2 px-3 py-2 bg-gray-100 rounded-lg shadow-sm hover:shadow-md transition">
+						<img
+							src="https://cdn-icons-png.flaticon.com/512/5968/5968885.png"
+							alt="Forbes"
+							className="w-6 h-6"
+						/>
+						<span className="font-medium text-gray-700 text-sm">Forbes 30 Under 30</span>
+					</div>
+					<div className="flex items-center gap-2 px-3 py-2 bg-gray-100 rounded-lg shadow-sm hover:shadow-md transition">
+						<img
+							src="https://cdn-icons-png.flaticon.com/512/5968/5968853.png"
+							alt="GQ"
+							className="w-6 h-6"
+						/>
+						<span className="font-medium text-gray-700 text-sm">GQ Most Influential</span>
+					</div>
+					<div className="flex items-center gap-2 px-3 py-2 bg-gray-100 rounded-lg shadow-sm hover:shadow-md transition">
+						<img
+							src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png"
+							alt="HSBC"
+							className="w-6 h-6"
+						/>
+						<span className="font-medium text-gray-700 text-sm">HSBC Leading Female</span>
+					</div>
+				</motion.div>
 				<motion.div
 					className="buttons flex  items-center  pl-2 mt-12 gap-8  w-max"
 					initial={{ opacity: 0 }}

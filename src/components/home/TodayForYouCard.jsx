@@ -5,25 +5,33 @@ import '../../styles/home/todayForYou.css';
 
 const TodayForYouCard = memo(() => {
 	const [fav, setFav] = useState(false);
+	// Dummy data for demo
+	const title =
+		'Speed and Water Proof Shoes best for sports and swimming and it has too long title';
+	const price = 1500;
+	const oldPrice = 2500;
+	const discount = 40;
 	return (
 		<motion.div
-			initial={{ opacity: 0, scale: 0.5, y: 20 }}
+			initial={{ opacity: 0, scale: 0.8, y: 20 }}
 			whileInView={{ opacity: 1, scale: 1, y: 0 }}
 			viewport={{ once: false, amount: 0.2 }}
 			transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.1 }}
-			className="todayForYouCard rounded-lg flex flex-col w-[220px] flex-shrink-0 h-[290px] shadow-lg bg-white border-b border-gray-200"
+			className="todayForYouCard group rounded-lg flex flex-col w-[220px] flex-shrink-0 h-[280px] shadow-lg bg-white border-b border-gray-200 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer"
 		>
-			<div className="w-full h-[58%] flex items-center justify-center relative select-none">
+			<div className="flex-1 w-full flex items-center justify-center relative select-none overflow-hidden rounded-t-lg">
 				<img
 					loading="lazy"
-					className="w-full h-full object-cover rounded-t-lg object-center"
+					className="w-full h-full object-cover rounded-t-lg object-center transition-transform duration-300 group-hover:scale-105"
 					src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/b1e780ee-b4e3-4511-aef8-c68a1012a6b9/WMNS+JORDAN+CMFT+ERA.png"
 					alt=""
 				/>
+				<div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 				<motion.div
-					className="bg-white absolute top-1 p-1 rounded-full right-1 cursor-pointer"
+					className="bg-white absolute top-1 p-1 rounded-full right-1 cursor-pointer shadow"
 					onClick={() => setFav(prev => !prev)}
 					whileTap={{ scale: 0.85 }}
+					whileHover={{ scale: 1.1 }}
 				>
 					<svg width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
 						<motion.path
@@ -42,10 +50,12 @@ const TodayForYouCard = memo(() => {
 				</motion.div>
 			</div>
 
-			<div className="flex flex-col h-full p-2">
-				<h1 className="title text-xs font-semibold leading-1 line-clamp-2">
-					Speed and Water Proof Shoes best for sports and swimming and it has too long title
+			<div className="w-full px-2 py-2">
+				{/* Title with tooltip */}
+				<h1 className="title text-xs font-semibold leading-1 line-clamp-2 cursor-pointer mb-1">
+					{title}
 				</h1>
+				{/* Rating and sold */}
 				<div className="flex px-1 text-xs mt-1 gap-1 items-center">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -61,9 +71,13 @@ const TodayForYouCard = memo(() => {
 					</svg>
 					4.8 ● 4K Sold
 				</div>
-				<div className="flex gap-1 mt-1 items-center pl-1">
-					<p className="text-base font-bold">Rs. 1500</p>
-					<p className="line-through text-gray-400 font-semibold text-xs">Rs. 2500</p>
+				{/* Price row */}
+				<div className="flex gap-1 mt-1 items-center pl-1 mb-3">
+					<p className="text-base font-bold text-black">Rs. {price}</p>
+					<p className="line-through text-gray-400 font-semibold text-xs">Rs. {oldPrice}</p>
+					<span className="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded">
+						{discount}% OFF
+					</span>
 				</div>
 			</div>
 		</motion.div>

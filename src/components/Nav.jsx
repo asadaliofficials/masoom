@@ -116,7 +116,7 @@ const Nav = ({ count1 = 33, count2 = 5 }) => {
 					className="relative"
 				>
 					{count1 > 0 && (
-						<span className="absolute top-1 right-1 transform translate-x-1/2 -translate-y-1/2 bg-gray-500 text-white text-sm font-bold rounded-full px-1.5 h-5 min-w-[20px] flex items-center justify-center">
+						<span className="absolute top-1 right-1 transform translate-x-1/2 -translate-y-1/2 bg-gray-500 text-white text-sm font-bold rounded-full px-1.5 h-5 z-50 min-w-[20px] flex items-center justify-center">
 							{favCount}
 						</span>
 					)}
@@ -144,7 +144,7 @@ const Nav = ({ count1 = 33, count2 = 5 }) => {
 					className="relative"
 				>
 					{count2 > 0 && (
-						<span className="absolute top-1 right-1 transform translate-x-1/2 -translate-y-1/2 bg-gray-500 text-white text-sm font-bold rounded-full px-1.5 h-5 min-w-[20px] flex items-center justify-center">
+						<span className="absolute top-1 right-1 transform translate-x-1/2 -translate-y-1/2 bg-gray-500 text-white text-sm font-bold rounded-full z-50 px-1.5 h-5 min-w-[20px] flex items-center justify-center">
 							{cartCount}
 						</span>
 					)}
