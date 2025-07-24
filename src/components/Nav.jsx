@@ -7,7 +7,7 @@ import '../styles/home/navbar.css';
 const baseClass =
 	'w-max opacity-40 hover:opacity-100 transition-all duration-300 cursor-pointer font-semibold';
 
-const Nav = ({ count1 = 33, count2 = 5 }) => {
+const Nav = ({ count1 = 33, count2 = 5, isMeetMasoom = false }) => {
 	const cartCount = count1 > 9 ? '9+' : count1;
 	const favCount = count2 > 9 ? '9+' : count2;
 	const [showNav, setShowNav] = useState(true);
@@ -34,7 +34,9 @@ const Nav = ({ count1 = 33, count2 = 5 }) => {
 			initial={{ y: 0 }}
 			animate={{ y: showNav ? 0 : '-100%' }}
 			transition={{ duration: 0.5 }}
-			className="border-b-2 border-gray-300 nav sticky top-0 bg-white z-100 py-3 px-4 flex w-full justify-between items-center"
+			className={`border-b-2 border-gray-300 nav sticky top-0 z-100 py-3 px-4 flex w-full justify-between items-center bg-white ${
+				isMeetMasoom ? 'meetmasoom-nav' : ''
+			}`}
 		>
 			<div className="logoWraper flex justify-center items-center gap-3 rounded-lg px-2 py-1">
 				<motion.div

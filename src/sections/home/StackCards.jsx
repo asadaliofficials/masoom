@@ -16,7 +16,7 @@ const projects = [
 		description:
 			'Become a member and enjoy exclusive discounts, early access to sales, and special rewards tailored just for you. Unlock a world of benefits designed to enhance your shopping journey, including personalized offers, priority customer support, and invitations to members-only events.',
 		link: 'https://res.cloudinary.com/dyibkikle/image/upload/v1753291642/fetchpik.com-iconscout-uQ962hvTVP_quyblu.png',
-		color: '#f59e0b',
+		color: '#fb923c',
 	},
 	{
 		title: 'Extended Warranty',
@@ -30,7 +30,7 @@ const projects = [
 		description:
 			'Split your payments into easy monthly installments and enjoy shopping without financial stress. Our flexible payment options allow you to purchase what you need now and pay over time, making budgeting simpler and more manageable.',
 		link: 'https://res.cloudinary.com/dyibkikle/image/upload/v1753291280/12484933_kme920.webp',
-		color: '#f59e0b',
+		color: '#fb923c',
 	},
 	{
 		title: 'Easy Return Policy',

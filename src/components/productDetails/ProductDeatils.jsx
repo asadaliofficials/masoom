@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
 import '../../styles/productDetails/productDetails.css';
 
@@ -34,7 +35,6 @@ const ProductDeatils = () => {
 	const [selectedImage, setSelectedImage] = useState(0);
 	const [selectedColor, setSelectedColor] = useState(product.colors[0].value);
 	const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
-	const [count, setCount] = useState(1);
 
 	return (
 		<div className="w-full min-h-screen bg-gray-50 p-6">

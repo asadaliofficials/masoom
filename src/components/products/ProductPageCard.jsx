@@ -8,7 +8,7 @@ const ProductPageCard = memo(() => {
 		<motion.div
 			initial={{ opacity: 0, scale: 0.5, y: 20 }}
 			whileInView={{ opacity: 1, scale: 1, y: 0 }}
-			viewport={{ once: false, amount: 0.2 }}
+			viewport={{ once: true, amount: 0.2 }}
 			transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.1 }}
 			className="ProductPageCard rounded-lg flex flex-col w-[230px] flex-shrink-0 h-[300px] shadow-xl bg-white border-b border-gray-300"
 		>

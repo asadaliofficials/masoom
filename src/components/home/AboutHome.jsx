@@ -129,7 +129,7 @@ const AboutHome = () => {
 					enableBlur={true}
 					baseRotation={0}
 					blurStrength={10}
-					once={true}
+					once={false}
 				>
 					Content creator for over a decade, former CEO of an e-commerce start-up, and a champion of
 					women empowerment, Masoom Minawala is one of the first creators of the now rapidly-growing

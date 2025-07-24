@@ -1,0 +1,18 @@
+.meetmasoom-nav {
+	/* background: transparent; */
+}
+.meetmasoom-nav .navIconsParent {
+	display: none;
+	display: flex;
+	visibility: hidden;
+}
+@media (max-width: 600px) {
+	.meetMasoomHeroText {
+		font-size: 2.4rem;
+	}
+}
+@media (max-width: 475px) {
+	.meetMasoomHeroText {
+		font-size: 1.8rem;
+	}
+}
