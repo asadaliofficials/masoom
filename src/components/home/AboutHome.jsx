@@ -3,9 +3,11 @@ import ScrollFloat from '../react-bits/ScrollFloat/ScrollFloat';
 // eslint-disable-next-line no-unused-vars
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../../styles/home/aboutHome.css';
 const AboutHome = () => {
 	const imgRef = useRef(null);
+	const navigate = useNavigate();
 
 	// Assume image size roughly 300x300; adjust if needed
 	const center = 150;
@@ -71,8 +73,11 @@ const AboutHome = () => {
 					viewport={{ once: true, amount: 0.4 }}
 					transition={{ duration: 0.6 }}
 				>
-					<ul className="AboutSMWrapper  ">
-						<li className="icon youtube">
+					<ul className="AboutSMWrapper">
+						<li
+							className="icon youtube"
+							onClick={() => window.open('https://www.youtube.com/c/MasoomMinawala', '_blank')}
+						>
 							<span className="tooltip">YouTube</span>
 							<svg
 								fill="currentColor"
@@ -84,8 +89,13 @@ const AboutHome = () => {
 								<path d="M12.932 20.459v-8.917l7.839 4.459zM30.368 8.735c-0.354-1.301-1.354-2.307-2.625-2.663l-0.027-0.006c-3.193-0.406-6.886-0.638-10.634-0.638-0.381 0-0.761 0.002-1.14 0.007l0.058-0.001c-0.322-0.004-0.701-0.007-1.082-0.007-3.748 0-7.443 0.232-11.070 0.681l0.434-0.044c-1.297 0.363-2.297 1.368-2.644 2.643l-0.006 0.026c-0.4 2.109-0.628 4.536-0.628 7.016 0 0.088 0 0.176 0.001 0.263l-0-0.014c-0 0.074-0.001 0.162-0.001 0.25 0 2.48 0.229 4.906 0.666 7.259l-0.038-0.244c0.354 1.301 1.354 2.307 2.625 2.663l0.027 0.006c3.193 0.406 6.886 0.638 10.634 0.638 0.38 0 0.76-0.002 1.14-0.007l-0.058 0.001c0.322 0.004 0.702 0.007 1.082 0.007 3.749 0 7.443-0.232 11.070-0.681l-0.434 0.044c1.298-0.362 2.298-1.368 2.646-2.643l0.006-0.026c0.399-2.109 0.627-4.536 0.627-7.015 0-0.088-0-0.176-0.001-0.263l0 0.013c0-0.074 0.001-0.162 0.001-0.25 0-2.48-0.229-4.906-0.666-7.259l0.038 0.244z"></path>
 							</svg>
 						</li>
-						<li className="icon facebook">
-							<span className="tooltip">Facebook</span>
+						<li
+							className="icon facebook"
+							onClick={() =>
+								window.open('https://www.linkedin.com/in/masoom-minawala-07092227/', '_blank')
+							}
+						>
+							<span className="tooltip">LinkedIn</span>
 							<svg
 								viewBox="0 0 320 512"
 								height="1.2em"
@@ -95,7 +105,10 @@ const AboutHome = () => {
 								<path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
 							</svg>
 						</li>
-						<li className="icon x">
+						<li
+							className="icon x"
+							onClick={() => window.open('https://x.com/MasoomMinawala', '_blank')}
+						>
 							<span className="tooltip">X.com</span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +119,10 @@ const AboutHome = () => {
 								<path d="M 6.9199219 6 L 21.136719 26.726562 L 6.2285156 44 L 9.40625 44 L 22.544922 28.777344 L 32.986328 44 L 43 44 L 28.123047 22.3125 L 42.203125 6 L 39.027344 6 L 26.716797 20.261719 L 16.933594 6 L 6.9199219 6 z"></path>
 							</svg>
 						</li>
-						<li className="icon instagram">
+						<li
+							className="icon instagram"
+							onClick={() => window.open('https://www.instagram.com/masoomminawala/', '_blank')}
+						>
 							<span className="tooltip">Instagram</span>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -164,13 +180,19 @@ const AboutHome = () => {
 					viewport={{ once: true, amount: 0.7 }}
 					transition={{ duration: 0.6 }}
 				>
-					<button className="active:scale-90 w-max relative inline-block px-4 py-3 font-semibold text-black border border-black rounded-2xl cursor-pointer overflow-hidden group transition-all duration-300 ease-in-out whitespace-nowrap">
+					<button
+						className="active:scale-90 w-max relative inline-block px-4 py-3 font-semibold text-black border border-black rounded-2xl cursor-pointer overflow-hidden group transition-all duration-300 ease-in-out whitespace-nowrap"
+						onClick={() => navigate('/meet-masoom')}
+					>
 						<span className="absolute inset-0 w-full h-full bg-black transform scale-x-0 origin-left transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
 						<span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-white">
 							Meet Masoom
 						</span>
 					</button>
-					<button className="active:scale-90 relative inline-block px-4 py-3 font-semibold text-white bg-black border border-black rounded-2xl cursor-pointer overflow-hidden group transition-all duration-300 ease-in-out whitespace-nowrap">
+					<button
+						className="active:scale-90 relative inline-block px-4 py-3 font-semibold text-white bg-black border border-black rounded-2xl cursor-pointer overflow-hidden group transition-all duration-300 ease-in-out whitespace-nowrap"
+						onClick={() => navigate('/masoom-success')}
+					>
 						<span className="absolute inset-0 w-full h-full bg-white transform scale-x-0 origin-right transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
 						<span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
 							Masoom's Success

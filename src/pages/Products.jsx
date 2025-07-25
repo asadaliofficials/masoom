@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 import ProductsContext from '../context/ProductsContext.js';
 // eslint-disable-next-line no-unused-vars
 import { delay, motion } from 'framer-motion';
@@ -89,6 +90,17 @@ const Products = () => {
 	const [searchInput, setSearchInput] = useState('');
 	const [searchKeyword, setSearchKeyword] = useState('');
 	const productsPerPage = 16;
+	const location = useLocation();
+
+	// On mount, check for ?q= in URL and set search
+	useEffect(() => {
+		const params = new URLSearchParams(location.search);
+		const q = params.get('q');
+		if (q) {
+			setSearchInput(q);
+			setSearchKeyword(q);
+		}
+	}, [location.search]);
 
 	// Clear all filters
 	const handleClearFilters = () => {

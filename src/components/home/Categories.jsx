@@ -108,7 +108,7 @@ const Categories = () => {
 					title={'Shirts'}
 					delay={1.1}
 					shouldHandleClick={!hasMoved}
-					onClick={handleCategoryClick('Shirts')}
+					onClick={handleCategoryClick('Shirt')}
 				/>
 				<Category
 					svg={
@@ -187,7 +187,7 @@ const Categories = () => {
 					title={'Jackets'}
 					delay={1.2}
 					shouldHandleClick={!hasMoved}
-					onClick={handleCategoryClick('Jackets')}
+					onClick={handleCategoryClick('Jacket')}
 				/>
 				<Category
 					svg={
@@ -230,7 +230,7 @@ const Categories = () => {
 					title={'Jeans'}
 					delay={1.3}
 					shouldHandleClick={!hasMoved}
-					onClick={handleCategoryClick('Jeans')}
+					onClick={handleCategoryClick('Jean')}
 				/>
 				<Category
 					svg={
@@ -282,7 +282,7 @@ const Categories = () => {
 					title={'Skirts'}
 					delay={1.4}
 					shouldHandleClick={!hasMoved}
-					onClick={handleCategoryClick('Skirts')}
+					onClick={handleCategoryClick('Skirt')}
 				/>
 				<Category
 					svg={
@@ -331,7 +331,7 @@ const Categories = () => {
 					title={'Brides'}
 					delay={1.5}
 					shouldHandleClick={!hasMoved}
-					onClick={handleCategoryClick('Brides')}
+					onClick={handleCategoryClick('Bride')}
 				/>
 				<Category
 					svg={
@@ -388,7 +388,7 @@ const Categories = () => {
 					title={'Gym Shorts'}
 					delay={1.6}
 					shouldHandleClick={!hasMoved}
-					onClick={handleCategoryClick('Gym Shorts')}
+					onClick={handleCategoryClick('gym-Short')}
 				/>
 				<Category
 					svg={
@@ -539,7 +539,7 @@ c-34 21 -63 43 -63 49 -1 5 21 13 48 18 64 10 211 74 461 198 164 82 214 102
 					title={'Bags'}
 					delay={1.8}
 					shouldHandleClick={!hasMoved}
-					onClick={handleCategoryClick('Bags')}
+					onClick={handleCategoryClick('Bag')}
 				/>
 				<motion.div
 					initial={{ opacity: 0, scale: 0.5 }}

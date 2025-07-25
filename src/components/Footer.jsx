@@ -1,7 +1,20 @@
 import React from 'react';
 import '../styles/footer.css';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+	const navigate = useNavigate();
+
+	const handlePage = path => {
+		navigate(path);
+		window.scrollTo(0, 0);
+	};
+
+	const handleCategory = cat => {
+		navigate(`/products?q=${encodeURIComponent(cat)}`);
+		window.scrollTo(0, 0);
+	};
+
 	return (
 		<>
 			<footer className="new_footer_area bg_color">
@@ -33,7 +46,7 @@ const Footer = () => {
 								</div>
 							</div>
 
-							{/* Second Column: Download */}
+							{/* Second Column: Pages */}
 							<div className="col-lg-3 col-md-6">
 								<div
 									className="f_widget about-widget pl_70 wow fadeInLeft"
@@ -47,28 +60,41 @@ const Footer = () => {
 									<h3 className="f-title f_600 t_color f_size_18">Pages</h3>
 									<ul className="list-unstyled f_list">
 										<li>
-											<a href="#">Home</a>
+											<span style={{ cursor: 'pointer' }} onClick={() => handlePage('/')}>
+												Home
+											</span>
 										</li>
 										<li>
-											<a href="#">Products</a>
+											<span style={{ cursor: 'pointer' }} onClick={() => handlePage('/products')}>
+												Products
+											</span>
 										</li>
 										<li>
-											<a href="#">Meet Masoom</a>
+											<span
+												style={{ cursor: 'pointer' }}
+												onClick={() => handlePage('/meet-masoom')}
+											>
+												Meet Masoom
+											</span>
 										</li>
 										<li>
-											<a href="#">Masooms Success</a>
+											<span
+												style={{ cursor: 'pointer' }}
+												onClick={() => handlePage('/masoom-success')}
+											>
+												Masooms Success
+											</span>
 										</li>
 										<li>
-											<a href="#">About</a>
+											<span style={{ cursor: 'pointer' }} onClick={() => handlePage('/about')}>
+												About
+											</span>
 										</li>
-										{/* <li>
-											<a href="#">Login</a>
-										</li> */}
 									</ul>
 								</div>
 							</div>
 
-							{/* Third Column: Help */}
+							{/* Third Column: Categories */}
 							<div className="col-lg-3 col-md-6">
 								<div
 									className="f_widget about-widget pl_70 wow fadeInLeft"
@@ -82,28 +108,40 @@ const Footer = () => {
 									<h3 className="f-title f_600 t_color f_size_18">Categories</h3>
 									<ul className="list-unstyled f_list">
 										<li>
-											<a href="#">Shirts</a>
+											<span style={{ cursor: 'pointer' }} onClick={() => handleCategory('shirt')}>
+												Shirts
+											</span>
 										</li>
 										<li>
-											<a href="#">Jeans</a>
+											<span style={{ cursor: 'pointer' }} onClick={() => handleCategory('Jean')}>
+												Jeans
+											</span>
 										</li>
 										<li>
-											<a href="#">Jackets</a>
+											<span style={{ cursor: 'pointer' }} onClick={() => handleCategory('Jacket')}>
+												Jackets
+											</span>
 										</li>
 										<li>
-											<a href="#">Skirits</a>
+											<span style={{ cursor: 'pointer' }} onClick={() => handleCategory('Skirt')}>
+												Skirts
+											</span>
 										</li>
 										<li>
-											<a href="#">Brides</a>
+											<span style={{ cursor: 'pointer' }} onClick={() => handleCategory('Bride')}>
+												Brides
+											</span>
 										</li>
 										<li>
-											<a href="#">Sheos</a>
+											<span style={{ cursor: 'pointer' }} onClick={() => handleCategory('Shoes')}>
+												Shoes
+											</span>
 										</li>
 									</ul>
 								</div>
 							</div>
 
-							{/* Fourth Column: Team Solutions */}
+							{/* Fourth Column: Social Media */}
 							<div className="col-lg-3 col-md-6">
 								<div
 									className="f_widget social-widget pl_70 wow fadeInLeft"
@@ -115,31 +153,14 @@ const Footer = () => {
 									}}
 								>
 									<h3 className="f-title f_600 t_color f_size_18">Social Media</h3>
-									{/* <div className="f_social_icon">
-										<a href="#" className="fab fa-facebook">
-											<svg
-												fill="currentColor"
-												height="1.5em"
-												viewBox="0 0 32 32"
-												version="1.1"
-												xmlns="http://www.w3.org/2000/svg"
-											>
-												<path d="M12.932 20.459v-8.917l7.839 4.459zM30.368 8.735c-0.354-1.301-1.354-2.307-2.625-2.663l-0.027-0.006c-3.193-0.406-6.886-0.638-10.634-0.638-0.381 0-0.761 0.002-1.14 0.007l0.058-0.001c-0.322-0.004-0.701-0.007-1.082-0.007-3.748 0-7.443 0.232-11.070 0.681l0.434-0.044c-1.297 0.363-2.297 1.368-2.644 2.643l-0.006 0.026c-0.4 2.109-0.628 4.536-0.628 7.016 0 0.088 0 0.176 0.001 0.263l-0-0.014c-0 0.074-0.001 0.162-0.001 0.25 0 2.48 0.229 4.906 0.666 7.259l-0.038-0.244c0.354 1.301 1.354 2.307 2.625 2.663l0.027 0.006c3.193 0.406 6.886 0.638 10.634 0.638 0.38 0 0.76-0.002 1.14-0.007l-0.058 0.001c0.322 0.004 0.702 0.007 1.082 0.007 3.749 0 7.443-0.232 11.070-0.681l-0.434 0.044c1.298-0.362 2.298-1.368 2.646-2.643l0.006-0.026c0.399-2.109 0.627-4.536 0.627-7.015 0-0.088-0-0.176-0.001-0.263l0 0.013c0-0.074 0.001-0.162 0.001-0.25 0-2.48-0.229-4.906-0.666-7.259l0.038 0.244z"></path>
-											</svg>
-										</a>
-										<a href="#" className="fab fa-twitter">
-											t
-										</a>
-										<a href="#" className="fab fa-linkedin">
-											in
-										</a>
-										<a href="#" className="fab fa-pinterest">
-											p
-										</a>
-									</div> */}
 									<ul className="footerSMWrapper">
-										<li className="icon youtube">
-											{/* <span className="tooltip">YouTube</span> */}
+										<li
+											className="icon youtube"
+											style={{ cursor: 'pointer' }}
+											onClick={() =>
+												window.open('https://www.youtube.com/c/MasoomMinawala', '_blank')
+											}
+										>
 											<svg
 												fill="currentColor"
 												height="1.5em"
@@ -150,8 +171,16 @@ const Footer = () => {
 												<path d="M12.932 20.459v-8.917l7.839 4.459zM30.368 8.735c-0.354-1.301-1.354-2.307-2.625-2.663l-0.027-0.006c-3.193-0.406-6.886-0.638-10.634-0.638-0.381 0-0.761 0.002-1.14 0.007l0.058-0.001c-0.322-0.004-0.701-0.007-1.082-0.007-3.748 0-7.443 0.232-11.070 0.681l0.434-0.044c-1.297 0.363-2.297 1.368-2.644 2.643l-0.006 0.026c-0.4 2.109-0.628 4.536-0.628 7.016 0 0.088 0 0.176 0.001 0.263l-0-0.014c-0 0.074-0.001 0.162-0.001 0.25 0 2.48 0.229 4.906 0.666 7.259l-0.038-0.244c0.354 1.301 1.354 2.307 2.625 2.663l0.027 0.006c3.193 0.406 6.886 0.638 10.634 0.638 0.38 0 0.76-0.002 1.14-0.007l-0.058 0.001c0.322 0.004 0.702 0.007 1.082 0.007 3.749 0 7.443-0.232 11.070-0.681l-0.434 0.044c1.298-0.362 2.298-1.368 2.646-2.643l0.006-0.026c0.399-2.109 0.627-4.536 0.627-7.015 0-0.088-0-0.176-0.001-0.263l0 0.013c0-0.074 0.001-0.162 0.001-0.25 0-2.48-0.229-4.906-0.666-7.259l0.038 0.244z"></path>
 											</svg>
 										</li>
-										<li className="icon facebook">
-											{/* <span className="tooltip">Facebook</span> */}
+										<li
+											className="icon facebook"
+											style={{ cursor: 'pointer' }}
+											onClick={() =>
+												window.open(
+													'https://www.linkedin.com/in/masoom-minawala-07092227/',
+													'_blank'
+												)
+											}
+										>
 											<svg
 												viewBox="0 0 320 512"
 												height="1.2em"
@@ -161,8 +190,11 @@ const Footer = () => {
 												<path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
 											</svg>
 										</li>
-										<li className="icon x">
-											{/* <span className="tooltip">X.com</span> */}
+										<li
+											className="icon x"
+											style={{ cursor: 'pointer' }}
+											onClick={() => window.open('https://x.com/MasoomMinawala', '_blank')}
+										>
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
 												height="1.5em"
@@ -172,8 +204,13 @@ const Footer = () => {
 												<path d="M 6.9199219 6 L 21.136719 26.726562 L 6.2285156 44 L 9.40625 44 L 22.544922 28.777344 L 32.986328 44 L 43 44 L 28.123047 22.3125 L 42.203125 6 L 39.027344 6 L 26.716797 20.261719 L 16.933594 6 L 6.9199219 6 z"></path>
 											</svg>
 										</li>
-										<li className="icon instagram">
-											{/* <span className="tooltip">Instagram</span> */}
+										<li
+											className="icon instagram"
+											style={{ cursor: 'pointer' }}
+											onClick={() =>
+												window.open('https://www.instagram.com/masoomminawala/', '_blank')
+											}
+										>
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
 												height="1.2em"
