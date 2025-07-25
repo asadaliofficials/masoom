@@ -1,36 +1,71 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../../styles/login.css';
 
 const Login = () => {
+	const navigate = useNavigate();
+	const [loginUsername, setLoginUsername] = useState('');
+	const [loginPassword, setLoginPassword] = useState('');
+	const [registerUsername, setRegisterUsername] = useState('');
+	const [registerEmail, setRegisterEmail] = useState('');
+	const [registerPassword, setRegisterPassword] = useState('');
+
 	useEffect(() => {
 		const container = document.querySelector('.loginContainer');
 		const registerBtn = document.querySelector('.register-btn');
 		const loginBtn = document.querySelector('.login-btn');
+
+		const handleRegisterClick = () => container.classList.add('active');
+		const handleLoginClick = () => container.classList.remove('active');
+
 		if (registerBtn && loginBtn && container) {
-			registerBtn.addEventListener('click', () => {
-				container.classList.add('active');
-			});
-			loginBtn.addEventListener('click', () => {
-				container.classList.remove('active');
-			});
+			registerBtn.addEventListener('click', handleRegisterClick);
+			loginBtn.addEventListener('click', handleLoginClick);
 		}
 		// Cleanup
 		return () => {
 			if (registerBtn && loginBtn) {
-				registerBtn.removeEventListener('click', () => {});
-				loginBtn.removeEventListener('click', () => {});
+				registerBtn.removeEventListener('click', handleRegisterClick);
+				loginBtn.removeEventListener('click', handleLoginClick);
 			}
 		};
 	}, []);
+
+	const handleLogin = e => {
+		e.preventDefault();
+		const user = {
+			username: loginUsername,
+			isLoggedIn: true,
+		};
+		localStorage.setItem('user', JSON.stringify(user));
+		navigate('/');
+	};
+
+	const handleRegister = e => {
+		e.preventDefault();
+		const user = {
+			username: registerUsername,
+			email: registerEmail,
+			isLoggedIn: true,
+		};
+		localStorage.setItem('user', JSON.stringify(user));
+		navigate('/');
+	};
 
 	return (
 		<div className="w-full max-w-[1200px] mx-auto my-auto h-screen overflow-y-hidden  flex justify-center items-center ">
 			<div className="loginContainer w-screen flex justify-center items-center h-screen ">
 				<div className="form-box login w-screen ">
-					<form action="#">
+					<form onSubmit={handleLogin}>
 						<h1 className="font-bold">Login</h1>
 						<div className="input-box">
-							<input type="text" placeholder="Username" required />
+							<input
+								type="text"
+								placeholder="Username"
+								value={loginUsername}
+								onChange={e => setLoginUsername(e.target.value)}
+								required
+							/>
 							<span className="icon-placeholder absolute right-4 top-4">
 								<svg
 									width="20"
@@ -51,7 +86,13 @@ const Login = () => {
 							</span>
 						</div>
 						<div className="input-box">
-							<input type="password" placeholder="Password" required />
+							<input
+								type="password"
+								placeholder="Password"
+								value={loginPassword}
+								onChange={e => setLoginPassword(e.target.value)}
+								required
+							/>
 							<span className="icon-placeholder  absolute right-4 top-4">
 								<svg
 									width="20"
@@ -95,6 +136,7 @@ const Login = () => {
 							</a>
 							<a href="#">
 								<span className="icon-placeholder">
+									{' '}
 									<svg
 										width="20"
 										height="20"
@@ -125,7 +167,6 @@ const Login = () => {
 							</a>
 							<a href="#">
 								<span className="icon-placeholder">
-									{' '}
 									<svg
 										width="20"
 										height="20"
@@ -188,10 +229,16 @@ const Login = () => {
 					</form>
 				</div>
 				<div className="form-box register">
-					<form action="#">
+					<form onSubmit={handleRegister}>
 						<h1 className="font-bold">Registration</h1>
 						<div className="input-box">
-							<input type="text" placeholder="Username" required />
+							<input
+								type="text"
+								placeholder="Username"
+								value={registerUsername}
+								onChange={e => setRegisterUsername(e.target.value)}
+								required
+							/>
 							<span className="icon-placeholder absolute right-4 top-4">
 								<svg
 									width="20"
@@ -212,7 +259,13 @@ const Login = () => {
 							</span>
 						</div>
 						<div className="input-box">
-							<input type="email" placeholder="Email" required />
+							<input
+								type="email"
+								placeholder="Email"
+								value={registerEmail}
+								onChange={e => setRegisterEmail(e.target.value)}
+								required
+							/>
 							<span className="icon-placeholder  absolute right-4 top-4">
 								<svg
 									fill="#000000"
@@ -226,7 +279,13 @@ const Login = () => {
 							</span>
 						</div>
 						<div className="input-box">
-							<input type="password" placeholder="Password" required />
+							<input
+								type="password"
+								placeholder="Password"
+								value={registerPassword}
+								onChange={e => setRegisterPassword(e.target.value)}
+								required
+							/>
 							<span className="icon-placeholder  absolute right-4 top-4">
 								<svg
 									width="20"

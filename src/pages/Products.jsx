@@ -17,16 +17,16 @@ const categoryOptions = [
 	{ label: 'Men', value: 'men' },
 	{ label: 'Shoes', value: 'shoes' },
 	{ label: 'Bag', value: 'bag' },
+	{ label: 'Shirts', value: 'shirt' },
+	{ label: 'jackets', value: 'jacket' },
+	{ label: 'jeans', value: 'jean' },
+	//skirits
+	{ label: 'Skirts', value: 'skirt' },
+	// brides
+	{ label: 'Brides', value: 'bride' },
+	//gym shorts
+	{ label: 'Gym Shorts', value: 'gym-short' },
 ];
-
-const colorOptions = [
-	{ name: 'Red', value: '#ef4444' },
-	{ name: 'Blue', value: '#3b82f6' },
-	{ name: 'Green', value: '#22c55e' },
-	{ name: 'Black', value: '#000000' },
-	{ name: 'White', value: '#ffffff' },
-];
-
 const ratingOptions = [5, 4, 3, 2, 1];
 
 const filterAnim = delayVal => ({
@@ -50,7 +50,6 @@ const Products = () => {
 	const [selectedCategory, setSelectedCategory] = useState('all');
 	const [freeDelivery, setFreeDelivery] = useState(false);
 	const [priceRange, setPriceRange] = useState({ min: '', max: '' });
-	const [selectedColor, setSelectedColor] = useState('');
 	const [selectedRating, setSelectedRating] = useState(null);
 	const [currentPage, setCurrentPage] = useState(1);
 	const totalPages = 5; // Example, replace with real value if needed
@@ -138,27 +137,7 @@ const Products = () => {
 						/>
 					</div>
 				</motion.div>
-				{/* Color */}
-				<motion.div
-					{...filterAnim(0.8)}
-					className="w-full px-4 py-5 bg-white flex flex-col gap-3 rounded-md shadow"
-				>
-					<legend className="text-xl font-semibold mb-3 select-none">Color</legend>
-					<div className="flex gap-2">
-						{colorOptions.map(color => (
-							<button
-								key={color.value}
-								type="button"
-								className={`w-7 h-7 rounded-full border-2 ${
-									selectedColor === color.value ? 'border-blue-500' : 'border-gray-300'
-								}`}
-								style={{ backgroundColor: color.value }}
-								onClick={() => setSelectedColor(color.value)}
-								aria-label={color.name}
-							/>
-						))}
-					</div>
-				</motion.div>
+
 				{/* Rating */}
 				<motion.div
 					{...filterAnim(0.9)}

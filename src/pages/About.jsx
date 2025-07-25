@@ -212,17 +212,17 @@ const About = () => {
 						Subscribe to our newsletter for the latest updates, exclusive offers, and inspiring
 						stories from the Masoom community.
 					</p>
-					<form className="w-full flex flex-col sm:flex-row items-center gap-4">
+					<form
+						onSubmit={e => e.preventDefault()}
+						className="w-full flex flex-col sm:flex-row items-center gap-4"
+					>
 						<input
 							type="email"
 							required
 							placeholder="Enter your email address"
 							className="flex-1 px-5 py-3 rounded-full border border-black focus:outline-none focus:ring-2 focus:ring-black text-base"
 						/>
-						<button
-							type="submit"
-							className="px-8 py-3 rounded-full bg-black text-white font-semibold hover:bg-neutral-800 transition-colors"
-						>
+						<button className="px-8 py-3 rounded-full bg-black text-white font-semibold hover:bg-neutral-800 transition-colors">
 							Subscribe
 						</button>
 					</form>

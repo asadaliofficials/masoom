@@ -82,7 +82,7 @@ const Footer = () => {
 									<h3 className="f-title f_600 t_color f_size_18">Categories</h3>
 									<ul className="list-unstyled f_list">
 										<li>
-											<a href="#">T-Shirts</a>
+											<a href="#">Shirts</a>
 										</li>
 										<li>
 											<a href="#">Jeans</a>

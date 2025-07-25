@@ -100,7 +100,7 @@ const Categories = () => {
 							</g>
 						</svg>
 					}
-					title={'T-Shirts'}
+					title={'Shirts'}
 					delay={1.1}
 					shouldHandleClick={!hasMoved}
 				/>

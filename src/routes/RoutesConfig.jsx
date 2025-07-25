@@ -12,13 +12,13 @@ import NotFound from '../components/NotFound';
 
 const Layout = () => {
 	const location = useLocation();
-	const isMeetMasoom =
+	const hideNavIcons =
 		location.pathname === '/meet-masoom' ||
 		location.pathname === '/about' ||
 		location.pathname === '/masoom-success';
 	return (
 		<>
-			<Nav isMeetMasoom={isMeetMasoom} />
+			<Nav hideNavIcons={hideNavIcons} />
 			<main>
 				<Outlet /> {/* Renders the matched child route */}
 			</main>

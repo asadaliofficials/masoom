@@ -1,9 +1,4 @@
-.meetmasoom-nav {
-	/* background: transparent; */
-}
 .meetmasoom-nav .navIconsParent {
-	display: none;
-	display: flex;
 	visibility: hidden;
 }
 @media (max-width: 600px) {
