@@ -1,5 +1,5 @@
 import React from 'react';
-import { DraggableCardBody, DraggableCardContainer } from '../aceternityUI/DragableCard';
+import { DraggableCardBody, DraggableCardContainer } from '../aceternityUI/DragableCard.jsx';
 
 export function DragableCardsMeet() {
 	const items = [
