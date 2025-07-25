@@ -76,7 +76,8 @@ const ProductDeatils = () => {
 			});
 		}
 		localStorage.setItem(CART_KEY, JSON.stringify(cart));
-		toast.success('Added to cart!', { position: 'top-right', autoClose: 1800 });
+		window.dispatchEvent(new Event('cartUpdated'));
+		toast.success('Added to cart!', { position: 'bottom-right', autoClose: 1800 });
 	};
 
 	useEffect(() => {
@@ -326,8 +327,608 @@ const ProductDeatils = () => {
 					</div>
 				</div>
 				{/* Product Details Section */}
-
+				<div className="mt-10 bg-white rounded-xl shadow-lg p-6">
+					<h2 className="text-xl font-bold text-gray-800 mb-4">Product Details</h2>
+					<p className="text-gray-700 mb-6 leading-relaxed">
+						Discover the perfect blend of quality, comfort, and style with our carefully curated
+						products. Each item in our collection is designed to meet the highest standards,
+						ensuring you enjoy both durability and elegance in your everyday life. Whether you're
+						dressing up for a special occasion or seeking reliable essentials for daily wear, our
+						range offers something for everyone. Experience premium craftsmanship, attention to
+						detail, and materials that feel as good as they look. Our products are made to adapt to
+						your lifestyle, providing versatility and timeless appeal. Enjoy peace of mind with
+						thoughtful features and a commitment to your satisfaction. Elevate your wardrobe and
+						home with pieces that are as unique as you are, and let every purchase reflect your
+						personal taste and confidence.
+						<br />
+						<br />
+						We believe in creating products that not only look great but also enhance your daily
+						experience. Our designs are inspired by the latest trends and timeless classics,
+						ensuring you always have access to the best of both worlds. Sustainability and ethical
+						sourcing are at the heart of our process, so you can feel good about every purchase.
+						With a focus on user comfort, intuitive functionality, and long-lasting performance, our
+						products are tested to withstand the demands of modern life. Our dedicated customer
+						support team is always here to help, making your satisfaction our top priority. Choose
+						us for a seamless blend of innovation, reliability, and style—crafted for those who
+						value quality in every detail.
+						<br />
+					</p>
+					<ul className="text-gray-700 space-y-2">
+						<li>
+							<span className="font-semibold text-gray-600">Available Sizes:</span> S, M, L, XL, XXL
+							(varies by product)
+						</li>
+						<li>
+							<span className="font-semibold text-gray-600">Color Options:</span> Multiple classic
+							and trendy colors to suit your style
+						</li>
+						<li>
+							<span className="font-semibold text-gray-600">Material:</span> High-quality,
+							comfortable, and durable fabrics or materials
+						</li>
+						<li>
+							<span className="font-semibold text-gray-600">Warranty:</span> Standard 6-month
+							manufacturer warranty on all products
+						</li>
+						<li>
+							<span className="font-semibold text-gray-600">Care Instructions:</span> Easy to
+							maintain—refer to product label for best results
+						</li>
+						<li>
+							<span className="font-semibold text-gray-600">Country of Origin:</span> Proudly made
+							with global standards
+						</li>
+						<li>
+							<span className="font-semibold text-gray-600">Shipping:</span> Free and fast shipping
+							options available
+						</li>
+						<li>
+							<span className="font-semibold text-gray-600">Returns & Exchanges:</span> Hassle-free
+							returns and exchanges for your convenience
+						</li>
+						<li>
+							<span className="font-semibold text-gray-600">Payment Methods:</span> Secure checkout
+							with multiple payment options (COD, credit/debit, etc.)
+						</li>
+						<li>
+							<span className="font-semibold text-gray-600">Customer Support:</span> 24/7 support to
+							assist you anytime
+						</li>
+						<li>
+							<span className="font-semibold text-gray-600">Size & Fit Guide:</span> Detailed guides
+							to help you find your perfect fit
+						</li>
+					</ul>
+				</div>
 				{/* Reviews Section */}
+
+				<div className="mt-10 bg-white rounded-xl shadow-lg p-6">
+					<h2 className="text-xl font-bold text-gray-800 mb-4">Customer Reviews</h2>
+					{/* Top: Total reviews and average rating */}
+					<div className="flex flex-col md:flex-row md:items-center max-w-2xl md:justify-between gap-4 mb-6">
+						<div className="flex items-center gap-3">
+							<span className="text-4xl font-extrabold text-yellow-400 flex items-center">
+								4.8
+								<svg width="32" height="32" fill="#FFC107" viewBox="0 0 16 16" className="ml-1">
+									<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.276 6.765c-.33-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.08 4.327 4.898.696c.441.062.612.636.283.95l-3.421 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+								</svg>
+							</span>
+							<span className="text-lg text-gray-600 font-semibold">188 Reviews</span>
+						</div>
+					</div>
+					{/* Rating breakdown */}
+					<div className="mb-8 space-y-2 max-w-2xl">
+						{[5, 4, 3, 2, 1].map(star => (
+							<div key={star} className="flex items-center gap-2">
+								<span className="flex items-center text-sm w-16">
+									{Array.from({ length: star }).map((_, i) => (
+										<svg key={i} width="16" height="16" fill="#FFC107" viewBox="0 0 16 16">
+											<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.276 6.765c-.33-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.08 4.327 4.898.696c.441.062.612.636.283.95l-3.421 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+										</svg>
+									))}
+								</span>
+								{/* Bar */}
+								<div className="flex-1 h-3 bg-gray-200 rounded overflow-hidden">
+									<div
+										className={`h-full rounded ${
+											star === 5
+												? 'bg-yellow-400 w-4/5'
+												: star === 4
+												? 'bg-yellow-300 w-1/6'
+												: star === 3
+												? 'bg-yellow-200 w-1/12'
+												: star === 2
+												? 'bg-yellow-100 w-1/24'
+												: 'bg-gray-100 w-1/36'
+										}`}
+									></div>
+								</div>
+								<span className="text-gray-500 text-xs w-8 text-right">
+									{star === 5 ? 120 : star === 4 ? 40 : star === 3 ? 15 : star === 2 ? 8 : 5}
+								</span>
+							</div>
+						))}
+					</div>
+					{/* Review list */}
+					<div className="space-y-8">
+						{/* Example review 1 */}
+						<div className="flex gap-4">
+							<img
+								src="https://randomuser.me/api/portraits/men/32.jpg"
+								alt="User"
+								className="w-12 h-12 rounded-full object-cover border-2 border-gray-200"
+							/>
+							<div className="flex-1">
+								<div className="flex items-center gap-2">
+									<span className="font-semibold text-gray-800">Ali Raza</span>
+									<span className="text-xs text-gray-400">2 days ago</span>
+									<span className="flex items-center ml-2">
+										{Array.from({ length: 5 }).map((_, i) => (
+											<svg key={i} width="14" height="14" fill="#FFC107" viewBox="0 0 16 16">
+												<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.276 6.765c-.33-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.08 4.327 4.898.696c.441.062.612.636.283.95l-3.421 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+											</svg>
+										))}
+									</span>
+								</div>
+								<p className="text-gray-700 mt-1">
+									Absolutely loved the quality and comfort! Delivery was super fast and the
+									packaging was beautiful. Will definitely shop again.
+								</p>
+								<div className="flex gap-4 mt-2 items-center text-sm">
+									<button className="flex items-center gap-1 text-gray-500 hover:text-pink-500 transition">
+										<svg
+											width="16"
+											height="16"
+											fill="none"
+											stroke="currentColor"
+											strokeWidth="2"
+											viewBox="0 0 24 24"
+										>
+											<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 1.01 4.5 2.09C13.09 4.01 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+										</svg>{' '}
+										12
+									</button>
+									<button className="text-blue-500 hover:underline">Reply</button>
+								</div>
+								{/* Nested reply */}
+								<div className="ml-8 mt-3 border-l-2 border-gray-100 pl-4">
+									<div className="flex items-center gap-2">
+										<img
+											src="https://randomuser.me/api/portraits/women/44.jpg"
+											alt="User"
+											className="w-8 h-8 rounded-full object-cover border border-gray-200"
+										/>
+										<span className="font-semibold text-gray-800">Sara Khan</span>
+										<span className="text-xs text-gray-400">1 day ago</span>
+									</div>
+									<p className="text-gray-700 mt-1 text-sm">
+										Thank you for your feedback! We’re glad you loved it.
+									</p>
+								</div>
+							</div>
+						</div>
+						{/* Example review 2 */}
+						<div className="flex gap-4">
+							<img
+								src="https://randomuser.me/api/portraits/women/65.jpg"
+								alt="User"
+								className="w-12 h-12 rounded-full object-cover border-2 border-gray-200"
+							/>
+							<div className="flex-1">
+								<div className="flex items-center gap-2">
+									<span className="font-semibold text-gray-800">Mehwish Noor</span>
+									<span className="text-xs text-gray-400">3 days ago</span>
+									<span className="flex items-center ml-2">
+										{Array.from({ length: 4 }).map((_, i) => (
+											<svg key={i} width="14" height="14" fill="#FFC107" viewBox="0 0 16 16">
+												<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.276 6.765c-.33-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.08 4.327 4.898.696c.441.062.612.636.283.95l-3.421 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+											</svg>
+										))}
+									</span>
+								</div>
+								<p className="text-gray-700 mt-1">
+									Nice product, fits well. Customer support was helpful when I had a question about
+									sizing.
+								</p>
+								<div className="flex gap-4 mt-2 items-center text-sm">
+									<button className="flex items-center gap-1 text-gray-500 hover:text-pink-500 transition">
+										<svg
+											width="16"
+											height="16"
+											fill="none"
+											stroke="currentColor"
+											strokeWidth="2"
+											viewBox="0 0 24 24"
+										>
+											<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 1.01 4.5 2.09C13.09 4.01 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+										</svg>{' '}
+										7
+									</button>
+									<button className="text-blue-500 hover:underline">Reply</button>
+								</div>
+								{/* Nested reply */}
+								<div className="ml-8 mt-3 border-l-2 border-gray-100 pl-4">
+									<div className="flex items-center gap-2">
+										<img
+											src="https://randomuser.me/api/portraits/men/53.jpg"
+											alt="User"
+											className="w-8 h-8 rounded-full object-cover border border-gray-200"
+										/>
+										<span className="font-semibold text-gray-800">Store Team</span>
+										<span className="text-xs text-gray-400">2 days ago</span>
+									</div>
+									<p className="text-gray-700 mt-1 text-sm">
+										We appreciate your review and are happy you found the right size!
+									</p>
+								</div>
+							</div>
+						</div>
+						{/* Example review 3 */}
+						<div className="flex gap-4">
+							<img
+								src="https://randomuser.me/api/portraits/men/77.jpg"
+								alt="User"
+								className="w-12 h-12 rounded-full object-cover border-2 border-gray-200"
+							/>
+							<div className="flex-1">
+								<div className="flex items-center gap-2">
+									<span className="font-semibold text-gray-800">Bilal Ahmed</span>
+									<span className="text-xs text-gray-400">1 week ago</span>
+									<span className="flex items-center ml-2">
+										{Array.from({ length: 5 }).map((_, i) => (
+											<svg key={i} width="14" height="14" fill="#FFC107" viewBox="0 0 16 16">
+												<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.276 6.765c-.33-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.08 4.327 4.898.696c.441.062.612.636.283.95l-3.421 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+											</svg>
+										))}
+									</span>
+								</div>
+								<p className="text-gray-700 mt-1">
+									Excellent! The product exceeded my expectations. Highly recommended for anyone
+									looking for quality.
+								</p>
+								<div className="flex gap-4 mt-2 items-center text-sm">
+									<button className="flex items-center gap-1 text-gray-500 hover:text-pink-500 transition">
+										<svg
+											width="16"
+											height="16"
+											fill="none"
+											stroke="currentColor"
+											strokeWidth="2"
+											viewBox="0 0 24 24"
+										>
+											<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 1.01 4.5 2.09C13.09 4.01 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+										</svg>{' '}
+										15
+									</button>
+									<button className="text-blue-500 hover:underline">Reply</button>
+								</div>
+							</div>
+						</div>
+						{/* Example review 4 */}
+						<div className="flex gap-4">
+							<img
+								src="https://randomuser.me/api/portraits/women/21.jpg"
+								alt="User"
+								className="w-12 h-12 rounded-full object-cover border-2 border-gray-200"
+							/>
+							<div className="flex-1">
+								<div className="flex items-center gap-2">
+									<span className="font-semibold text-gray-800">Ayesha Malik</span>
+									<span className="text-xs text-gray-400">2 weeks ago</span>
+									<span className="flex items-center ml-2">
+										{Array.from({ length: 3 }).map((_, i) => (
+											<svg key={i} width="14" height="14" fill="#FFC107" viewBox="0 0 16 16">
+												<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.276 6.765c-.33-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.08 4.327 4.898.696c.441.062.612.636.283.95l-3.421 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+											</svg>
+										))}
+									</span>
+								</div>
+								<p className="text-gray-700 mt-1">
+									Good but delivery took a bit longer than expected. Product is as described.
+								</p>
+								<div className="flex gap-4 mt-2 items-center text-sm">
+									<button className="flex items-center gap-1 text-gray-500 hover:text-pink-500 transition">
+										<svg
+											width="16"
+											height="16"
+											fill="none"
+											stroke="currentColor"
+											strokeWidth="2"
+											viewBox="0 0 24 24"
+										>
+											<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 1.01 4.5 2.09C13.09 4.01 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+										</svg>{' '}
+										3
+									</button>
+									<button className="text-blue-500 hover:underline">Reply</button>
+								</div>
+								{/* Nested reply */}
+								<div className="ml-8 mt-3 border-l-2 border-gray-100 pl-4">
+									<div className="flex items-center gap-2">
+										<img
+											src="https://randomuser.me/api/portraits/men/23.jpg"
+											alt="User"
+											className="w-8 h-8 rounded-full object-cover border border-gray-200"
+										/>
+										<span className="font-semibold text-gray-800">Delivery Team</span>
+										<span className="text-xs text-gray-400">2 weeks ago</span>
+									</div>
+									<p className="text-gray-700 mt-1 text-sm">
+										Sorry for the delay! We're working to improve our delivery times.
+									</p>
+								</div>
+							</div>
+						</div>
+						{/* Example review 5 */}
+						<div className="flex gap-4">
+							<img
+								src="https://randomuser.me/api/portraits/men/12.jpg"
+								alt="User"
+								className="w-12 h-12 rounded-full object-cover border-2 border-gray-200"
+							/>
+							<div className="flex-1">
+								<div className="flex items-center gap-2">
+									<span className="font-semibold text-gray-800">Usman Tariq</span>
+									<span className="text-xs text-gray-400">3 weeks ago</span>
+									<span className="flex items-center ml-2">
+										{Array.from({ length: 2 }).map((_, i) => (
+											<svg key={i} width="14" height="14" fill="#FFC107" viewBox="0 0 16 16">
+												<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.276 6.765c-.33-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.08 4.327 4.898.696c.441.062.612.636.283.95l-3.421 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+											</svg>
+										))}
+									</span>
+								</div>
+								<p className="text-gray-700 mt-1">
+									Average experience. The product is okay for the price.
+								</p>
+								<div className="flex gap-4 mt-2 items-center text-sm">
+									<button className="flex items-center gap-1 text-gray-500 hover:text-pink-500 transition">
+										<svg
+											width="16"
+											height="16"
+											fill="none"
+											stroke="currentColor"
+											strokeWidth="2"
+											viewBox="0 0 24 24"
+										>
+											<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 1.01 4.5 2.09C13.09 4.01 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+										</svg>{' '}
+										1
+									</button>
+									<button className="text-blue-500 hover:underline">Reply</button>
+								</div>
+								{/* Nested reply */}
+								<div className="ml-8 mt-3 border-l-2 border-gray-100 pl-4">
+									<div className="flex items-center gap-2">
+										<img
+											src="https://randomuser.me/api/portraits/women/99.jpg"
+											alt="User"
+											className="w-8 h-8 rounded-full object-cover border border-gray-200"
+										/>
+										<span className="font-semibold text-gray-800">Team</span>
+										<span className="text-xs text-gray-400">2 months ago</span>
+									</div>
+									<p className="text-gray-700 mt-1 text-sm">Glad you found it useful!</p>
+								</div>
+							</div>
+						</div>
+						{/* Example review 6 */}
+						<div className="flex gap-4">
+							<img
+								src="https://randomuser.me/api/portraits/women/34.jpg"
+								alt="User"
+								className="w-12 h-12 rounded-full object-cover border-2 border-gray-200"
+							/>
+							<div className="flex-1">
+								<div className="flex items-center gap-2">
+									<span className="font-semibold text-gray-800">Fatima Zahra</span>
+									<span className="text-xs text-gray-400">4 weeks ago</span>
+									<span className="flex items-center ml-2">
+										{Array.from({ length: 5 }).map((_, i) => (
+											<svg key={i} width="14" height="14" fill="#FFC107" viewBox="0 0 16 16">
+												<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.276 6.765c-.33-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.08 4.327 4.898.696c.441.062.612.636.283.95l-3.421 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+											</svg>
+										))}
+									</span>
+								</div>
+								<p className="text-gray-700 mt-1">
+									Amazing! The design is beautiful and the material feels premium. Will recommend to
+									friends.
+								</p>
+								<div className="flex gap-4 mt-2 items-center text-sm">
+									<button className="flex items-center gap-1 text-gray-500 hover:text-pink-500 transition">
+										<svg
+											width="16"
+											height="16"
+											fill="none"
+											stroke="currentColor"
+											strokeWidth="2"
+											viewBox="0 0 24 24"
+										>
+											<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 1.01 4.5 2.09C13.09 4.01 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+										</svg>{' '}
+										9
+									</button>
+									<button className="text-blue-500 hover:underline">Reply</button>
+								</div>
+								{/* Nested reply */}
+								<div className="ml-8 mt-3 border-l-2 border-gray-100 pl-4">
+									<div className="flex items-center gap-2">
+										<img
+											src="https://randomuser.me/api/portraits/men/41.jpg"
+											alt="User"
+											className="w-8 h-8 rounded-full object-cover border border-gray-200"
+										/>
+										<span className="font-semibold text-gray-800">Moderator</span>
+										<span className="text-xs text-gray-400">4 weeks ago</span>
+									</div>
+									<p className="text-gray-700 mt-1 text-sm">Thank you for recommending us!</p>
+								</div>
+							</div>
+						</div>
+						{/* Example review 7 */}
+						<div className="flex gap-4">
+							<img
+								src="https://randomuser.me/api/portraits/men/88.jpg"
+								alt="User"
+								className="w-12 h-12 rounded-full object-cover border-2 border-gray-200"
+							/>
+							<div className="flex-1">
+								<div className="flex items-center gap-2">
+									<span className="font-semibold text-gray-800">Hamza Sheikh</span>
+									<span className="text-xs text-gray-400">1 month ago</span>
+									<span className="flex items-center ml-2">
+										{Array.from({ length: 4 }).map((_, i) => (
+											<svg key={i} width="14" height="14" fill="#FFC107" viewBox="0 0 16 16">
+												<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.276 6.765c-.33-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.08 4.327 4.898.696c.441.062.612.636.283.95l-3.421 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+											</svg>
+										))}
+									</span>
+								</div>
+								<p className="text-gray-700 mt-1">
+									Very good value for money. The color was exactly as shown in the pictures.
+								</p>
+								<div className="flex gap-4 mt-2 items-center text-sm">
+									<button className="flex items-center gap-1 text-gray-500 hover:text-pink-500 transition">
+										<svg
+											width="16"
+											height="16"
+											fill="none"
+											stroke="currentColor"
+											strokeWidth="2"
+											viewBox="0 0 24 24"
+										>
+											<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 1.01 4.5 2.09C13.09 4.01 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+										</svg>{' '}
+										6
+									</button>
+									<button className="text-blue-500 hover:underline">Reply</button>
+								</div>
+								{/* Nested reply */}
+								<div className="ml-8 mt-3 border-l-2 border-gray-100 pl-4">
+									<div className="flex items-center gap-2">
+										<img
+											src="https://randomuser.me/api/portraits/women/90.jpg"
+											alt="User"
+											className="w-8 h-8 rounded-full object-cover border border-gray-200"
+										/>
+										<span className="font-semibold text-gray-800">Customer Service</span>
+										<span className="text-xs text-gray-400">1 month ago</span>
+									</div>
+									<p className="text-gray-700 mt-1 text-sm">
+										Thank you for your review! We're happy you liked the color.
+									</p>
+								</div>
+							</div>
+						</div>
+						{/* Example review 8 */}
+						<div className="flex gap-4">
+							<img
+								src="https://randomuser.me/api/portraits/women/55.jpg"
+								alt="User"
+								className="w-12 h-12 rounded-full object-cover border-2 border-gray-200"
+							/>
+							<div className="flex-1">
+								<div className="flex items-center gap-2">
+									<span className="font-semibold text-gray-800">Sana Javed</span>
+									<span className="text-xs text-gray-400">1 month ago</span>
+									<span className="flex items-center ml-2">
+										{Array.from({ length: 5 }).map((_, i) => (
+											<svg key={i} width="14" height="14" fill="#FFC107" viewBox="0 0 16 16">
+												<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.276 6.765c-.33-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.08 4.327 4.898.696c.441.062.612.636.283.95l-3.421 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+											</svg>
+										))}
+									</span>
+								</div>
+								<p className="text-gray-700 mt-1">
+									Superb! The shoes are so comfortable and stylish. Got lots of compliments.
+								</p>
+								<div className="flex gap-4 mt-2 items-center text-sm">
+									<button className="flex items-center gap-1 text-gray-500 hover:text-pink-500 transition">
+										<svg
+											width="16"
+											height="16"
+											fill="none"
+											stroke="currentColor"
+											strokeWidth="2"
+											viewBox="0 0 24 24"
+										>
+											<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 1.01 4.5 2.09C13.09 4.01 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+										</svg>{' '}
+										11
+									</button>
+									<button className="text-blue-500 hover:underline">Reply</button>
+								</div>
+								{/* Nested reply */}
+								<div className="ml-8 mt-3 border-l-2 border-gray-100 pl-4">
+									<div className="flex items-center gap-2">
+										<img
+											src="https://randomuser.me/api/portraits/men/61.jpg"
+											alt="User"
+											className="w-8 h-8 rounded-full object-cover border border-gray-200"
+										/>
+										<span className="font-semibold text-gray-800">Support</span>
+										<span className="text-xs text-gray-400">1 month ago</span>
+									</div>
+									<p className="text-gray-700 mt-1 text-sm">Thank you for your kind words!</p>
+								</div>
+							</div>
+						</div>
+						{/* Example review 9 */}
+						<div className="flex gap-4">
+							<img
+								src="https://randomuser.me/api/portraits/men/99.jpg"
+								alt="User"
+								className="w-12 h-12 rounded-full object-cover border-2 border-gray-200"
+							/>
+							<div className="flex-1">
+								<div className="flex items-center gap-2">
+									<span className="font-semibold text-gray-800">Zain Ul Abideen</span>
+									<span className="text-xs text-gray-400">2 months ago</span>
+									<span className="flex items-center ml-2">
+										{Array.from({ length: 3 }).map((_, i) => (
+											<svg key={i} width="14" height="14" fill="#FFC107" viewBox="0 0 16 16">
+												<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.276 6.765c-.33-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.08 4.327 4.898.696c.441.062.612.636.283.95l-3.421 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+											</svg>
+										))}
+									</span>
+								</div>
+								<p className="text-gray-700 mt-1">
+									Decent product for the price. Would buy again if needed.
+								</p>
+								<div className="flex gap-4 mt-2 items-center text-sm">
+									<button className="flex items-center gap-1 text-gray-500 hover:text-pink-500 transition">
+										<svg
+											width="16"
+											height="16"
+											fill="none"
+											stroke="currentColor"
+											strokeWidth="2"
+											viewBox="0 0 24 24"
+										>
+											<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 1.01 4.5 2.09C13.09 4.01 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+										</svg>{' '}
+										4
+									</button>
+									<button className="text-blue-500 hover:underline">Reply</button>
+								</div>
+								{/* Nested reply */}
+								<div className="ml-8 mt-3 border-l-2 border-gray-100 pl-4">
+									<div className="flex items-center gap-2">
+										<img
+											src="https://randomuser.me/api/portraits/women/99.jpg"
+											alt="User"
+											className="w-8 h-8 rounded-full object-cover border border-gray-200"
+										/>
+										<span className="font-semibold text-gray-800">Team</span>
+										<span className="text-xs text-gray-400">2 months ago</span>
+									</div>
+									<p className="text-gray-700 mt-1 text-sm">Glad you found it useful!</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</>
 	);

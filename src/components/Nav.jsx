@@ -9,14 +9,34 @@ import Cart from './Cart'; // Add this import
 const baseClass =
 	'w-max opacity-40 hover:opacity-100 transition-all duration-300 cursor-pointer font-semibold';
 
-const Nav = ({ count1 = 33, count2 = 5, hideNavIcons = false, productsList = [] }) => {
-	const cartCount = count1 > 9 ? '9+' : count1;
-	const favCount = count2 > 9 ? '9+' : count2;
+const Nav = ({ hideNavIcons = false, productsList = [] }) => {
+	const [cartCount, setCartCount] = useState(0);
+	const [favCount, setFavCount] = useState(0);
 	const [showNav, setShowNav] = useState(true);
 	const lastScrollY = useRef(0);
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [sidebarOpen, setSidebarOpen] = useState(false);
 	const [cartOpen, setCartOpen] = useState(false);
+
+	// Update cart count from localStorage
+	const updateCartCount = () => {
+		try {
+			const cart = JSON.parse(localStorage.getItem('cart')) || [];
+			const total = cart.reduce((sum, item) => sum + 1, 0);
+			setCartCount(total);
+		} catch {
+			setCartCount(0);
+		}
+	};
+
+	useEffect(() => {
+		updateCartCount();
+	}, []);
+
+	// Update when cart is opened/closed
+	useEffect(() => {
+		if (!cartOpen) updateCartCount();
+	}, [cartOpen]);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -38,7 +58,11 @@ const Nav = ({ count1 = 33, count2 = 5, hideNavIcons = false, productsList = [] 
 		const user = JSON.parse(localStorage.getItem('user'));
 		setIsLoggedIn(user && user.isLoggedIn);
 	}, []);
-
+	useEffect(() => {
+		const update = () => updateCartCount();
+		window.addEventListener('cartUpdated', update);
+		return () => window.removeEventListener('cartUpdated', update);
+	}, []);
 	return (
 		<>
 			<motion.div
@@ -127,42 +151,14 @@ const Nav = ({ count1 = 33, count2 = 5, hideNavIcons = false, productsList = [] 
 						transition={{ duration: 0.4 }}
 						className="relative"
 					>
-						{count1 > 0 && (
-							<span className="absolute top-1 right-1 transform translate-x-1/2 -translate-y-1/2 bg-gray-500 text-white text-sm font-bold rounded-full px-1.5 h-5 z-50 min-w-[20px] flex items-center justify-center">
-								{favCount}
-							</span>
-						)}
-						<div className="relative w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 rounded-4xl cursor-pointer transition-all duration-200">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="24"
-								height="24"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								strokeWidth="2"
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								className="lucide lucide-heart-icon lucide-heart"
-							>
-								<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-							</svg>
-						</div>
-					</motion.div>
-					<motion.div
-						initial={{ opacity: 0, x: 60 }}
-						animate={hideNavIcons ? { opacity: 0, x: 60 } : { opacity: 1, x: 0 }}
-						transition={{ duration: 0.4 }}
-						className="relative"
-					>
-						{count2 > 0 && (
+						{cartCount > 0 && (
 							<span className="absolute top-1 right-1 transform translate-x-1/2 -translate-y-1/2 bg-gray-500 text-white text-sm font-bold rounded-full z-50 px-1.5 h-5 min-w-[20px] flex items-center justify-center">
-								{cartCount}
+								{cartCount > 9 ? '9+' : cartCount}
 							</span>
 						)}
 						<div
 							className="relative w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 rounded-4xl cursor-pointer"
-							onClick={() => setCartOpen(true)} // <-- Open cart on click
+							onClick={() => setCartOpen(true)}
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -182,6 +178,7 @@ const Nav = ({ count1 = 33, count2 = 5, hideNavIcons = false, productsList = [] 
 							</svg>
 						</div>
 					</motion.div>
+
 					{!isLoggedIn && (
 						<motion.div
 							initial={{ opacity: 0 }}
