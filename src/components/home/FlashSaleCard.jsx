@@ -2,12 +2,10 @@ import { useState, memo } from 'react';
 import { useNavigate } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
-import Counter from '../../components/react-bits/Counter/Counter';
 import '../../styles/home/flashSale.css';
 
 const FlashSaleCard = memo(({ delay, product }) => {
 	const navigate = useNavigate();
-	const [count, setCount] = useState(0);
 	const [fav, setFav] = useState(false);
 
 	const img =
@@ -64,7 +62,7 @@ const FlashSaleCard = memo(({ delay, product }) => {
 						/>
 					</svg>
 				</motion.div>
-				<div className="absolute bottom-2 right-2 bg-white px-1 py-1 rounded-lg flex justify-center items-center gap-2 ">
+				{/* <div className="absolute bottom-2 right-2 bg-white px-1 py-1 rounded-lg flex justify-center items-center gap-2 ">
 					<div
 						onClick={e => {
 							e.stopPropagation();
@@ -108,7 +106,7 @@ const FlashSaleCard = memo(({ delay, product }) => {
 							<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
 						</svg>
 					</div>
-				</div>
+				</div> */}
 			</div>
 
 			<div className="flex flex-col h-full p-2">

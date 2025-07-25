@@ -4,17 +4,19 @@ import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import '../styles/home/navbar.css';
 import Sidebar from './Sidebar';
+import Cart from './Cart'; // Add this import
 
 const baseClass =
 	'w-max opacity-40 hover:opacity-100 transition-all duration-300 cursor-pointer font-semibold';
 
-const Nav = ({ count1 = 33, count2 = 5, hideNavIcons = false }) => {
+const Nav = ({ count1 = 33, count2 = 5, hideNavIcons = false, productsList = [] }) => {
 	const cartCount = count1 > 9 ? '9+' : count1;
 	const favCount = count2 > 9 ? '9+' : count2;
 	const [showNav, setShowNav] = useState(true);
 	const lastScrollY = useRef(0);
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [sidebarOpen, setSidebarOpen] = useState(false);
+	const [cartOpen, setCartOpen] = useState(false);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -158,7 +160,10 @@ const Nav = ({ count1 = 33, count2 = 5, hideNavIcons = false }) => {
 								{cartCount}
 							</span>
 						)}
-						<div className="relative w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 rounded-4xl cursor-pointer">
+						<div
+							className="relative w-10 h-10 flex items-center justify-center text-gray-700 hover:bg-gray-100 rounded-4xl cursor-pointer"
+							onClick={() => setCartOpen(true)} // <-- Open cart on click
+						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
 								width="24"
@@ -223,6 +228,7 @@ const Nav = ({ count1 = 33, count2 = 5, hideNavIcons = false }) => {
 					)}
 				</div>
 			</motion.div>
+			<Cart open={cartOpen} onClose={() => setCartOpen(false)} productsList={[]} />
 			<Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 		</>
 	);
