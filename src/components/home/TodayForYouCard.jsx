@@ -1,35 +1,52 @@
 import { useState, memo } from 'react';
+import { useNavigate } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import '../../styles/home/todayForYou.css';
 
-const TodayForYouCard = memo(() => {
+const TodayForYouCard = memo(({ product, delay = 0 }) => {
+	const navigate = useNavigate();
 	const [fav, setFav] = useState(false);
-	// Dummy data for demo
+	const img =
+		product?.images?.[0] ||
+		'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/b1e780ee-b4e3-4511-aef8-c68a1012a6b9/WMNS+JORDAN+CMFT+ERA.png';
 	const title =
+		product?.title ||
 		'Speed and Water Proof Shoes best for sports and swimming and it has too long title';
-	const price = 1500;
-	const oldPrice = 2500;
-	const discount = 40;
+	const price = product?.price || 1500;
+	const oldPrice = product?.oldPrice || 2500;
+	const discount = product?.discount || 40;
+	const rating = product?.rating || 4.8;
+	const solds = product?.solds || '4K';
+	const id = product?.id;
+
+	const handleClick = () => {
+		if (id) navigate(`/product/${id}`);
+	};
+
 	return (
 		<motion.div
 			initial={{ opacity: 0, scale: 0.8, y: 20 }}
 			whileInView={{ opacity: 1, scale: 1, y: 0 }}
 			viewport={{ once: true, amount: 0.2 }}
-			transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.1 }}
+			transition={{ duration: 0.3, ease: 'easeInOut', delay: delay }}
 			className="todayForYouCard group rounded-lg flex flex-col w-[250px] flex-shrink-0 h-[320px] shadow-lg bg-white border-b border-gray-200 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+			onClick={handleClick}
 		>
 			<div className="flex-1 w-full flex items-center justify-center relative select-none overflow-hidden rounded-t-lg">
 				<img
 					loading="lazy"
 					className="w-full h-full object-cover rounded-t-lg object-center transition-transform duration-300 group-hover:scale-105"
-					src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/b1e780ee-b4e3-4511-aef8-c68a1012a6b9/WMNS+JORDAN+CMFT+ERA.png"
-					alt=""
+					src={img}
+					alt={title}
 				/>
 				<div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 				<motion.div
 					className="bg-white absolute top-1 p-1 rounded-full right-1 cursor-pointer shadow"
-					onClick={() => setFav(prev => !prev)}
+					onClick={e => {
+						e.stopPropagation();
+						setFav(prev => !prev);
+					}}
 					whileTap={{ scale: 0.85 }}
 					whileHover={{ scale: 1.1 }}
 				>
@@ -69,7 +86,7 @@ const TodayForYouCard = memo(() => {
   4.898.696c.441.062.612.636.283.95l-3.421 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"
 						/>
 					</svg>
-					4.8 ● 4K Sold
+					{rating} ● {solds} Sold
 				</div>
 				{/* Price row */}
 				<div className="flex gap-1 mt-1 items-center pl-1 mb-3">

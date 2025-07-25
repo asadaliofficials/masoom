@@ -1,14 +1,27 @@
 import '../../styles/home/bestSeller.css';
+import { useNavigate } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 
-const BestSellerCard = ({ url, delay = 0 }) => {
-	// Dummy data for demo
+const BestSellerCard = ({ product, delay = 0 }) => {
+	const navigate = useNavigate();
+	const img =
+		product?.images?.[0] ||
+		'https://d2bl4mvd8nzejc.cloudfront.net/327-large_minimal_fashion/linen-blend-tuxedo-jacket.jpg';
 	const title =
+		product?.title ||
 		'The Title of this dress, and what if this has long title that should be ellipsized';
-	const price = 2999;
-	const oldPrice = 3999;
-	const discount = 25;
+	const price = product?.price || 2999;
+	const oldPrice = product?.oldPrice || 3999;
+	const discount = product?.discount || 25;
+	const rating = product?.rating || 4.8;
+	const solds = product?.solds || '4K';
+	const id = product?.id;
+
+	const handleViewDetails = () => {
+		if (id) navigate(`/product/${id}`);
+	};
+
 	return (
 		<motion.div
 			initial={{ opacity: 0, y: 50 }}
@@ -21,8 +34,8 @@ const BestSellerCard = ({ url, delay = 0 }) => {
 				<img
 					loading="lazy"
 					className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
-					src={url}
-					alt="img"
+					src={img}
+					alt={title}
 				/>
 				<div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 			</div>
@@ -47,9 +60,9 @@ const BestSellerCard = ({ url, delay = 0 }) => {
 					>
 						<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.276 6.765c-.33-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.08 4.327 4.898.696c.441.062.612.636.283.95l-3.421 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
 					</svg>
-					<span className="font-semibold">4.8</span>
+					<span className="font-semibold">{rating}</span>
 					<span>●</span>
-					<span>4K Sold</span>
+					<span>{solds} Sold</span>
 				</div>
 				{/* Price row */}
 				<div className="flex items-center gap-3 mb-2">
@@ -60,7 +73,10 @@ const BestSellerCard = ({ url, delay = 0 }) => {
 					</span>
 				</div>
 				{/* View Details button */}
-				<button className="mt-2 w-full py-2 rounded-lg border border-black bg-white text-black font-semibold hover:bg-black hover:text-white transition-all duration-200 cursor-pointer">
+				<button
+					className="mt-2 w-full py-2 rounded-lg border border-black bg-white text-black font-semibold hover:bg-black hover:text-white transition-all duration-200 cursor-pointer"
+					onClick={handleViewDetails}
+				>
 					View Details
 				</button>
 			</div>

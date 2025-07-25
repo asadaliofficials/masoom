@@ -68,7 +68,7 @@ const HeroBanner = () => {
 					<button className="active:scale-90 relative inline-block px-4 py-3 font-semibold text-white bg-black border border-black rounded-2xl cursor-pointer overflow-hidden group transition-all duration-300 ease-in-out">
 						<span className="absolute inset-0 w-full h-full bg-white transform scale-x-0 origin-right transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
 						<span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
-							Contact US
+							About US
 						</span>
 					</button>
 				</motion.div>
