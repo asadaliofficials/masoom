@@ -12,6 +12,7 @@ export function TimelineSection() {
 					</p>
 					<div className="h-[32rem]  flex justify-stat items-center ">
 						<img
+							loading="lazy"
 							src="https://res.cloudinary.com/dyibkikle/image/upload/v1753408490/IMG_1215_ze8kn6.webp"
 							alt="startup template"
 							className="h-[32rem]  rounded-lg object-cover shadow-md"
@@ -41,6 +42,7 @@ export function TimelineSection() {
 					</p>
 					<div className="h-[32rem] flex justify-start items-center">
 						<img
+							loading="lazy"
 							src="https://res.cloudinary.com/dyibkikle/image/upload/v1753408500/A5C6D370-2857-420A-9D38-A28AAE435B24_akzyd7.webp"
 							alt="hero template"
 							className="h-[32rem] w-120 rounded-lg object-cover shadow-md"
@@ -60,6 +62,7 @@ export function TimelineSection() {
 					</p>
 					<div className="h-[32rem] flex justify-start items-center">
 						<img
+							loading="lazy"
 							src="https://res.cloudinary.com/dyibkikle/image/upload/v1753411614/Banners_Recovered_-18_haydmy.webp"
 							alt="hero template"
 							className="h-[32rem] w-120 rounded-lg object-cover shadow-md"
@@ -82,6 +85,7 @@ export function TimelineSection() {
 					</p>
 					<div className="h-[32rem] flex justify-start items-center">
 						<img
+							loading="lazy"
 							src="https://res.cloudinary.com/dyibkikle/image/upload/v1753412032/Suniel-Shetty_tfemov.webp"
 							alt="hero template"
 							className="h-[32rem] w-120 rounded-lg object-cover shadow-md"
@@ -102,6 +106,7 @@ export function TimelineSection() {
 					</p>
 					<div className="h-[32rem] flex justify-start items-center">
 						<img
+							loading="lazy"
 							src="https://res.cloudinary.com/dyibkikle/image/upload/v1753412033/_DSC6191-2_wjyjhe.webp"
 							alt="hero template"
 							className="h-[32rem] w-120 rounded-lg object-cover shadow-md"

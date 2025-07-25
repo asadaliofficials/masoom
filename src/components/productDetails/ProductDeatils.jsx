@@ -57,11 +57,12 @@ const ProductDeatils = () => {
 							key={product.images[selectedImage]}
 							src={product.images[selectedImage]}
 							alt={product.title}
+							fetchPriority="high"
 							className="object-cover w-full h-full transition-all duration-300"
 							initial={{ opacity: 0, scale: 0.7 }}
 							animate={{ opacity: 1, scale: 1 }}
 							// exit={{ opacity: 0, scale: 0.7 }}
-							transition={{ duration: 0.5, delay: 0.1 }}
+							transition={{ duration: 0.5 }}
 						/>
 						{/* Fav button remains here */}
 						<motion.div
@@ -97,7 +98,7 @@ const ProductDeatils = () => {
 									selectedImage === idx ? 'border-blue-500' : 'border-gray-200'
 								} overflow-hidden bg-white flex items-center justify-center transition-all`}
 							>
-								<img src={img} alt="thumb" className="object-cover w-full h-full" />
+								<img loading="lazy" src={img} alt="thumb" className="object-cover w-full h-full" />
 							</button>
 						))}
 					</div>

@@ -15,9 +15,9 @@ const TodayForYouCard = memo(() => {
 		<motion.div
 			initial={{ opacity: 0, scale: 0.8, y: 20 }}
 			whileInView={{ opacity: 1, scale: 1, y: 0 }}
-			viewport={{ once: false, amount: 0.2 }}
+			viewport={{ once: true, amount: 0.2 }}
 			transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.1 }}
-			className="todayForYouCard group rounded-lg flex flex-col w-[220px] flex-shrink-0 h-[280px] shadow-lg bg-white border-b border-gray-200 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+			className="todayForYouCard group rounded-lg flex flex-col w-[250px] flex-shrink-0 h-[320px] shadow-lg bg-white border-b border-gray-200 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer"
 		>
 			<div className="flex-1 w-full flex items-center justify-center relative select-none overflow-hidden rounded-t-lg">
 				<img
@@ -50,17 +50,17 @@ const TodayForYouCard = memo(() => {
 				</motion.div>
 			</div>
 
-			<div className="w-full px-2 py-2">
+			<div className="w-full px-3 py-3">
 				{/* Title with tooltip */}
-				<h1 className="title text-xs font-semibold leading-1 line-clamp-2 cursor-pointer mb-1">
+				<h1 className="title text-sm font-semibold leading-1 line-clamp-2 cursor-pointer mb-1">
 					{title}
 				</h1>
 				{/* Rating and sold */}
-				<div className="flex px-1 text-xs mt-1 gap-1 items-center">
+				<div className="flex px-1 text-sm mt-1 gap-1 items-center">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
-						width="13"
-						height="13"
+						width="15"
+						height="15"
 						viewBox="0 0 16 16"
 						fill="#FFC107"
 					>
@@ -73,9 +73,9 @@ const TodayForYouCard = memo(() => {
 				</div>
 				{/* Price row */}
 				<div className="flex gap-1 mt-1 items-center pl-1 mb-3">
-					<p className="text-base font-bold text-black">Rs. {price}</p>
-					<p className="line-through text-gray-400 font-semibold text-xs">Rs. {oldPrice}</p>
-					<span className="bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded">
+					<p className="text-lg font-bold text-black">Rs. {price}</p>
+					<p className="line-through text-gray-400 font-semibold text-sm">Rs. {oldPrice}</p>
+					<span className="bg-green-100 text-green-700 text-sm font-semibold px-2 py-1 rounded">
 						{discount}% OFF
 					</span>
 				</div>

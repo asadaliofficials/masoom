@@ -199,6 +199,7 @@ class Media {
 		const img = new Image();
 		img.crossOrigin = 'anonymous';
 		img.src = this.image;
+		img.loading = 'lazy';
 		img.onload = () => {
 			texture.image = img;
 			this.program.uniforms.uImageSizes.value = [img.naturalWidth, img.naturalHeight];

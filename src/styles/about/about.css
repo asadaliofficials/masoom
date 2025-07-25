@@ -1,0 +1,10 @@
+@media (max-width: 930px) {
+	.aboutHeroBG {
+		height: 50vh !important;
+	}
+}
+@media (max-width: 560px) {
+	.aboutHeroBG {
+		height: 40 !important;
+	}
+}

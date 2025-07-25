@@ -95,7 +95,7 @@ function Card({ i, title, description, link, color, progress, range, targetScale
 					</div>
 					<div className="cardstack-imageContainer">
 						<motion.div className="cardstack-inner">
-							<img src={link} className="cardstack-img" />
+							<img src={link} className="cardstack-img" loading="lazy" alt="img" />
 						</motion.div>
 					</div>
 				</div>

@@ -13,7 +13,7 @@ const BestSellerCard = ({ url, delay = 0 }) => {
 		<motion.div
 			initial={{ opacity: 0, y: 50 }}
 			whileInView={{ opacity: 1, y: 0 }}
-			viewport={{ once: false, amount: 0.3 }}
+			viewport={{ once: true, amount: 0.3 }}
 			transition={{ duration: 0.5, ease: 'easeInOut', delay }}
 			className="bestSellerCard group h-[500px] mx-auto w-full max-w-[340px] rounded-2xl shadow-xl flex flex-col items-center border border-gray-100 bg-white cursor-pointer hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
 		>

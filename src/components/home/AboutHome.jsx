@@ -68,7 +68,7 @@ const AboutHome = () => {
 					className="socialButtons flex  items-center  pl-2 gap-8"
 					initial={{ opacity: 0, y: 50 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: false, amount: 0.4 }}
+					viewport={{ once: true, amount: 0.4 }}
 					transition={{ duration: 0.6 }}
 				>
 					<ul className="AboutSMWrapper  ">
@@ -144,31 +144,16 @@ const AboutHome = () => {
 					className="flex flex-wrap gap-4 mt-4 mb-6"
 					initial={{ opacity: 0, y: 30 }}
 					whileInView={{ opacity: 1, y: 0 }}
-					viewport={{ once: false, amount: 0.3 }}
+					viewport={{ once: true, amount: 0.3 }}
 					transition={{ duration: 0.7, delay: 0.4 }}
 				>
 					<div className="flex items-center gap-2 px-3 py-2 bg-gray-100 rounded-lg shadow-sm hover:shadow-md transition">
-						<img
-							src="https://cdn-icons-png.flaticon.com/512/5968/5968885.png"
-							alt="Forbes"
-							className="w-6 h-6"
-						/>
 						<span className="font-medium text-gray-700 text-sm">Forbes 30 Under 30</span>
 					</div>
 					<div className="flex items-center gap-2 px-3 py-2 bg-gray-100 rounded-lg shadow-sm hover:shadow-md transition">
-						<img
-							src="https://cdn-icons-png.flaticon.com/512/5968/5968853.png"
-							alt="GQ"
-							className="w-6 h-6"
-						/>
 						<span className="font-medium text-gray-700 text-sm">GQ Most Influential</span>
 					</div>
 					<div className="flex items-center gap-2 px-3 py-2 bg-gray-100 rounded-lg shadow-sm hover:shadow-md transition">
-						<img
-							src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png"
-							alt="HSBC"
-							className="w-6 h-6"
-						/>
 						<span className="font-medium text-gray-700 text-sm">HSBC Leading Female</span>
 					</div>
 				</motion.div>
@@ -176,7 +161,7 @@ const AboutHome = () => {
 					className="buttons flex  items-center  pl-2 mt-12 gap-8  w-max"
 					initial={{ opacity: 0 }}
 					whileInView={{ opacity: 1 }}
-					viewport={{ once: false, amount: 0.7 }}
+					viewport={{ once: true, amount: 0.7 }}
 					transition={{ duration: 0.6 }}
 				>
 					<button className="active:scale-90 w-max relative inline-block px-4 py-3 font-semibold text-black border border-black rounded-2xl cursor-pointer overflow-hidden group transition-all duration-300 ease-in-out whitespace-nowrap">

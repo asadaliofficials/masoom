@@ -41,7 +41,7 @@ const MarqueeColumn = ({ images, direction = 'up', duration = 20, className = ''
 				>
 					{/* Duplicate images for seamless looping */}
 					{images.concat(images).map((src, idx) => (
-						<img key={idx} className="mt-4 rounded-xl w-full" src={src} alt="" />
+						<img key={idx} className="mt-4 rounded-xl w-full" src={src} alt="masoom" />
 					))}
 				</motion.div>
 			) : null}
