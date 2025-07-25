@@ -2,19 +2,17 @@
 import { motion } from 'framer-motion';
 import '../../styles/home/categories.css';
 import { useRef, useState } from 'react';
-function Category({ svg, title, delay, shouldHandleClick }) {
-	const handleOnClick = () => {
-		if (shouldHandleClick) {
-			console.log('category clicked...');
-		}
-	};
+import { useNavigate } from 'react-router-dom';
+
+function Category({ svg, title, delay, shouldHandleClick, onClick }) {
 	return (
 		<motion.div
-			onClick={handleOnClick}
+			onClick={shouldHandleClick ? onClick : undefined}
 			initial={{ opacity: 0, scale: 0.5 }}
 			animate={{ opacity: 1, scale: 0.9 }}
 			transition={{ duration: 0.4, delay: delay }}
 			className="p-4 w-30 h-38 flex justify-center items-center flex-col"
+			style={{ cursor: shouldHandleClick ? 'pointer' : 'default' }}
 		>
 			<div className="bg-gray-200 scale-90 hover:scale-100 duration-300 cursor-pointer rounded-full overflow-hidden pt-4 h-full  flex items-center justify-center w-25">
 				{svg}
@@ -23,12 +21,14 @@ function Category({ svg, title, delay, shouldHandleClick }) {
 		</motion.div>
 	);
 }
+
 const Categories = () => {
 	const containerRef = useRef(null);
 	const [isDragging, setIsDragging] = useState(false);
 	const [startX, setStartX] = useState(0);
 	const [scrollLeft, setScrollLeft] = useState(0);
 	const [hasMoved, setHasMoved] = useState(false);
+	const navigate = useNavigate();
 
 	const handleMouseDown = e => {
 		setIsDragging(true);
@@ -57,6 +57,11 @@ const Categories = () => {
 		if (Math.abs(x - startX) > 0) {
 			setHasMoved(true);
 		}
+	};
+
+	// Helper to create a click handler for each category
+	const handleCategoryClick = title => () => {
+		navigate(`/products?q=${encodeURIComponent(title)}`);
 	};
 
 	return (
@@ -103,6 +108,7 @@ const Categories = () => {
 					title={'Shirts'}
 					delay={1.1}
 					shouldHandleClick={!hasMoved}
+					onClick={handleCategoryClick('Shirts')}
 				/>
 				<Category
 					svg={
@@ -120,6 +126,7 @@ const Categories = () => {
 								fill="#000000"
 								stroke="none"
 							>
+								{' '}
 								<path
 									d="M5770 12794 c-131 -9 -324 -40 -620 -99 -86 -17 -275 -108 -382 -183
 -127 -89 -309 -244 -340 -290 -75 -108 -87 -188 -59 -378 12 -78 21 -146 21
@@ -180,6 +187,7 @@ const Categories = () => {
 					title={'Jackets'}
 					delay={1.2}
 					shouldHandleClick={!hasMoved}
+					onClick={handleCategoryClick('Jackets')}
 				/>
 				<Category
 					svg={
@@ -222,6 +230,7 @@ const Categories = () => {
 					title={'Jeans'}
 					delay={1.3}
 					shouldHandleClick={!hasMoved}
+					onClick={handleCategoryClick('Jeans')}
 				/>
 				<Category
 					svg={
@@ -273,6 +282,7 @@ const Categories = () => {
 					title={'Skirts'}
 					delay={1.4}
 					shouldHandleClick={!hasMoved}
+					onClick={handleCategoryClick('Skirts')}
 				/>
 				<Category
 					svg={
@@ -290,6 +300,7 @@ const Categories = () => {
 								fill="#000000"
 								stroke="none"
 							>
+								{' '}
 								<path
 									d="M2911 12746 c-6 -28 -27 -168 -47 -311 -19 -143 -36 -260 -37 -261
 -1 0 -31 -12 -67 -27 -36 -14 -167 -70 -291 -125 -124 -55 -268 -116 -320
@@ -320,6 +331,7 @@ const Categories = () => {
 					title={'Brides'}
 					delay={1.5}
 					shouldHandleClick={!hasMoved}
+					onClick={handleCategoryClick('Brides')}
 				/>
 				<Category
 					svg={
@@ -330,8 +342,8 @@ const Categories = () => {
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 500 500"
 						>
-							<g id="Background"></g>
-							<g id="Objects">
+							<g id="Background">
+								{' '}
 								<path
 									d="M349.343,343.565c-0.02-2.222-0.151-4.409-0.489-6.1c-1.107-5.538-4.43-14.398-6.092-19.382
 		c-1.661-4.984-1.107-14.952-2.769-23.259c-1.661-8.307-6.645-19.382-9.414-27.689c-2.769-8.307-7.753-17.721-8.861-23.259
@@ -370,11 +382,13 @@ const Categories = () => {
 		C218.962,351.653,215.119,354.77,210.964,358.509z"
 								/>
 							</g>
+							<g id="Objects"></g>
 						</svg>
 					}
 					title={'Gym Shorts'}
 					delay={1.6}
 					shouldHandleClick={!hasMoved}
+					onClick={handleCategoryClick('Gym Shorts')}
 				/>
 				<Category
 					svg={
@@ -459,6 +473,7 @@ c-34 21 -63 43 -63 49 -1 5 21 13 48 18 64 10 211 74 461 198 164 82 214 102
 					title={'Shoes'}
 					delay={1.7}
 					shouldHandleClick={!hasMoved}
+					onClick={handleCategoryClick('Shoes')}
 				/>
 				<Category
 					svg={
@@ -524,12 +539,15 @@ c-34 21 -63 43 -63 49 -1 5 21 13 48 18 64 10 211 74 461 198 164 82 214 102
 					title={'Bags'}
 					delay={1.8}
 					shouldHandleClick={!hasMoved}
+					onClick={handleCategoryClick('Bags')}
 				/>
 				<motion.div
 					initial={{ opacity: 0, scale: 0.5 }}
 					animate={{ opacity: 1, scale: 0.9 }}
 					transition={{ duration: 0.4, delay: 1.9 }}
 					className="p-4 w-30 h-38 flex justify-center items-center flex-col"
+					style={{ cursor: 'pointer' }}
+					onClick={() => navigate('/products')}
 				>
 					<div className="border-2 scale-90 hover:scale-100 duration-300 cursor-pointer border-gray-300 rounded-full overflow-hidden h-full  flex items-center justify-center w-25">
 						<svg

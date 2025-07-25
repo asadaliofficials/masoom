@@ -3,8 +3,11 @@ import CircularText from '../../components/react-bits/CircularText/CircularText'
 import '../../styles/home/heroBanner.css';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const HeroBanner = () => {
+	const navigate = useNavigate();
+
 	return (
 		<div className="heroBanner  w-full h-[460px]  flex ">
 			<div className="left relative  flex flex-col items-start justify-center p-12 w-[50%] ">
@@ -59,13 +62,19 @@ const HeroBanner = () => {
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.6, delay: 1 }}
 				>
-					<button className="active:scale-90 relative inline-block px-4 py-3 font-semibold text-black border border-black rounded-2xl cursor-pointer overflow-hidden group transition-all duration-300 ease-in-out">
+					<button
+						className="active:scale-90 relative inline-block px-4 py-3 font-semibold text-black border border-black rounded-2xl cursor-pointer overflow-hidden group transition-all duration-300 ease-in-out"
+						onClick={() => navigate('/products')}
+					>
 						<span className="absolute inset-0 w-full h-full bg-black transform scale-x-0 origin-left transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
 						<span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-white">
 							Show All Products
 						</span>
 					</button>
-					<button className="active:scale-90 relative inline-block px-4 py-3 font-semibold text-white bg-black border border-black rounded-2xl cursor-pointer overflow-hidden group transition-all duration-300 ease-in-out">
+					<button
+						className="active:scale-90 relative inline-block px-4 py-3 font-semibold text-white bg-black border border-black rounded-2xl cursor-pointer overflow-hidden group transition-all duration-300 ease-in-out"
+						onClick={() => navigate('/about')}
+					>
 						<span className="absolute inset-0 w-full h-full bg-white transform scale-x-0 origin-right transition-transform duration-300 ease-in-out group-hover:scale-x-100"></span>
 						<span className="relative z-10 transition-colors duration-300 ease-in-out group-hover:text-black">
 							About US
