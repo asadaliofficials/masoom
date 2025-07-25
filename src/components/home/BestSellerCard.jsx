@@ -15,7 +15,7 @@ const BestSellerCard = ({ url, delay = 0 }) => {
 			whileInView={{ opacity: 1, y: 0 }}
 			viewport={{ once: true, amount: 0.3 }}
 			transition={{ duration: 0.5, ease: 'easeInOut', delay }}
-			className="bestSellerCard group h-[500px] mx-auto w-full max-w-[340px] rounded-2xl shadow-xl flex flex-col items-center border border-gray-100 bg-white cursor-pointer hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
+			className="bestSellerCard group h-[500px] mx-auto w-full max-w-[340px] rounded-2xl shadow-xl flex flex-col items-center border border-gray-100 bg-white  hover:shadow-2xl hover:-translate-y-2 transition-all duration-300"
 		>
 			<div className="relative h-[68%] w-full overflow-hidden rounded-t-2xl">
 				<img
@@ -60,7 +60,7 @@ const BestSellerCard = ({ url, delay = 0 }) => {
 					</span>
 				</div>
 				{/* View Details button */}
-				<button className="mt-2 w-full py-2 rounded-lg border border-black bg-white text-black font-semibold hover:bg-black hover:text-white transition-all duration-200">
+				<button className="mt-2 w-full py-2 rounded-lg border border-black bg-white text-black font-semibold hover:bg-black hover:text-white transition-all duration-200 cursor-pointer">
 					View Details
 				</button>
 			</div>

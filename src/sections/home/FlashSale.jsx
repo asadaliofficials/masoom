@@ -1,11 +1,13 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import FlashSaleCard from '../../components/home/FlashSaleCard';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
+import ProductsContext from '../../context/ProductsContext.js';
 
 const FlashSale = () => {
 	const [time, setTime] = useState({ hours: 8, minutes: 17, seconds: 25 });
 	const cardsRef = useRef(null);
+	const products = useContext(ProductsContext);
 
 	const format = num => String(num).padStart(2, '0');
 
@@ -52,6 +54,11 @@ const FlashSale = () => {
 			cardsRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
 		}
 	};
+
+	const flashSaleIds = [8, 75, 21, 101, 85, 40, 34, 47];
+	const flashSaleProducts = flashSaleIds
+		.map(id => products.find(p => Number(p.id) === Number(id)))
+		.filter(Boolean);
 
 	return (
 		<>
@@ -144,8 +151,9 @@ const FlashSale = () => {
 					className="cards mt-6 flex flex-nowrap gap-8 overflow-x-auto w-full min-w-0"
 					ref={cardsRef}
 				>
-					{[1, 2, 3, 4, 1, 1, 1, 1].map((val, i) => (
-						<FlashSaleCard key={i} delay={val * 0.1} />
+					{/* 8, 75, 21, 101, 85, 40, 34, 47 */}
+					{flashSaleProducts.map((product, i) => (
+						<FlashSaleCard key={product.id} product={product} delay={flashSaleIds[i] * 0.1} />
 					))}
 				</div>
 			</div>
