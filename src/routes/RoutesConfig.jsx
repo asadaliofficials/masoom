@@ -1,6 +1,6 @@
 import { Routes, Route, Outlet, useLocation } from 'react-router-dom';
 import Home from '../pages/Home';
-import Login from '../components/login/login';
+import Login from '../components/login/Login';
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
 import Products from '../pages/Products';
