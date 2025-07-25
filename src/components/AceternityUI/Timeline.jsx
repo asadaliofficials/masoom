@@ -1,4 +1,3 @@
-'use client';
 // eslint-disable-next-line no-unused-vars
 import { useScroll, useTransform, motion } from 'framer-motion';
 import React, { useEffect, useRef, useState } from 'react';
@@ -27,7 +26,7 @@ export const Timeline = ({ data }) => {
 		<div className="w-full bg-white font-sans md:px-10" ref={containerRef}>
 			<div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
 				<h2 className="text-lg md:text-4xl mb-4 text-black font-bold max-w-4xl">
-	A Journey of Impact & Inspiration
+					A Journey of Impact & Inspiration
 				</h2>
 				<p className="text-neutral-800 text-sm md:text-base max-w-sm">
 					Explore the milestones, achievements, and heartfelt stories from Masoom’s inspiring
