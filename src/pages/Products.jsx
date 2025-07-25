@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
+import ProductsContext from '../context/ProductsContext.js';
 // eslint-disable-next-line no-unused-vars
 import { delay, motion } from 'framer-motion';
 import ProductPageCard from '../components/products/ProductPageCard';
@@ -45,7 +46,8 @@ const Products = () => {
 	const [dropdownOpen, setDropdownOpen] = useState(false);
 	const dropdownToggleRef = useRef(null);
 	const dropdownMenuRef = useRef(null);
-
+	const products = useContext(ProductsContext);
+	console.log(products);
 	// Filter states
 	const [selectedCategory, setSelectedCategory] = useState('all');
 	const [freeDelivery, setFreeDelivery] = useState(false);
