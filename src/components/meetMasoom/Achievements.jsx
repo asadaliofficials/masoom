@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 
 const achievementData = [
@@ -11,7 +12,7 @@ const achievementData = [
 
 const Achievements = () => {
 	return (
-		<section className="py-16 px-6 ">
+		<section className="py-16 px-6">
 			<div className="max-w-4xl mx-auto text-center">
 				<motion.h2
 					initial={{ opacity: 0, scale: 0.8 }}
@@ -29,7 +30,7 @@ const Achievements = () => {
 							initial={{ opacity: 0, y: 40 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							whileHover={{ y: -5 }} // 👈 Slide up on hover
-							viewport={{ once: true,  }}
+							viewport={{ once: true }}
 							transition={{ duration: 0.3 }}
 							className="relative bg-white p-6 rounded-xl shadow-lg flex items-center cursor-pointer transition-all"
 						>

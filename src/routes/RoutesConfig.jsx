@@ -6,6 +6,7 @@ import Nav from '../components/Nav';
 import Products from '../pages/Products';
 import ProductDetails from '../components/productDetails/ProductDeatils';
 import MeetMasoom from '../pages/MeetMasoom';
+import MasoomSuccess from '../pages/MasoomSuccess';
 
 const Layout = () => {
 	const location = useLocation();
@@ -31,6 +32,7 @@ const RoutesConfig = () => {
 				<Route path="products" element={<Products />} />
 				<Route path="product/:id" element={<ProductDetails />} />
 				<Route path="meet-masoom" element={<MeetMasoom />} />
+				<Route path="masoom-success" element={<MasoomSuccess />} />
 			</Route>
 
 			{/* Route without layout */}

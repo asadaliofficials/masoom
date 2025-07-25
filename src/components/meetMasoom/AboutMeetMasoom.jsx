@@ -4,7 +4,7 @@ import ScrollFloat from '../react-bits/ScrollFloat/ScrollFloat';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import '../../styles/home/aboutHome.css';
-import { AnimatedTooltip } from '../AceternityUI/AnimaedToolTip.jsx';
+import { AnimatedTooltip } from '../aceternityUI/AnimaedToolTip.jsx';
 
 const AboutHome = () => {
 	const imgRef = useRef(null);

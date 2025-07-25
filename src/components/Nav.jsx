@@ -98,7 +98,7 @@ const Nav = ({ count1 = 33, count2 = 5, isMeetMasoom = false }) => {
 					Meet Masoom
 				</NavLink>
 				<NavLink
-					to="/masoom-success-story"
+					to="/masoom-success"
 					className={({ isActive }) => `${baseClass} ${isActive ? 'font-bold opacity-100' : ''}`}
 				>
 					Masoom's Success
