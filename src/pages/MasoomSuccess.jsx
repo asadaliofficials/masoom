@@ -2,10 +2,10 @@ import Hero from '../components/masoomSuccess/HeroMasoomSuccess';
 import PressSection from '../components/masoomSuccess/PressSection';
 import { TimelineSection } from '../components/masoomSuccess/TimelineSection';
 import { TestimonialsSection } from '../components/masoomSuccess/TestimonialsSection';
-
+import '../styles/masoomSuccess/masoomSuccess.css';
 const MasoomSuccess = () => {
 	return (
-		<div>
+		<div className="overflow-x-hidden">
 			<Hero />
 			<PressSection />
 			<TimelineSection />

@@ -1,13 +1,13 @@
 import BlurText from '../react-bits/BlurText/BlurText';
 const Hero = () => {
 	return (
-		<div className="w-full h-[90vh] relative top-0 left-0 overflow-hidden z-10">
+		<div className="SuccessHero w-full h-[90vh] relative top-0 left-0 overflow-hidden z-10">
 			<video
 				src="/vid/vid-2.mp4"
 				autoPlay
 				muted
 				loop
-				className="w-full h-full rounded-lg object-cover"
+				className=" h-full w-full rounded-lg overflow-hidden object-cover"
 			/>
 			<div className="text-white absolute bottom-8 left-0 right-0 flex flex-col">
 				<BlurText
@@ -15,7 +15,7 @@ const Hero = () => {
 					delay={100}
 					animateBy="words"
 					direction="bottom"
-					className="text-3xl justify-center! font-semibold tracking-wider mb-4 flex max-w-4xl mx-auto"
+					className="qouteHero text-3xl justify-center! font-semibold tracking-wider mb-4 flex max-w-4xl mx-auto"
 					style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}
 				/>
 			</div>

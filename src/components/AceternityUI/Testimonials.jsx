@@ -30,7 +30,8 @@ export const AnimatedTestimonials = ({ testimonials, autoplay = false }) => {
 		return Math.floor(Math.random() * 21) - 10;
 	};
 	return (
-		<div className="mx-auto max-w-sm px-4 py-20 font-sans h-screen flex flex-col justify-center antialiased md:max-w-4xl md:px-8 lg:px-12">
+		<div className="mx-auto max-w-sm px-4 py-20 font-sans h-screen gap-20 flex flex-col justify-center antialiased md:max-w-4xl md:px-8 lg:px-12">
+			<h2 className="text-4xl font-bold text-black">What people say about Masoom</h2>
 			<div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
 				<div>
 					<div className="relative h-80 w-full">
