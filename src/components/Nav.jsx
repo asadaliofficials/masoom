@@ -23,7 +23,7 @@ const Nav = ({ hideNavIcons = false }) => {
 	const updateCartCount = () => {
 		try {
 			const cart = JSON.parse(localStorage.getItem('cart')) || [];
-			const total = cart.reduce((sum, item) => sum + (item.count || 1), 0);
+			const total = cart.reduce(sum => sum + 1, 0);
 			setCartCount(total);
 		} catch {
 			setCartCount(0);
