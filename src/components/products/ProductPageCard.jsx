@@ -30,7 +30,7 @@ const ProductPageCard = memo(({ product }) => {
 			whileHover={{ y: -8, boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}
 			viewport={{ once: true, amount: 0.2 }}
 			transition={{ duration: 0.3, ease: 'easeInOut', delay: 0.1 }}
-			className="ProductPageCard rounded-lg flex flex-col w-[230px] flex-shrink-0 h-[300px] shadow-xl bg-white border-b border-gray-300 cursor-pointer"
+			className="ProductPageCard rounded-lg flex flex-col w-full max-w-[230px] flex-shrink-0 h-[300px] shadow-xl bg-white border-b border-gray-300 cursor-pointer"
 			onClick={handleClick}
 		>
 			<div className="w-full h-[60%] flex items-center justify-center relative select-none">
