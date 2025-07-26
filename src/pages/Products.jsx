@@ -292,7 +292,7 @@ const Products = () => {
 							<input
 								type="text"
 								placeholder="Search products..."
-								className="pl-10 pr-20 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-200 bg-white text-gray-700 w-full shadow-sm focus:ring-0 focus:outline-0"
+								className="pl-10 pr-20 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-blue-200 bg-white text-gray-700 w-full shadow-sm focus:ring-0 focus:outline-0"
 								value={searchInput}
 								onChange={e => setSearchInput(e.target.value)}
 								onKeyDown={e => {
