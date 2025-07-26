@@ -856,7 +856,7 @@ const Products = [
 	},
 	{
 		id: 21,
-		title: 'Straight High Jeans',
+		title: 'Straight High Jeans blue color with white shade',
 		images: [
 			'https://image.hm.com/assets/hm/83/34/833435a34190ab6ee7d9b33f7e37d9345fcf9e17.jpg?imwidth=2160',
 			'https://image.hm.com/assets/hm/28/4c/284c3357fa3392a8b755311a663edad0632d1638.jpg?imwidth=2160',
@@ -1750,7 +1750,7 @@ const Products = [
 	},
 	{
 		id: 85,
-		title: 'ASOS DESIGN smart backpack in black',
+		title: 'ASOS DESIGN smart backpack in black the popular in Africa',
 		images: [
 			'https://images.asos-media.com/products/asos-design-smart-backpack-in-black/208041790-4?$n_640w$&wid=513&fit=constrain',
 			'https://images.asos-media.com/products/asos-design-smart-backpack-in-black/208041790-1-black?$n_640w$&wid=513&fit=constrain',

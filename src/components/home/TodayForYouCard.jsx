@@ -2,6 +2,7 @@ import { useState, memo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
+import { toast } from 'react-toastify'; // <-- Import toast
 import '../../styles/home/todayForYou.css';
 
 const FAV_KEY = 'favourites';
@@ -36,10 +37,16 @@ const TodayForYouCard = memo(({ product, delay = 0 }) => {
 	const id = product?.id;
 
 	const [fav, setFav] = useState(false);
+	const [justAdded, setJustAdded] = useState(false);
 
+	// Set initial fav state on mount
 	useEffect(() => {
 		const favs = getFavFromLocalStorage();
 		setFav(favs.some(item => item.id === id));
+	}, [id]);
+
+	// Listen for favouritesUpdated event and update fav state
+	useEffect(() => {
 		const updateFav = () => {
 			const favs = getFavFromLocalStorage();
 			setFav(favs.some(item => item.id === id));
@@ -47,6 +54,14 @@ const TodayForYouCard = memo(({ product, delay = 0 }) => {
 		window.addEventListener('favouritesUpdated', updateFav);
 		return () => window.removeEventListener('favouritesUpdated', updateFav);
 	}, [id]);
+
+	// Show toast only when just added
+	useEffect(() => {
+		if (justAdded) {
+			toast.success('Added to Favourite!', { position: 'bottom-right', autoClose: 1800 });
+			setJustAdded(false);
+		}
+	}, [justAdded]);
 
 	const handleFavClick = e => {
 		e.stopPropagation();
@@ -60,6 +75,7 @@ const TodayForYouCard = memo(({ product, delay = 0 }) => {
 			const updatedFavs = [...favs, newFav];
 			setFavToLocalStorage(updatedFavs);
 			setFav(true);
+			setJustAdded(true);
 		}
 	};
 

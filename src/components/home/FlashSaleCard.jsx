@@ -1,25 +1,10 @@
-import { useState, memo, useEffect } from 'react';
+import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
-// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
+import { toast } from 'react-toastify';
 import '../../styles/home/flashSale.css';
-const FAV_KEY = 'favourites';
-import { toast, ToastContainer } from 'react-toastify';
-const getFavFromLocalStorage = () => {
-	try {
-		const favs = JSON.parse(localStorage.getItem(FAV_KEY));
-		return Array.isArray(favs) ? favs : [];
-	} catch {
-		return [];
-	}
-};
 
-const setFavToLocalStorage = favs => {
-	localStorage.setItem(FAV_KEY, JSON.stringify(favs));
-	window.dispatchEvent(new Event('favouritesUpdated'));
-};
-
-const FlashSaleCard = memo(({ product }) => {
+const FlashSaleCard = memo(({ product, isFav, onFavToggle }) => {
 	const navigate = useNavigate();
 
 	const img =
@@ -33,49 +18,11 @@ const FlashSaleCard = memo(({ product }) => {
 	const solds = product?.solds || '7/10';
 	const id = product?.id;
 
-	// Check if this product is in favourites
-	const [fav, setFav] = useState(false);
-	const [justAdded, setJustAdded] = useState(false);
-
-	// Set initial fav state on mount
-	useEffect(() => {
-		const favs = getFavFromLocalStorage();
-		setFav(favs.some(item => item.id === id));
-	}, [id]);
-
-	// Listen for favouritesUpdated event and update fav state
-	useEffect(() => {
-		const updateFav = () => {
-			const favs = getFavFromLocalStorage();
-			setFav(favs.some(item => item.id === id));
-		};
-		window.addEventListener('favouritesUpdated', updateFav);
-		return () => window.removeEventListener('favouritesUpdated', updateFav);
-	}, [id]);
-
-	// Show toast only when just added
-	useEffect(() => {
-		if (justAdded) {
-			toast.success('Added to Favourite!', { position: 'bottom-right', autoClose: 1800 });
-			setJustAdded(false);
-		}
-	}, [justAdded]);
-
 	const handleFavClick = e => {
 		e.stopPropagation();
-		const favs = getFavFromLocalStorage();
-		if (fav) {
-			// Remove from favourites
-			const updatedFavs = favs.filter(item => item.id !== id);
-			setFavToLocalStorage(updatedFavs);
-			setFav(false);
-		} else {
-			// Add to favourites
-			const newFav = { id, title, image: img, price };
-			const updatedFavs = [...favs, newFav];
-			setFavToLocalStorage(updatedFavs);
-			setFav(true);
-			setJustAdded(true);
+		onFavToggle();
+		if (!isFav) {
+			toast.success('Added to Favourite!', { position: 'bottom-right', autoClose: 1800 });
 		}
 	};
 
@@ -92,7 +39,7 @@ const FlashSaleCard = memo(({ product }) => {
 			className="flashSaleCard rounded-lg flex flex-col w-[300px] flex-shrink-0 h-[420px] shadow-xl bg-white border-b border-gray-300 cursor-pointer"
 			onClick={handleClick}
 		>
-			<div className="w-full h-2/3  flex items-center justify-center relative select-none">
+			<div className="w-full h-2/3 flex items-center justify-center relative select-none">
 				<img
 					loading="lazy"
 					className="w-full h-full object-cover rounded-t-lg object-top"
@@ -106,13 +53,13 @@ const FlashSaleCard = memo(({ product }) => {
 				>
 					<svg width="20" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
 						<motion.path
-							key={fav ? 'liked' : 'unliked'}
+							key={isFav ? 'liked' : 'unliked'}
 							initial={{ scale: 0 }}
 							animate={{ scale: 1 }}
 							transition={{ type: 'spring', stiffness: 100, damping: 15 }}
 							d="M28.343,17.48L16,29  L3.657,17.48C1.962,15.898,1,13.684,1,11.365v0C1,6.745,4.745,3,9.365,3h0.17c2.219,0,4.346,0.881,5.915,2.45L16,6l0.55-0.55  C18.119,3.881,20.246,3,22.465,3h0.17C27.255,3,31,6.745,31,11.365v0C31,13.684,30.038,15.898,28.343,17.48z"
-							fill={fav ? '#FF2056' : 'transparent'}
-							stroke={fav ? '#FF2056' : 'black'}
+							fill={isFav ? '#FF2056' : 'transparent'}
+							stroke={isFav ? '#FF2056' : 'black'}
 							strokeLinejoin="round"
 							strokeMiterlimit="10"
 							strokeWidth="3"
@@ -120,18 +67,18 @@ const FlashSaleCard = memo(({ product }) => {
 					</svg>
 				</motion.div>
 			</div>
-			<div className="p-4 flex-1 flex flex-col">
-				<h3 className="text-lg font-semibold line-clamp-2">{title}</h3>
-				<div className="mt-2">
-					<p className="text-2xl font-bold">Rs. {price}</p>
+			<div className="flex flex-col h-full p-2">
+				<h1 className="title text-base font-semibold leading-tight">{title}</h1>
+				<div className="flex gap-2 mt-3 items-center">
+					<p className="text-xl font-bold">Rs. {price}</p>
 					<p className="line-through text-rose-500 font-semibold">Rs. {oldPrice}</p>
 				</div>
 				<hr style={{ opacity: '0.3' }} />
 				<div className="flex gap-3 justify-center items-center mt-1">
-					<div className="w-full h-3 rounded-full  bg-gray-200">
+					<div className="w-full h-3 rounded-full bg-gray-200">
 						<div className="w-[70%] h-full bg-black rounded-full"></div>
 					</div>
-					<p className="text-nowrap tracking-wide">{solds} Sold</p>
+					<p className="text-nowrap tracking-wide text-sm">{solds} Sold</p>
 				</div>
 			</div>
 		</motion.div>
