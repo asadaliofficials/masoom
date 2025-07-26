@@ -38,13 +38,7 @@ const Cart = ({ open, onClose, productsList = [] }) => {
 		document.addEventListener('mousedown', handleClick);
 		return () => document.removeEventListener('mousedown', handleClick);
 	}, [open, onClose]);
-
-	const handleDelete = id => {
-		const updatedCart = cartItems.filter(item => item.id !== id);
-		setCartItems(updatedCart);
-		setCartToLocalStorage(updatedCart);
-	};
-
+	console.log(productsList);
 	const getProduct = id => productsList.find(p => p.id === id);
 	return (
 		<AnimatePresence>
@@ -80,11 +74,11 @@ const Cart = ({ open, onClose, productsList = [] }) => {
 											key={item.id}
 											className="flex items-center gap-3 border rounded-lg p-3 shadow-sm bg-gray-50 relative"
 										>
-											{product?.images?.[0] && (
+											{(item.image || product?.images?.[0]) && (
 												<img
-													src={item.image}
+													src={item.image || product?.images?.[0]}
 													alt={item.title || product?.title || 'Product'}
-													className="w-14 h-14 object-cover rounded"
+													className="w-14 h-14 object-cover rounded object-top"
 												/>
 											)}
 											<div className="flex-1 flex flex-col">

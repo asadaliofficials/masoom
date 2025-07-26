@@ -1,0 +1,14 @@
+@media (max-width: 505px) {
+	.pagination {
+		width: 350px;
+
+		overflow: hidden;
+	}
+}
+@media (max-width: 435px) {
+	.pagination {
+		width: 300px;
+
+		overflow: hidden;
+	}
+}

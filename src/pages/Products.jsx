@@ -4,6 +4,7 @@ import ProductsContext from '../context/ProductsContext.js';
 // eslint-disable-next-line no-unused-vars
 import { delay, motion } from 'framer-motion';
 import ProductPageCard from '../components/products/ProductPageCard';
+import '../styles/products/products.css';
 const options = [
 	'No Filters',
 	'Most Popular',
@@ -392,7 +393,7 @@ const Products = () => {
 						))}
 					</div>
 					{/* Pagination */}
-					<div className="flex justify-end mt-8">
+					<div className="flex justify-end mt-8 pagination">
 						<nav className="inline-flex items-center gap-1 rounded-md bg-gray-50 p-2 shadow-sm">
 							<button
 								onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
