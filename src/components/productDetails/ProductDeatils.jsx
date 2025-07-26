@@ -82,9 +82,54 @@ const ProductDeatils = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
+	const FAV_KEY = 'favourites';
+
+	const getFavFromLocalStorage = () => {
+		try {
+			const favs = JSON.parse(localStorage.getItem(FAV_KEY));
+			return Array.isArray(favs) ? favs : [];
+		} catch {
+			return [];
+		}
+	};
+
+	const setFavToLocalStorage = favs => {
+		localStorage.setItem(FAV_KEY, JSON.stringify(favs));
+		window.dispatchEvent(new Event('favouritesUpdated'));
+	};
+	useEffect(() => {
+		const favs = getFavFromLocalStorage();
+		setFav(favs.some(item => String(item.id) === String(product.id)));
+		const updateFav = () => {
+			const favs = getFavFromLocalStorage();
+			setFav(favs.some(item => String(item.id) === String(product.id)));
+		};
+		window.addEventListener('favouritesUpdated', updateFav);
+		return () => window.removeEventListener('favouritesUpdated', updateFav);
+	}, [product.id]);
+
+	const handleFavClick = e => {
+		e.stopPropagation();
+		const favs = getFavFromLocalStorage();
+		if (fav) {
+			const updatedFavs = favs.filter(item => String(item.id) !== String(product.id));
+			setFavToLocalStorage(updatedFavs);
+			setFav(false);
+		} else {
+			const newFav = {
+				id: product.id,
+				title: product.title,
+				image: product.images[0],
+				price: product.price,
+			};
+			const updatedFavs = [...favs, newFav];
+			setFavToLocalStorage(updatedFavs);
+			toast.success('Added to Favourite!', { position: 'bottom-right', autoClose: 1800 });
+			setFav(true);
+		}
+	};
 	return (
 		<>
-			<ToastContainer />
 			<div className="w-full min-h-screen bg-gray-50 p-6">
 				{/* Breadcrumb */}
 				<nav className="text-sm text-gray-400 mb-6">
@@ -115,7 +160,7 @@ const ProductDeatils = () => {
 							{/* Fav button remains here */}
 							<motion.div
 								className="bg-white absolute top-2 p-2 rounded-full right-2 cursor-pointer"
-								onClick={() => setFav(prev => !prev)}
+								onClick={handleFavClick}
 								whileTap={{ scale: 0.85 }}
 								initial={{ opacity: 0, y: -10 }}
 								animate={{ opacity: 1, y: 0 }}

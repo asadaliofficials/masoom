@@ -1,12 +1,26 @@
-import { useState, memo } from 'react';
+import { useState, memo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import '../../styles/home/flashSale.css';
+const FAV_KEY = 'favourites';
+import { toast, ToastContainer } from 'react-toastify';
+const getFavFromLocalStorage = () => {
+	try {
+		const favs = JSON.parse(localStorage.getItem(FAV_KEY));
+		return Array.isArray(favs) ? favs : [];
+	} catch {
+		return [];
+	}
+};
+
+const setFavToLocalStorage = favs => {
+	localStorage.setItem(FAV_KEY, JSON.stringify(favs));
+	window.dispatchEvent(new Event('favouritesUpdated'));
+};
 
 const FlashSaleCard = memo(({ product }) => {
 	const navigate = useNavigate();
-	const [fav, setFav] = useState(false);
 
 	const img =
 		product?.images?.[0] ||
@@ -19,6 +33,52 @@ const FlashSaleCard = memo(({ product }) => {
 	const solds = product?.solds || '7/10';
 	const id = product?.id;
 
+	// Check if this product is in favourites
+	const [fav, setFav] = useState(false);
+	const [justAdded, setJustAdded] = useState(false);
+
+	// Set initial fav state on mount
+	useEffect(() => {
+		const favs = getFavFromLocalStorage();
+		setFav(favs.some(item => item.id === id));
+	}, [id]);
+
+	// Listen for favouritesUpdated event and update fav state
+	useEffect(() => {
+		const updateFav = () => {
+			const favs = getFavFromLocalStorage();
+			setFav(favs.some(item => item.id === id));
+		};
+		window.addEventListener('favouritesUpdated', updateFav);
+		return () => window.removeEventListener('favouritesUpdated', updateFav);
+	}, [id]);
+
+	// Show toast only when just added
+	useEffect(() => {
+		if (justAdded) {
+			toast.success('Added to Favourite!', { position: 'bottom-right', autoClose: 1800 });
+			setJustAdded(false);
+		}
+	}, [justAdded]);
+
+	const handleFavClick = e => {
+		e.stopPropagation();
+		const favs = getFavFromLocalStorage();
+		if (fav) {
+			// Remove from favourites
+			const updatedFavs = favs.filter(item => item.id !== id);
+			setFavToLocalStorage(updatedFavs);
+			setFav(false);
+		} else {
+			// Add to favourites
+			const newFav = { id, title, image: img, price };
+			const updatedFavs = [...favs, newFav];
+			setFavToLocalStorage(updatedFavs);
+			setFav(true);
+			setJustAdded(true);
+		}
+	};
+
 	const handleClick = () => {
 		if (id) navigate(`/product/${id}`);
 	};
@@ -28,7 +88,7 @@ const FlashSaleCard = memo(({ product }) => {
 			initial={{ opacity: 0, scale: 0.5, y: 20 }}
 			whileInView={{ opacity: 1, scale: 1, y: 0 }}
 			viewport={{ once: true, amount: 0.4 }}
-			transition={{ duration: 0.3, ease: 'easeInOut', }}
+			transition={{ duration: 0.3, ease: 'easeInOut' }}
 			className="flashSaleCard rounded-lg flex flex-col w-[300px] flex-shrink-0 h-[420px] shadow-xl bg-white border-b border-gray-300 cursor-pointer"
 			onClick={handleClick}
 		>
@@ -41,10 +101,7 @@ const FlashSaleCard = memo(({ product }) => {
 				/>
 				<motion.div
 					className="bg-white absolute top-2 p-2 rounded-full right-2 cursor-pointer"
-					onClick={e => {
-						e.stopPropagation();
-						setFav(prev => !prev);
-					}}
+					onClick={handleFavClick}
 					whileTap={{ scale: 0.85 }}
 				>
 					<svg width="20" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -63,10 +120,9 @@ const FlashSaleCard = memo(({ product }) => {
 					</svg>
 				</motion.div>
 			</div>
-
-			<div className="flex flex-col h-full p-2">
-				<h1 className="title text-base font-semibold leading-tight">{title}</h1>
-				<div className="flex gap-2 mt-3 items-center">
+			<div className="p-4 flex-1 flex flex-col">
+				<h3 className="text-lg font-semibold line-clamp-2">{title}</h3>
+				<div className="mt-2">
 					<p className="text-2xl font-bold">Rs. {price}</p>
 					<p className="line-through text-rose-500 font-semibold">Rs. {oldPrice}</p>
 				</div>

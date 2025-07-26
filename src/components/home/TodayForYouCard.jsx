@@ -1,12 +1,27 @@
-import { useState, memo } from 'react';
+import { useState, memo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import '../../styles/home/todayForYou.css';
 
+const FAV_KEY = 'favourites';
+
+const getFavFromLocalStorage = () => {
+	try {
+		const favs = JSON.parse(localStorage.getItem(FAV_KEY));
+		return Array.isArray(favs) ? favs : [];
+	} catch {
+		return [];
+	}
+};
+
+const setFavToLocalStorage = favs => {
+	localStorage.setItem(FAV_KEY, JSON.stringify(favs));
+	window.dispatchEvent(new Event('favouritesUpdated'));
+};
+
 const TodayForYouCard = memo(({ product, delay = 0 }) => {
 	const navigate = useNavigate();
-	const [fav, setFav] = useState(false);
 	const img =
 		product?.images?.[0] ||
 		'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/b1e780ee-b4e3-4511-aef8-c68a1012a6b9/WMNS+JORDAN+CMFT+ERA.png';
@@ -19,6 +34,34 @@ const TodayForYouCard = memo(({ product, delay = 0 }) => {
 	const rating = product?.rating || 4.8;
 	const solds = product?.solds || '4K';
 	const id = product?.id;
+
+	const [fav, setFav] = useState(false);
+
+	useEffect(() => {
+		const favs = getFavFromLocalStorage();
+		setFav(favs.some(item => item.id === id));
+		const updateFav = () => {
+			const favs = getFavFromLocalStorage();
+			setFav(favs.some(item => item.id === id));
+		};
+		window.addEventListener('favouritesUpdated', updateFav);
+		return () => window.removeEventListener('favouritesUpdated', updateFav);
+	}, [id]);
+
+	const handleFavClick = e => {
+		e.stopPropagation();
+		const favs = getFavFromLocalStorage();
+		if (fav) {
+			const updatedFavs = favs.filter(item => item.id !== id);
+			setFavToLocalStorage(updatedFavs);
+			setFav(false);
+		} else {
+			const newFav = { id, title, image: img, price };
+			const updatedFavs = [...favs, newFav];
+			setFavToLocalStorage(updatedFavs);
+			setFav(true);
+		}
+	};
 
 	const handleClick = () => {
 		if (id) navigate(`/product/${id}`);
@@ -43,10 +86,7 @@ const TodayForYouCard = memo(({ product, delay = 0 }) => {
 				<div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 				<motion.div
 					className="bg-white absolute top-1 p-1 rounded-full right-1 cursor-pointer shadow"
-					onClick={e => {
-						e.stopPropagation();
-						setFav(prev => !prev);
-					}}
+					onClick={handleFavClick}
 					whileTap={{ scale: 0.85 }}
 					whileHover={{ scale: 1.1 }}
 				>

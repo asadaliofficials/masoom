@@ -4,47 +4,62 @@ import { motion } from 'framer-motion';
 import { NavLink } from 'react-router-dom';
 import '../styles/home/navbar.css';
 import Sidebar from './Sidebar';
-import Cart from './Cart'; // Add this import
+import Cart from './Cart';
+import Favourites from './Favourites'; // <-- Import Favourites
 
 const baseClass =
 	'w-max opacity-40 hover:opacity-100 transition-all duration-300 cursor-pointer font-semibold';
 
 const Nav = ({ hideNavIcons = false }) => {
 	const [cartCount, setCartCount] = useState(0);
+	const [favCount, setFavCount] = useState(0); // <-- Add state for favourites count
 	const [showNav, setShowNav] = useState(true);
 	const lastScrollY = useRef(0);
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
 	const [sidebarOpen, setSidebarOpen] = useState(false);
 	const [cartOpen, setCartOpen] = useState(false);
+	const [favOpen, setFavOpen] = useState(false); // <-- Add state for favourites sidebar
 
 	// Update cart count from localStorage
 	const updateCartCount = () => {
 		try {
 			const cart = JSON.parse(localStorage.getItem('cart')) || [];
-			const total = cart.reduce(sum => sum + 1, 0);
+			const total = cart.reduce((sum, item) => sum + (item.count || 1), 0);
 			setCartCount(total);
 		} catch {
 			setCartCount(0);
 		}
 	};
 
+	// Update favourites count from localStorage
+	const updateFavCount = () => {
+		try {
+			const favs = JSON.parse(localStorage.getItem('favourites')) || [];
+			setFavCount(favs.length);
+		} catch {
+			setFavCount(0);
+		}
+	};
+
 	useEffect(() => {
 		updateCartCount();
+		updateFavCount();
 	}, []);
 
-	// Update when cart is opened/closed
 	useEffect(() => {
 		if (!cartOpen) updateCartCount();
 	}, [cartOpen]);
 
 	useEffect(() => {
+		if (!favOpen) updateFavCount();
+	}, [favOpen]);
+
+	useEffect(() => {
 		const handleScroll = () => {
 			const currentScrollY = window.pageYOffset;
 			if (currentScrollY > lastScrollY.current) {
-				// scrolling down, hide nav
 				setShowNav(false);
 			} else {
-				// scrolling up, show nav
 				setShowNav(true);
 			}
 			lastScrollY.current = currentScrollY;
@@ -57,11 +72,19 @@ const Nav = ({ hideNavIcons = false }) => {
 		const user = JSON.parse(localStorage.getItem('user'));
 		setIsLoggedIn(user && user.isLoggedIn);
 	}, []);
+
 	useEffect(() => {
 		const update = () => updateCartCount();
 		window.addEventListener('cartUpdated', update);
 		return () => window.removeEventListener('cartUpdated', update);
 	}, []);
+
+	useEffect(() => {
+		const update = () => updateFavCount();
+		window.addEventListener('favouritesUpdated', update);
+		return () => window.removeEventListener('favouritesUpdated', update);
+	}, []);
+
 	return (
 		<>
 			<motion.div
@@ -144,6 +167,35 @@ const Nav = ({ hideNavIcons = false }) => {
 					</NavLink>
 				</motion.ul>
 				<div className="flex gap-2 navIconsParent">
+					{/* Favourites Icon */}
+					<motion.div
+						initial={{ opacity: 0, x: 60 }}
+						animate={hideNavIcons ? { opacity: 0, x: 60 } : { opacity: 1, x: 0 }}
+						transition={{ duration: 0.4 }}
+						className="relative"
+					>
+						{favCount > 0 && (
+							<span className="absolute top-1 right-1 transform translate-x-1/2 -translate-y-1/2 bg-gray-500 text-white text-sm font-bold rounded-full z-50 px-1.5 h-5 min-w-[20px] flex items-center justify-center">
+								{favCount > 9 ? '9+' : favCount}
+							</span>
+						)}
+						<div
+							className="relative w-10 h-10 flex items-center justify-center hover:bg-gray-100 rounded-4xl cursor-pointer"
+							onClick={() => setFavOpen(true)}
+						>
+							<svg
+								fill="#000000"
+								width="28"
+								height="28"
+								viewBox="0 0 256 256"
+								id="Flat"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path d="M220.3457,136.50781l-81.03125,81.03125a16.013,16.013,0,0,1-22.625,0L33.58008,134.42969a59.974,59.974,0,0,1,2.34375-87.07031c23.28125-21.01563,61.25-19.05469,84.57812,4.29687l7.5,7.49219,9.57813-9.57813a60.69786,60.69786,0,0,1,43.98437-17.55469A59.54956,59.54956,0,0,1,224.627,51.90625C245.61133,75.20312,243.68945,113.15625,220.3457,136.50781Z" />
+							</svg>
+						</div>
+					</motion.div>
+					{/* Cart Icon */}
 					<motion.div
 						initial={{ opacity: 0, x: 60 }}
 						animate={hideNavIcons ? { opacity: 0, x: 60 } : { opacity: 1, x: 0 }}
@@ -225,6 +277,7 @@ const Nav = ({ hideNavIcons = false }) => {
 				</div>
 			</motion.div>
 			<Cart open={cartOpen} onClose={() => setCartOpen(false)} productsList={[]} />
+			<Favourites open={favOpen} onClose={() => setFavOpen(false)} productsList={[]} />
 			<Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 		</>
 	);
