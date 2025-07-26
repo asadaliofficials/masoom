@@ -1,27 +1,10 @@
-import { useState, memo, useEffect } from 'react';
+import { memo } from 'react';
 import { useNavigate } from 'react-router-dom';
-// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
-import { toast } from 'react-toastify'; // <-- Import toast
+import { toast } from 'react-toastify';
 import '../../styles/home/todayForYou.css';
 
-const FAV_KEY = 'favourites';
-
-const getFavFromLocalStorage = () => {
-	try {
-		const favs = JSON.parse(localStorage.getItem(FAV_KEY));
-		return Array.isArray(favs) ? favs : [];
-	} catch {
-		return [];
-	}
-};
-
-const setFavToLocalStorage = favs => {
-	localStorage.setItem(FAV_KEY, JSON.stringify(favs));
-	window.dispatchEvent(new Event('favouritesUpdated'));
-};
-
-const TodayForYouCard = memo(({ product, delay = 0 }) => {
+const TodayForYouCard = memo(({ product, delay = 0, isFav, onFavToggle }) => {
 	const navigate = useNavigate();
 	const img =
 		product?.images?.[0] ||
@@ -36,46 +19,11 @@ const TodayForYouCard = memo(({ product, delay = 0 }) => {
 	const solds = product?.solds || '4K';
 	const id = product?.id;
 
-	const [fav, setFav] = useState(false);
-	const [justAdded, setJustAdded] = useState(false);
-
-	// Set initial fav state on mount
-	useEffect(() => {
-		const favs = getFavFromLocalStorage();
-		setFav(favs.some(item => item.id === id));
-	}, [id]);
-
-	// Listen for favouritesUpdated event and update fav state
-	useEffect(() => {
-		const updateFav = () => {
-			const favs = getFavFromLocalStorage();
-			setFav(favs.some(item => item.id === id));
-		};
-		window.addEventListener('favouritesUpdated', updateFav);
-		return () => window.removeEventListener('favouritesUpdated', updateFav);
-	}, [id]);
-
-	// Show toast only when just added
-	useEffect(() => {
-		if (justAdded) {
-			toast.success('Added to Favourite!', { position: 'bottom-right', autoClose: 1800 });
-			setJustAdded(false);
-		}
-	}, [justAdded]);
-
 	const handleFavClick = e => {
 		e.stopPropagation();
-		const favs = getFavFromLocalStorage();
-		if (fav) {
-			const updatedFavs = favs.filter(item => item.id !== id);
-			setFavToLocalStorage(updatedFavs);
-			setFav(false);
-		} else {
-			const newFav = { id, title, image: img, price };
-			const updatedFavs = [...favs, newFav];
-			setFavToLocalStorage(updatedFavs);
-			setFav(true);
-			setJustAdded(true);
+		onFavToggle();
+		if (!isFav) {
+			toast.success('Added to Favourite!', { position: 'bottom-right', autoClose: 1800 });
 		}
 	};
 
@@ -108,13 +56,13 @@ const TodayForYouCard = memo(({ product, delay = 0 }) => {
 				>
 					<svg width="16" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
 						<motion.path
-							key={fav ? 'liked' : 'unliked'}
+							key={isFav ? 'liked' : 'unliked'}
 							initial={{ scale: 0 }}
 							animate={{ scale: 1 }}
 							transition={{ type: 'spring', stiffness: 100, damping: 15 }}
 							d="M28.343,17.48L16,29  L3.657,17.48C1.962,15.898,1,13.684,1,11.365v0C1,6.745,4.745,3,9.365,3h0.17c2.219,0,4.346,0.881,5.915,2.45L16,6l0.55-0.55  C18.119,3.881,20.246,3,22.465,3h0.17C27.255,3,31,6.745,31,11.365v0C31,13.684,30.038,15.898,28.343,17.48z"
-							fill={fav ? '#FF2056' : 'transparent'}
-							stroke={fav ? '#FF2056' : 'black'}
+							fill={isFav ? '#FF2056' : 'transparent'}
+							stroke={isFav ? '#FF2056' : 'black'}
 							strokeLinejoin="round"
 							strokeMiterlimit="10"
 							strokeWidth="3"
@@ -124,11 +72,9 @@ const TodayForYouCard = memo(({ product, delay = 0 }) => {
 			</div>
 
 			<div className="w-full px-3 py-3">
-				{/* Title with tooltip */}
 				<h1 className="title text-sm font-semibold leading-1 line-clamp-2 cursor-pointer mb-1">
 					{title}
 				</h1>
-				{/* Rating and sold */}
 				<div className="flex px-1 text-sm mt-1 gap-1 items-center">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -144,7 +90,6 @@ const TodayForYouCard = memo(({ product, delay = 0 }) => {
 					</svg>
 					{rating} ● {solds} Sold
 				</div>
-				{/* Price row */}
 				<div className="flex gap-1 mt-1 items-center pl-1 mb-3">
 					<p className="text-lg font-bold text-black">Rs. {price}</p>
 					<p className="line-through text-gray-400 font-semibold text-sm">Rs. {oldPrice}</p>
