@@ -1,5 +1,5 @@
 import React from 'react';
-import { Timeline } from '../aceternityUI/Timeline.jsx';
+import { Timeline } from '../aceternity-ui/Timeline.jsx';
 
 export function TimelineSection() {
 	const data = [

@@ -1,4 +1,4 @@
-import { DraggableCardBody, DraggableCardContainer } from '../aceternityUI/DragableCard.jsx';
+import { DraggableCardBody, DraggableCardContainer } from '../aceternity-ui/DragableCard.jsx';
 
 export function DragableCardsMeet() {
 	const items = [

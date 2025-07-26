@@ -1,4 +1,4 @@
-import { AnimatedTestimonials } from '../../components/aceternityUI/Testimonials.jsx';
+import { AnimatedTestimonials } from '../aceternity-ui/Testimonials.jsx';
 
 export function TestimonialsSection() {
 	const testimonials = [
