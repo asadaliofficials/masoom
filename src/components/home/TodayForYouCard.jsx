@@ -44,7 +44,7 @@ const TodayForYouCard = memo(({ product, delay = 0, isFav, onFavToggle }) => {
 			<div className="flex-1 w-full flex items-center justify-center relative select-none overflow-hidden rounded-t-lg">
 				<img
 					loading="lazy"
-					className="w-full h-full object-cover rounded-t-lg object-center transition-transform duration-300 group-hover:scale-105"
+					className="w-full h-full object-cover rounded-t-lg object-top transition-transform duration-300 group-hover:scale-105"
 					src={img}
 					alt={title}
 				/>

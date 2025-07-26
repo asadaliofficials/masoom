@@ -130,7 +130,7 @@ const FlashSale = () => {
 								/>
 							</svg>
 						</motion.div>
-						<h2 className="text-3xl">Flash Sale</h2>
+						<h2 className="flashSaleHeadding text-3xl">Flash Sale</h2>
 
 						<div className="flex items-center justify-center gap-2 ml-4">
 							<div className="flex items-center justify-center gap-1">
