@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import '../../styles/home/flashSale.css';
 
-const FlashSaleCard = memo(({ delay, product }) => {
+const FlashSaleCard = memo(({ product }) => {
 	const navigate = useNavigate();
 	const [fav, setFav] = useState(false);
 
@@ -28,7 +28,7 @@ const FlashSaleCard = memo(({ delay, product }) => {
 			initial={{ opacity: 0, scale: 0.5, y: 20 }}
 			whileInView={{ opacity: 1, scale: 1, y: 0 }}
 			viewport={{ once: true, amount: 0.4 }}
-			transition={{ duration: 0.3, ease: 'easeInOut', delay: delay }}
+			transition={{ duration: 0.3, ease: 'easeInOut', }}
 			className="flashSaleCard rounded-lg flex flex-col w-[300px] flex-shrink-0 h-[420px] shadow-xl bg-white border-b border-gray-300 cursor-pointer"
 			onClick={handleClick}
 		>
@@ -62,51 +62,6 @@ const FlashSaleCard = memo(({ delay, product }) => {
 						/>
 					</svg>
 				</motion.div>
-				{/* <div className="absolute bottom-2 right-2 bg-white px-1 py-1 rounded-lg flex justify-center items-center gap-2 ">
-					<div
-						onClick={e => {
-							e.stopPropagation();
-							setCount(prev => Math.max(0, prev - 1));
-						}}
-						className="h-[25px] w-[25px] bg-gray-200 flex justify-center items-center rounded-lg cursor-pointer"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="22"
-							height="22"
-							fill="currentColor"
-							viewBox="0 0 16 16"
-						>
-							<path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
-						</svg>
-					</div>
-					<Counter
-						value={count}
-						places={[100, 10, 1]}
-						fontSize={20}
-						padding={5}
-						gap={10}
-						textColor="black"
-						fontWeight={900}
-					/>
-					<div
-						onClick={e => {
-							e.stopPropagation();
-							setCount(prev => (prev < 9 ? prev + 1 : prev));
-						}}
-						className="h-[25px] w-[25px] bg-gray-200 flex justify-center items-center rounded-lg cursor-pointer"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="22"
-							height="22"
-							fill="currentColor"
-							viewBox="0 0 16 16"
-						>
-							<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4" />
-						</svg>
-					</div>
-				</div> */}
 			</div>
 
 			<div className="flex flex-col h-full p-2">

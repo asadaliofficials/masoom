@@ -69,10 +69,9 @@ const ProductDeatils = () => {
 			cart.push({
 				id: product.id,
 				count: 1,
-				color: selectedColor,
-				size: selectedSize,
 				title: product.title,
 				price: product.price,
+				image: product.images[0],
 			});
 		}
 		localStorage.setItem(CART_KEY, JSON.stringify(cart));

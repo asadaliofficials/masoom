@@ -9,9 +9,8 @@ import Cart from './Cart'; // Add this import
 const baseClass =
 	'w-max opacity-40 hover:opacity-100 transition-all duration-300 cursor-pointer font-semibold';
 
-const Nav = ({ hideNavIcons = false, productsList = [] }) => {
+const Nav = ({ hideNavIcons = false }) => {
 	const [cartCount, setCartCount] = useState(0);
-	const [favCount, setFavCount] = useState(0);
 	const [showNav, setShowNav] = useState(true);
 	const lastScrollY = useRef(0);
 	const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -22,7 +21,7 @@ const Nav = ({ hideNavIcons = false, productsList = [] }) => {
 	const updateCartCount = () => {
 		try {
 			const cart = JSON.parse(localStorage.getItem('cart')) || [];
-			const total = cart.reduce((sum, item) => sum + 1, 0);
+			const total = cart.reduce(sum => sum + 1, 0);
 			setCartCount(total);
 		} catch {
 			setCartCount(0);

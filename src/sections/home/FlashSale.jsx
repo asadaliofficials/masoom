@@ -152,8 +152,8 @@ const FlashSale = () => {
 					ref={cardsRef}
 				>
 					{/* 8, 75, 21, 101, 85, 40, 34, 47 */}
-					{flashSaleProducts.map((product, i) => (
-						<FlashSaleCard key={product.id} product={product} delay={flashSaleIds[i] * 0.1} />
+					{flashSaleProducts.map(product => (
+						<FlashSaleCard key={product.id} product={product} />
 					))}
 				</div>
 			</div>

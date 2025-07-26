@@ -46,7 +46,6 @@ const Cart = ({ open, onClose, productsList = [] }) => {
 	};
 
 	const getProduct = id => productsList.find(p => p.id === id);
-
 	return (
 		<AnimatePresence>
 			{open && (
@@ -83,7 +82,7 @@ const Cart = ({ open, onClose, productsList = [] }) => {
 										>
 											{product?.images?.[0] && (
 												<img
-													src={product.images[0]}
+													src={item.image}
 													alt={item.title || product?.title || 'Product'}
 													className="w-14 h-14 object-cover rounded"
 												/>
