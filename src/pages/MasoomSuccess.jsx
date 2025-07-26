@@ -5,7 +5,7 @@ import { TestimonialsSection } from '../components/masoomSuccess/TestimonialsSec
 import '../styles/masoomSuccess/masoomSuccess.css';
 const MasoomSuccess = () => {
 	return (
-		<div className="overflow-x-hidden">
+		<div className="overflow-hidden">
 			<Hero />
 			<PressSection />
 			<TimelineSection />

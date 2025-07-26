@@ -1,7 +1,6 @@
-'use client';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
-
+import '../../styles/masoomSuccess/testimonials.css';
 import { useEffect, useState } from 'react';
 
 export const AnimatedTestimonials = ({ testimonials, autoplay = false }) => {
@@ -30,11 +29,13 @@ export const AnimatedTestimonials = ({ testimonials, autoplay = false }) => {
 		return Math.floor(Math.random() * 21) - 10;
 	};
 	return (
-		<div className="mx-auto max-w-sm px-4 py-20 font-sans h-screen gap-20 flex flex-col justify-center antialiased md:max-w-4xl md:px-8 lg:px-12">
-			<h2 className="text-4xl font-bold text-black">What people say about Masoom</h2>
-			<div className="relative grid grid-cols-1 gap-20 md:grid-cols-2">
+		<div className="mx-auto max-w-sm px-4 py-10 font-sans gap-10 flex flex-col justify-center antialiased md:max-w-4xl md:px-8 lg:px-12">
+			<h2 className="text-2xl md:text-4xl font-bold text-black mb-6 text-center">
+				What people say about Masoom
+			</h2>
+			<div className="relative flex flex-col gap-10 md:grid md:grid-cols-2 md:gap-20">
 				<div>
-					<div className="relative h-80 w-full">
+					<div className="relative h-64 w-full md:h-80">
 						<AnimatePresence>
 							{testimonials.map((testimonial, index) => (
 								<motion.div
@@ -131,7 +132,7 @@ export const AnimatedTestimonials = ({ testimonials, autoplay = false }) => {
 							))}
 						</motion.p>
 					</motion.div>
-					<div className="flex gap-4 pt-12 md:pt-0">
+					<div className="flex gap-4 pt-8 md:pt-0 justify-center">
 						<button
 							onClick={handlePrev}
 							className="group/button flex cursor-pointer h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
