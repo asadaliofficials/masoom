@@ -62,14 +62,18 @@ const ProductDeatils = () => {
 				item.size === selectedSize
 		);
 		if (idx > -1) {
+			// Item exists, increase quantity
 			cart[idx].count += 1;
 		} else {
+			// Add new item with color and size
 			cart.push({
 				id: product.id,
 				count: 1,
 				title: product.title,
 				price: product.price,
 				image: product.images[0],
+				color: selectedColor,
+				size: selectedSize,
 			});
 		}
 		localStorage.setItem(CART_KEY, JSON.stringify(cart));

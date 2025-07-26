@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import { motion, AnimatePresence } from 'framer-motion';
-
+import Counter from './react-bits/Counter/Counter.jsx';
 const CART_KEY = 'cart';
 
 const getCartFromLocalStorage = () => {
@@ -110,7 +110,16 @@ const Cart = ({ open, onClose, productsList = [] }) => {
 															<path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8" />
 														</svg>
 													</div>
-													<span className="font-bold text-lg">{item.count}</span>
+													{/* <span className="font-bold text-lg">{item.count}</span> */}
+													<Counter
+														value={item.count}
+														places={[100, 10, 1]}
+														fontSize={16}
+														padding={5}
+														gap={10}
+														textColor="white"
+														fontWeight={900}
+													/>
 													<div
 														onClick={e => {
 															e.stopPropagation();

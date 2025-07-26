@@ -2,8 +2,6 @@
 import { motion, useSpring, useTransform } from 'framer-motion';
 import { useEffect } from 'react';
 
-// Removed Number component
-
 function Digit({ value, height }) {
 	// Animate the digit value
 	let animatedValue = useSpring(value);
