@@ -5,10 +5,8 @@ import { motion, useTransform, AnimatePresence, useMotionValue, useSpring } from
 export const AnimatedTooltip = ({ items }) => {
 	const [hoveredIndex, setHoveredIndex] = useState(null);
 	const springConfig = { stiffness: 100, damping: 5 };
-	const x = useMotionValue(0); // going to set this value on mouse move
-	// rotate the tooltip
+	const x = useMotionValue(0); 
 	const rotate = useSpring(useTransform(x, [-100, 100], [-45, 45]), springConfig);
-	// translate the tooltip
 	const translateX = useSpring(useTransform(x, [-100, 100], [-50, 50]), springConfig);
 	const handleMouseMove = event => {
 		const halfWidth = event.target.offsetWidth / 2;

@@ -5,7 +5,7 @@ import ProductsContext from '../../context/ProductsContext.js';
 
 const BestSellerHome = () => {
 	const products = useContext(ProductsContext);
-	const bestSellerIds = [112, 113, 114, 115]; // or your preferred best sellers
+	const bestSellerIds = [112, 113, 114, 115];
 	const bestSellerProducts = bestSellerIds
 		.map(id => products.find(p => Number(p.id) === Number(id)))
 		.filter(Boolean);

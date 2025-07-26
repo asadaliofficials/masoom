@@ -11,7 +11,6 @@ const HeroMeetMasoom = () => {
 
 	return (
 		<div className="w-full h-[90vh] relative top-0 left-0 overflow-hidden z-10">
-			{/* Image placeholder */}
 			{!videoLoaded && (
 				<img
 					src={VIDEO_POSTER}
@@ -20,7 +19,6 @@ const HeroMeetMasoom = () => {
 					style={{ opacity: videoLoaded ? 0 : 1 }}
 				/>
 			)}
-			{/* Video (hidden until loaded) */}
 			<video
 				ref={videoRef}
 				src={VIDEO_SRC}

@@ -23,11 +23,8 @@ const categoryOptions = [
 	{ label: 'Shirts', value: 'shirt' },
 	{ label: 'jackets', value: 'jacket' },
 	{ label: 'jeans', value: 'jean' },
-	//skirits
 	{ label: 'Skirts', value: 'skirt' },
-	// brides
 	{ label: 'Brides', value: 'bride' },
-	//gym shorts
 	{ label: 'Gym Shorts', value: 'gym-short' },
 ];
 const ratingOptions = [5, 4, 3, 2, 1];
@@ -81,7 +78,6 @@ const Products = () => {
 	const dropdownToggleRef = useRef(null);
 	const dropdownMenuRef = useRef(null);
 	const products = useContext(ProductsContext);
-	console.log(products);
 	// Filter states
 	const [selectedCategory, setSelectedCategory] = useState('all');
 	const [freeDelivery, setFreeDelivery] = useState(false);
@@ -157,12 +153,10 @@ const Products = () => {
 		};
 	}, []);
 
-	// Scroll to top on pagination change
 	useEffect(() => {
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 	}, [currentPage]);
 
-	// Reset to page 1 on any filter change (except searchInput)
 	useEffect(() => {
 		setCurrentPage(1);
 	}, [
@@ -186,9 +180,7 @@ const Products = () => {
 
 	return (
 		<div className="w-full min-h-screen bg-gray-50 flex">
-			{/* Sidebar/Filters */}
 			<div className="filtersWrapper flex flex-col gap-4 w-[22%] p-4">
-				{/* Category */}
 				<p className="text-md pl-4 cursor-pointer text-blue-500" onClick={handleClearFilters}>
 					Clear Filters
 				</p>
@@ -215,7 +207,6 @@ const Products = () => {
 						</label>
 					))}
 				</motion.div>
-				{/* Free Delivery */}
 				<motion.div
 					{...filterAnim(0.6)}
 					className="w-full px-4 py-5 bg-white flex items-center justify-between rounded-md shadow"
@@ -228,7 +219,6 @@ const Products = () => {
 						className="relative h-6 w-12 cursor-pointer appearance-none rounded-full bg-slate-400/30 transition-all duration-300 checked:bg-blue-500 before:absolute before:left-[-0.25rem] before:top-0 before:block before:h-6 before:w-6 before:rounded-full before:border before:bg-white before:shadow-md before:transition-all checked:before:translate-x-6 checked:before:border-blue-500"
 					/>
 				</motion.div>
-				{/* Price Range */}
 				<motion.div
 					{...filterAnim(0.7)}
 					className="w-full px-4 py-5 bg-white flex flex-col gap-3 rounded-md shadow"
@@ -253,7 +243,6 @@ const Products = () => {
 					</div>
 				</motion.div>
 
-				{/* Rating */}
 				<motion.div
 					{...filterAnim(0.9)}
 					className="w-full px-4 py-5 bg-white flex flex-col gap-3 rounded-md shadow"
@@ -282,9 +271,7 @@ const Products = () => {
 					</div>
 				</motion.div>
 			</div>
-			{/* Main Content */}
 			<div className="flex-1 flex flex-col p-6">
-				{/* Header */}
 				<motion.div
 					{...fadeAnim}
 					className="productsHeader flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-4 md:gap-0"
@@ -338,7 +325,6 @@ const Products = () => {
 								Search
 							</button>
 						</div>
-						{/* Filter dropdown */}
 						<div className="relative ml-0 md:ml-4 w-full md:w-56">
 							<button
 								type="button"
@@ -384,7 +370,6 @@ const Products = () => {
 						</div>
 					</div>
 				</motion.div>
-				{/* Products List */}
 				<div className="productsWrapper flex-1 bg-white rounded-md shadow p-6 flex flex-col">
 					{/* Products will go here */}
 					<div className="flex flex-wrap gap-8 justify-center">

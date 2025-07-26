@@ -9,14 +9,11 @@ const AboutHome = () => {
 	const imgRef = useRef(null);
 	const navigate = useNavigate();
 
-	// Assume image size roughly 300x300; adjust if needed
 	const center = 150;
 
-	// Initialize motion values at center (no tilt)
 	const x = useMotionValue(center);
 	const y = useMotionValue(center);
 
-	// Subtle tilt max ±5 degrees
 	const rotateX = useTransform(y, [0, center * 2], [5, -5]);
 	const rotateY = useTransform(x, [0, center * 2], [-5, 5]);
 
@@ -30,7 +27,6 @@ const AboutHome = () => {
 	};
 
 	const handleMouseLeave = () => {
-		// Reset tilt to center (no rotation)
 		x.set(center);
 		y.set(center);
 	};
@@ -155,7 +151,6 @@ const AboutHome = () => {
 					Asia’s 30 Under 30 list, GQ’s Most Influential Young Indians, HSBC's list of leading
 					female entrepreneurs worldwide as well as CNN's '20 under 40' list.
 				</ScrollReveal>
-				{/* Achievements/Tags Row */}
 				<motion.div
 					className="flex flex-wrap gap-4 mt-4 mb-6"
 					initial={{ opacity: 0, y: 30 }}

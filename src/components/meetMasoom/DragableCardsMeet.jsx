@@ -1,4 +1,3 @@
-import React from 'react';
 import { DraggableCardBody, DraggableCardContainer } from '../aceternityUI/DragableCard.jsx';
 
 export function DragableCardsMeet() {

@@ -24,10 +24,8 @@ const Cart = ({ open, onClose, productsList = [] }) => {
 	useEffect(() => {
 		const cart = getCartFromLocalStorage();
 		setCartItems(cart);
-		console.log(cart);
 	}, [open]);
 
-	// Close on outside click
 	useEffect(() => {
 		if (!open) return;
 		const handleClick = e => {
@@ -38,7 +36,6 @@ const Cart = ({ open, onClose, productsList = [] }) => {
 		document.addEventListener('mousedown', handleClick);
 		return () => document.removeEventListener('mousedown', handleClick);
 	}, [open, onClose]);
-	console.log(productsList);
 	const getProduct = id => productsList.find(p => p.id === id);
 	return (
 		<AnimatePresence>

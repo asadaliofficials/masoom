@@ -20,7 +20,7 @@ const Layout = () => {
 		<>
 			<Nav hideNavIcons={hideNavIcons} />
 			<main>
-				<Outlet /> {/* Renders the matched child route */}
+				<Outlet />
 			</main>
 			<Footer />
 		</>

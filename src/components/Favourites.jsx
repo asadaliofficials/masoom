@@ -27,7 +27,6 @@ const Favourites = ({ open, onClose, productsList = [] }) => {
 		setFavItems(favs);
 	}, [open]);
 
-	// Close on outside click
 	useEffect(() => {
 		if (!open) return;
 		const handleClick = e => {

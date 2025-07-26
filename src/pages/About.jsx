@@ -1,4 +1,3 @@
-import React from 'react';
 import { cn } from '../utils/tailwindMerger';
 import '../styles/about/about.css';
 // eslint-disable-next-line no-unused-vars
@@ -7,12 +6,10 @@ import { motion } from 'framer-motion';
 const About = () => {
 	return (
 		<>
-			{/* Section 1: Keep as is */}
 			<div
 				className="aboutHeroBG h-[80vh] relative w-full overflow-x-hidden overflow-y-hidden rounded-lg flex flex-col items-center justify-center"
 				style={{ background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)' }}
 			>
-				{/* Decorative SVG pattern overlay */}
 				<svg
 					className="absolute inset-0 w-full h-full z-10"
 					width="100%"

@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import '../styles/home/navbar.css';
 import Sidebar from './Sidebar';
 import Cart from './Cart';
-import Favourites from './Favourites'; // <-- Import Favourites
+import Favourites from './Favourites';
 
 const baseClass =
 	'w-max opacity-40 hover:opacity-100 transition-all duration-300 cursor-pointer font-semibold';
@@ -20,7 +20,6 @@ const Nav = ({ hideNavIcons = false }) => {
 	const [cartOpen, setCartOpen] = useState(false);
 	const [favOpen, setFavOpen] = useState(false); // <-- Add state for favourites sidebar
 
-	// Update cart count from localStorage
 	const updateCartCount = () => {
 		try {
 			const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -31,7 +30,6 @@ const Nav = ({ hideNavIcons = false }) => {
 		}
 	};
 
-	// Update favourites count from localStorage
 	const updateFavCount = () => {
 		try {
 			const favs = JSON.parse(localStorage.getItem('favourites')) || [];
@@ -117,7 +115,6 @@ const Nav = ({ hideNavIcons = false }) => {
 							<path d="M4 6h16" />
 						</svg>
 					</motion.div>
-					{/* logo */}
 					<motion.div
 						initial={{ opacity: 0, x: -30 }}
 						animate={{ opacity: 1, x: 0 }}
@@ -167,7 +164,6 @@ const Nav = ({ hideNavIcons = false }) => {
 					</NavLink>
 				</motion.ul>
 				<div className="flex gap-2 navIconsParent">
-					{/* Favourites Icon */}
 					<motion.div
 						initial={{ opacity: 0, x: 60 }}
 						animate={hideNavIcons ? { opacity: 0, x: 60 } : { opacity: 1, x: 0 }}
@@ -195,7 +191,6 @@ const Nav = ({ hideNavIcons = false }) => {
 							</svg>
 						</div>
 					</motion.div>
-					{/* Cart Icon */}
 					<motion.div
 						initial={{ opacity: 0, x: 60 }}
 						animate={hideNavIcons ? { opacity: 0, x: 60 } : { opacity: 1, x: 0 }}

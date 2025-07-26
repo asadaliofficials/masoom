@@ -47,7 +47,6 @@ const ProductDeatils = () => {
 	const [selectedColor, setSelectedColor] = useState(colors?.[0]?.value || '');
 	const [selectedSize, setSelectedSize] = useState(sizes?.[0] || '');
 
-	// Add to cart handler
 	const handleAddToCart = () => {
 		const CART_KEY = 'cart';
 		let cart = [];
@@ -56,7 +55,6 @@ const ProductDeatils = () => {
 		} catch {
 			cart = [];
 		}
-		// Check if product with same id, color, size exists
 		const idx = cart.findIndex(
 			item =>
 				String(item.id) === String(product.id) &&
@@ -131,7 +129,6 @@ const ProductDeatils = () => {
 	return (
 		<>
 			<div className="w-full min-h-screen bg-gray-50 p-6">
-				{/* Breadcrumb */}
 				<nav className="text-sm text-gray-400 mb-6">
 					<ol className="list-reset flex items-center gap-2">
 						<li>Home</li>
@@ -141,9 +138,7 @@ const ProductDeatils = () => {
 						<li className="truncate  text-gray-500 font-semibold">{product.title}</li>
 					</ol>
 				</nav>
-				{/* Main Section */}
 				<div className="flex flex-col md:flex-row gap-10 bg-white rounded-xl shadow-lg p-6 py-10">
-					{/* Left: Images */}
 					<div className="flex flex-col items-center w-full md:w-[35%]">
 						<div className="relative w-full max-h-[380px] aspect-square bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden mb-4">
 							<motion.img
@@ -157,7 +152,6 @@ const ProductDeatils = () => {
 								// exit={{ opacity: 0, scale: 0.7 }}
 								transition={{ duration: 0.5 }}
 							/>
-							{/* Fav button remains here */}
 							<motion.div
 								className="bg-white absolute top-2 p-2 rounded-full right-2 cursor-pointer"
 								onClick={handleFavClick}
@@ -201,9 +195,7 @@ const ProductDeatils = () => {
 							))}
 						</div>
 					</div>
-					{/* Right: Details */}
 					<div className="flex-1 flex flex-col gap-4">
-						{/* Title */}
 						<motion.h1
 							className="text-2xl md:text-3xl font-bold text-gray-800"
 							initial={{ opacity: 0, y: 20 }}
@@ -212,7 +204,6 @@ const ProductDeatils = () => {
 						>
 							{product.title}
 						</motion.h1>
-						{/* Stats */}
 						<motion.div
 							className="flex items-center gap-3 text-gray-500 text-sm"
 							initial={{ opacity: 0, y: 20 }}
@@ -230,7 +221,6 @@ const ProductDeatils = () => {
 							<span>●</span>
 							<span className="font-semibold">{product.reviews} Reviews</span>
 						</motion.div>
-						{/* Price */}
 						<motion.div
 							className="flex items-center gap-4"
 							initial={{ opacity: 0, y: 20 }}
@@ -239,7 +229,6 @@ const ProductDeatils = () => {
 						>
 							<span className="text-3xl font-extrabold text-black">Rs: {product.price}</span>
 						</motion.div>
-						{/* Old Price and Discount */}
 						<motion.div
 							className="flex items-center gap-4"
 							initial={{ opacity: 0, y: 20 }}
@@ -251,7 +240,6 @@ const ProductDeatils = () => {
 								{product.discount}% off
 							</span>
 						</motion.div>
-						{/* Colors */}
 						<motion.div
 							className="flex items-center gap-3 mt-2 product-colors-row"
 							initial={{ opacity: 0, y: 20 }}
@@ -273,7 +261,6 @@ const ProductDeatils = () => {
 								))}
 							</div>
 						</motion.div>
-						{/* Sizes */}
 						<motion.div
 							className="flex items-center gap-3 mt-2 product-sizes-row"
 							initial={{ opacity: 0, y: 20 }}
@@ -297,14 +284,12 @@ const ProductDeatils = () => {
 								))}
 							</div>
 						</motion.div>
-						{/* Action Buttons Row */}
 						<motion.div
 							className="flex items-center gap-6 mt-4"
 							initial={{ opacity: 0, y: 20 }}
 							animate={{ opacity: 1, y: 0 }}
 							transition={{ delay: 0.8, type: 'spring', stiffness: 80, damping: 18 }}
 						>
-							{/* Add to cart button */}
 							<button
 								className="group flex items-center gap-2 border border-black rounded px-4 py-2 bg-white text-black font-semibold transition-all hover:bg-black hover:text-white cursor-pointer"
 								onClick={handleAddToCart}
@@ -326,7 +311,6 @@ const ProductDeatils = () => {
 								</svg>
 								Add to Cart
 							</button>
-							{/* Right: Fav and Share Buttons, icon-only, no bg/border/shadow */}
 							<div className="flex items-center gap-6">
 								<button className="group p-0 m-0 flex items-center justify-center gap-1 cursor-pointer border border-black rounded  px-4 py-2 bg-white text-black font-semibold transition-all hover:bg-black hover:text-white">
 									<svg
@@ -370,7 +354,6 @@ const ProductDeatils = () => {
 						</motion.div>
 					</div>
 				</div>
-				{/* Product Details Section */}
 				<div className="mt-10 bg-white rounded-xl shadow-lg p-6">
 					<h2 className="text-xl font-bold text-gray-800 mb-4">Product Details</h2>
 					<p className="text-gray-700 mb-6 leading-relaxed">
@@ -444,11 +427,9 @@ const ProductDeatils = () => {
 						</li>
 					</ul>
 				</div>
-				{/* Reviews Section */}
 
 				<div className="mt-10 bg-white rounded-xl shadow-lg p-6">
 					<h2 className="text-xl font-bold text-gray-800 mb-4">Customer Reviews</h2>
-					{/* Top: Total reviews and average rating */}
 					<div className="flex flex-col md:flex-row md:items-center max-w-2xl md:justify-between gap-4 mb-6">
 						<div className="flex items-center gap-3">
 							<span className="text-4xl font-extrabold text-yellow-400 flex items-center">
@@ -460,7 +441,6 @@ const ProductDeatils = () => {
 							<span className="text-lg text-gray-600 font-semibold">188 Reviews</span>
 						</div>
 					</div>
-					{/* Rating breakdown */}
 					<div className="mb-8 space-y-2 max-w-2xl">
 						{[5, 4, 3, 2, 1].map(star => (
 							<div key={star} className="flex items-center gap-2">
@@ -471,7 +451,6 @@ const ProductDeatils = () => {
 										</svg>
 									))}
 								</span>
-								{/* Bar */}
 								<div className="flex-1 h-3 bg-gray-200 rounded overflow-hidden">
 									<div
 										className={`h-full rounded ${
@@ -493,9 +472,7 @@ const ProductDeatils = () => {
 							</div>
 						))}
 					</div>
-					{/* Review list */}
 					<div className="space-y-8">
-						{/* Example review 1 */}
 						<div className="flex gap-4">
 							<img
 								src="https://randomuser.me/api/portraits/men/32.jpg"
@@ -534,7 +511,6 @@ const ProductDeatils = () => {
 									</button>
 									<button className="text-blue-500 hover:underline">Reply</button>
 								</div>
-								{/* Nested reply */}
 								<div className="ml-8 mt-3 border-l-2 border-gray-100 pl-4">
 									<div className="flex items-center gap-2">
 										<img
@@ -551,7 +527,6 @@ const ProductDeatils = () => {
 								</div>
 							</div>
 						</div>
-						{/* Example review 2 */}
 						<div className="flex gap-4">
 							<img
 								src="https://randomuser.me/api/portraits/women/65.jpg"
@@ -590,7 +565,6 @@ const ProductDeatils = () => {
 									</button>
 									<button className="text-blue-500 hover:underline">Reply</button>
 								</div>
-								{/* Nested reply */}
 								<div className="ml-8 mt-3 border-l-2 border-gray-100 pl-4">
 									<div className="flex items-center gap-2">
 										<img
@@ -607,7 +581,6 @@ const ProductDeatils = () => {
 								</div>
 							</div>
 						</div>
-						{/* Example review 3 */}
 						<div className="flex gap-4">
 							<img
 								src="https://randomuser.me/api/portraits/men/77.jpg"
@@ -648,7 +621,6 @@ const ProductDeatils = () => {
 								</div>
 							</div>
 						</div>
-						{/* Example review 4 */}
 						<div className="flex gap-4">
 							<img
 								src="https://randomuser.me/api/portraits/women/21.jpg"
@@ -686,7 +658,6 @@ const ProductDeatils = () => {
 									</button>
 									<button className="text-blue-500 hover:underline">Reply</button>
 								</div>
-								{/* Nested reply */}
 								<div className="ml-8 mt-3 border-l-2 border-gray-100 pl-4">
 									<div className="flex items-center gap-2">
 										<img
@@ -703,7 +674,6 @@ const ProductDeatils = () => {
 								</div>
 							</div>
 						</div>
-						{/* Example review 5 */}
 						<div className="flex gap-4">
 							<img
 								src="https://randomuser.me/api/portraits/men/12.jpg"
@@ -741,7 +711,6 @@ const ProductDeatils = () => {
 									</button>
 									<button className="text-blue-500 hover:underline">Reply</button>
 								</div>
-								{/* Nested reply */}
 								<div className="ml-8 mt-3 border-l-2 border-gray-100 pl-4">
 									<div className="flex items-center gap-2">
 										<img
@@ -756,7 +725,6 @@ const ProductDeatils = () => {
 								</div>
 							</div>
 						</div>
-						{/* Example review 6 */}
 						<div className="flex gap-4">
 							<img
 								src="https://randomuser.me/api/portraits/women/34.jpg"
@@ -795,7 +763,6 @@ const ProductDeatils = () => {
 									</button>
 									<button className="text-blue-500 hover:underline">Reply</button>
 								</div>
-								{/* Nested reply */}
 								<div className="ml-8 mt-3 border-l-2 border-gray-100 pl-4">
 									<div className="flex items-center gap-2">
 										<img
@@ -810,7 +777,6 @@ const ProductDeatils = () => {
 								</div>
 							</div>
 						</div>
-						{/* Example review 7 */}
 						<div className="flex gap-4">
 							<img
 								src="https://randomuser.me/api/portraits/men/88.jpg"
@@ -848,7 +814,6 @@ const ProductDeatils = () => {
 									</button>
 									<button className="text-blue-500 hover:underline">Reply</button>
 								</div>
-								{/* Nested reply */}
 								<div className="ml-8 mt-3 border-l-2 border-gray-100 pl-4">
 									<div className="flex items-center gap-2">
 										<img
@@ -865,7 +830,6 @@ const ProductDeatils = () => {
 								</div>
 							</div>
 						</div>
-						{/* Example review 8 */}
 						<div className="flex gap-4">
 							<img
 								src="https://randomuser.me/api/portraits/women/55.jpg"
@@ -903,7 +867,6 @@ const ProductDeatils = () => {
 									</button>
 									<button className="text-blue-500 hover:underline">Reply</button>
 								</div>
-								{/* Nested reply */}
 								<div className="ml-8 mt-3 border-l-2 border-gray-100 pl-4">
 									<div className="flex items-center gap-2">
 										<img
@@ -918,7 +881,6 @@ const ProductDeatils = () => {
 								</div>
 							</div>
 						</div>
-						{/* Example review 9 */}
 						<div className="flex gap-4">
 							<img
 								src="https://randomuser.me/api/portraits/men/99.jpg"
@@ -956,7 +918,6 @@ const ProductDeatils = () => {
 									</button>
 									<button className="text-blue-500 hover:underline">Reply</button>
 								</div>
-								{/* Nested reply */}
 								<div className="ml-8 mt-3 border-l-2 border-gray-100 pl-4">
 									<div className="flex items-center gap-2">
 										<img

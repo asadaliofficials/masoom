@@ -1,4 +1,3 @@
-import React from 'react';
 import '../styles/footer.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -21,7 +20,6 @@ const Footer = () => {
 				<div className="new_footer_top">
 					<div className="container">
 						<div className="row">
-							{/* First Column: Get in Touch */}
 							<div className="col-lg-3 col-md-6">
 								<div
 									className="f_widget company_widget wow fadeInLeft"
@@ -46,7 +44,6 @@ const Footer = () => {
 								</div>
 							</div>
 
-							{/* Second Column: Pages */}
 							<div className="col-lg-3 col-md-6">
 								<div
 									className="f_widget about-widget pl_70 wow fadeInLeft"
@@ -94,7 +91,6 @@ const Footer = () => {
 								</div>
 							</div>
 
-							{/* Third Column: Categories */}
 							<div className="col-lg-3 col-md-6">
 								<div
 									className="f_widget about-widget pl_70 wow fadeInLeft"
@@ -141,7 +137,6 @@ const Footer = () => {
 								</div>
 							</div>
 
-							{/* Fourth Column: Social Media */}
 							<div className="col-lg-3 col-md-6">
 								<div
 									className="f_widget social-widget pl_70 wow fadeInLeft"

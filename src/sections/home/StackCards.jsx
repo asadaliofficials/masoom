@@ -48,10 +48,7 @@ const CardStack = () => {
 		offset: ['start start', 'end end'],
 	});
 
-	useEffect(() => {
-		// Smooth scroll polyfill (optional, for smoother effect)
-		// You can add a library or custom code here if needed
-	}, []);
+	useEffect(() => {}, []);
 
 	return (
 		<main ref={container} className="cardstack-main">
@@ -75,11 +72,6 @@ const CardStack = () => {
 
 function Card({ i, title, description, link, color, progress, range, targetScale }) {
 	const container = useRef(null);
-	// const { scrollYProgress } = useScroll({
-	// 	target: container,
-	// 	offset: ['start end', 'start start'],
-	// });
-	// const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
 	const scale = useTransform(progress, range, [1, targetScale]);
 
 	return (

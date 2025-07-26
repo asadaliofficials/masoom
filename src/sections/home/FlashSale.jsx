@@ -192,7 +192,6 @@ const FlashSale = () => {
 					className="cards mt-6 flex flex-nowrap gap-8 overflow-x-auto w-full min-w-0"
 					ref={cardsRef}
 				>
-					{/* 8, 75, 21, 101, 85, 40, 34, 47 */}
 					{flashSaleProducts.map(product => (
 						<FlashSaleCard
 							key={product.id}

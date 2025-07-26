@@ -40,7 +40,6 @@ const BestSellerCard = ({ product, delay = 0 }) => {
 				<div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 			</div>
 			<div className="flex-1 w-full px-4 py-3 flex flex-col justify-between">
-				{/* Title with tooltip */}
 				<div className="mb-1">
 					<h2
 						className="font-bold text-lg text-gray-900 leading-tight line-clamp-2 cursor-help"
@@ -49,7 +48,6 @@ const BestSellerCard = ({ product, delay = 0 }) => {
 						{title}
 					</h2>
 				</div>
-				{/* Rating and sold */}
 				<div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +62,6 @@ const BestSellerCard = ({ product, delay = 0 }) => {
 					<span>●</span>
 					<span>{solds} Sold</span>
 				</div>
-				{/* Price row */}
 				<div className="flex items-center gap-3 mb-2">
 					<span className="text-xl font-bold text-black">Rs. {price}</span>
 					<span className="line-through text-gray-400 text-base">Rs. {oldPrice}</span>
@@ -72,7 +69,6 @@ const BestSellerCard = ({ product, delay = 0 }) => {
 						{discount}% OFF
 					</span>
 				</div>
-				{/* View Details button */}
 				<button
 					className="mt-2 w-full py-2 rounded-lg border border-black bg-white text-black font-semibold hover:bg-black hover:text-white transition-all duration-200 cursor-pointer"
 					onClick={handleViewDetails}

@@ -14,12 +14,8 @@ const images = [
 	'https://res.cloudinary.com/dyibkikle/image/upload/v1753173785/437968407_18430230757046014_7130824580980742857_n.jpg_f0qtvm.jpg',
 ];
 
-// Prepare different image sets for each column:
-// First column: from image index 1 to end.
 const column1Images = images.slice(5).concat(images.slice(0, 5));
-// Second column: from image index 4 to end then index 0 to 4.
 const column2Images = images.slice(1);
-// Third column: reverse order (from end to start).
 const column3Images = [...images].reverse();
 
 const MarqueeColumn = ({ images, direction = 'up', duration = 20, className = '' }) => {
@@ -39,7 +35,6 @@ const MarqueeColumn = ({ images, direction = 'up', duration = 20, className = ''
 						repeat: Infinity,
 					}}
 				>
-					{/* Duplicate images for seamless looping */}
 					{images.concat(images).map((src, idx) => (
 						<img key={idx} className="mt-4 rounded-xl w-full" src={src} alt="masoom" />
 					))}
@@ -71,11 +66,8 @@ const MasoomStyleHome = () => {
 					</p>
 				</div>
 				<div className="right w-[50%] gap-4 pr-4 h-full flex items-center justify-center bg-white">
-					{/* Left Column (up) with images starting from index 1 */}
 					<MarqueeColumn images={column1Images} direction="up" duration={20} />
-					{/* Center Column (down) with images from index 4 to end then 0 to 4 */}
 					<MarqueeColumn images={column2Images} direction="down" duration={28} />
-					{/* Right Column (up) with reversed images */}
 					<MarqueeColumn
 						images={column3Images}
 						direction="up"
