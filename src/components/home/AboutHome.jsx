@@ -32,7 +32,7 @@ const AboutHome = () => {
 	};
 
 	return (
-		<div className="about-home bg-gray-50   w-full p-10 max-h-screen h-full  flex  gap-14">
+		<div className="about-home bg-gray-50  w-full p-10 max-h-screen h-full  flex  gap-14">
 			<div className="left  w-[30%] h-full flex flex-col items-center overflow-hidden">
 				<motion.div
 					ref={imgRef}

@@ -11,7 +11,7 @@ const BestSellerHome = () => {
 		.filter(Boolean);
 
 	return (
-		<div className="bestSeller p-16 bg-gray-100 ">
+		<div className="bestSeller p-16 bg-gray-50 ">
 			<h2 className="heading text-3xl font-bold tracking-wide">Best Seller Products</h2>
 			<div className="bestSellerCards flex gap-12 mt-8 justify-center">
 				{bestSellerProducts.map((product, i) => (

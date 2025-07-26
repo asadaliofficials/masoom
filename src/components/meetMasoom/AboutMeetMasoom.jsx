@@ -76,7 +76,7 @@ const AboutHome = () => {
 	];
 
 	return (
-		<div className="about-home bg-gray-100   w-full px-10 py-20  max-h-screen h-full  flex  gap-14">
+		<div className="about-home w-full px-10 py-20  max-h-screen h-full  flex  gap-14">
 			<div className="left  w-[30%] h-full flex flex-col items-center justify-center overflow-hidden">
 				<motion.div
 					ref={imgRef}

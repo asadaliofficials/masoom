@@ -9,7 +9,7 @@ const HeroBanner = () => {
 	const navigate = useNavigate();
 
 	return (
-		<div className="heroBanner  w-full h-[460px]  flex ">
+		<div className="heroBanner  w-full h-[460px]  flex border-b-2 border-gray-200">
 			<div className="left relative  flex flex-col items-start justify-center p-12 w-[50%] ">
 				{/* Animated static texts with Framer Motion */}
 				<motion.p
@@ -82,7 +82,7 @@ const HeroBanner = () => {
 					</button>
 				</motion.div>
 			</div>
-			<div className="right w-[50%]  relative overflow-hidden shadow-inner">
+			<div className="right w-[50%]  relative overflow-hidden">
 				<motion.img
 					fetchPriority="high"
 					className=" object-contain object-top w-full h-full "

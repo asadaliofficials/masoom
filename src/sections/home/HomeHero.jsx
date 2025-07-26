@@ -4,7 +4,6 @@ const HomeHero = () => {
 	return (
 		<>
 			<HeroBanner />
-			<hr style={{ opacity: '0.3' }} />
 			<Categories />
 		</>
 	);

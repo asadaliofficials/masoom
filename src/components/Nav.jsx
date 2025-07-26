@@ -89,7 +89,7 @@ const Nav = ({ hideNavIcons = false }) => {
 				initial={{ y: 0 }}
 				animate={{ y: showNav ? 0 : '-100%' }}
 				transition={{ duration: 0.5 }}
-				className={`border-b-2 border-gray-300 nav sticky top-0 z-100 py-3 px-4 flex w-full justify-between items-center bg-white`}
+				className={`border-b-2 border-gray-100 nav sticky top-0 z-100 py-3 px-4 flex w-full justify-between items-center bg-white`}
 			>
 				<div className="logoWraper flex justify-center items-center gap-3 rounded-lg px-2 py-1">
 					<motion.div
