@@ -1,8 +1,15 @@
 import ImageTrail from '../react-bits/ImageTrail/ImageTrail.jsx';
-import '../../styles/home/lifeFashion.css'
+import '../../styles/home/lifeFashion.css';
 const LifeIsAFashion = () => {
 	return (
-		<div style={{ height: '92vh', position: 'relative', overflow: 'hidden' }}>
+		<div
+			style={{
+				height: '92vh',
+				position: 'relative',
+				overflow: 'hidden',
+				backgroundColor: '#f5f5f5',
+			}}
+		>
 			<ImageTrail
 				items={[
 					'https://res.cloudinary.com/dyibkikle/image/upload/v1753205286/one_p4huoy.webp',
@@ -31,7 +38,9 @@ const LifeIsAFashion = () => {
 				}}
 			>
 				<h1 className="title text-6xl font-bold text-black text-center">Life is a Fashion</h1>
-				<h2 className="text-2xl opacity-60 text-center font-semibold tag">Elegance in Every Thread</h2>
+				<h2 className="text-2xl opacity-60 text-center font-semibold tag">
+					Elegance in Every Thread
+				</h2>
 				<p className=" text-center opacity-80 des">
 					Style is a reflection of personality, woven with care and confidence. Every detail, from
 					fabric to fit, tells a story of grace and intention. It’s not just about appearance — it’s
