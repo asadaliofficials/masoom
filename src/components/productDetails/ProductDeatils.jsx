@@ -6,6 +6,7 @@ import { useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import '../../styles/productDetails/productDetails.css';
 import ProductsContext from '../../context/ProductsContext.js';
+import ProductImageWithMagnifier from '../ProductImageWithMagnifier.jsx';
 
 const defaultProduct = {
 	title:
@@ -130,6 +131,7 @@ const ProductDeatils = () => {
 			setFav(true);
 		}
 	};
+
 	return (
 		<>
 			<div className="w-full min-h-screen bg-gray-50 p-6">
@@ -144,18 +146,13 @@ const ProductDeatils = () => {
 				</nav>
 				<div className="flex flex-col md:flex-row gap-10 bg-white rounded-xl shadow-lg p-6 py-10">
 					<div className="flex flex-col items-center w-full md:w-[35%]">
-						<div className="relative w-full max-h-[380px] aspect-square bg-gray-100 rounded-lg flex items-center justify-center overflow-hidden mb-4">
-							<motion.img
-								key={product.images[selectedImage]}
+						<div className="relative w-full max-h-[380px] aspect-squar rounded-lg flex items-center justify-center overflow-hidden mb-4">
+							<ProductImageWithMagnifier
 								src={product.images[selectedImage]}
 								alt={product.title}
-								fetchPriority="high"
-								className="object-cover w-full h-full transition-all duration-300 object-top"
-								initial={{ opacity: 0, scale: 0.7 }}
-								animate={{ opacity: 1, scale: 1 }}
-								// exit={{ opacity: 0, scale: 0.7 }}
-								transition={{ duration: 0.5 }}
+								zoom={1.5}
 							/>
+
 							<motion.div
 								className="bg-white absolute top-2 p-2 rounded-full right-2 cursor-pointer"
 								onClick={handleFavClick}
