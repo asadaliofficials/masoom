@@ -7,35 +7,35 @@ export function TestimonialsSection() {
 				'Masoom’s journey has inspired me to pursue my dreams with confidence. Her story is a beacon of hope for women everywhere.',
 			name: 'Priya Sharma',
 			designation: 'Marketing Manager at BharatBrands',
-			src: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=facearea&w=600&h=800&facepad=2', // woman
+			src: 'https://plus.unsplash.com/premium_photo-1690349404224-53f94f20df8f?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // woman
 		},
 		{
 			quote:
 				'The way Masoom empowers others through her platform is truly remarkable. She motivates me to break barriers and aim higher.',
 			name: 'Amit Verma',
 			designation: 'Entrepreneur at StartUp India',
-			src: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=facearea&w=600&h=800&facepad=2', // man
+			src: 'https://images.unsplash.com/photo-1670886498028-a72e1d9dcc9a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // man
 		},
 		{
 			quote:
 				'Masoom’s creativity and authenticity have changed the way I look at personal branding. She is a true role model.',
 			name: 'Sneha Patel',
 			designation: 'Content Creator',
-			src: 'https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=facearea&w=600&h=800&facepad=2', // woman
+			src: 'https://images.unsplash.com/photo-1695927621677-ec96e048dce2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZSUyMHBob3Rvc3xlbnwwfHwwfHx8MA%3D%3D', // woman
 		},
 		{
 			quote:
 				'Her dedication to empowering women is unmatched. Masoom’s story encourages me to support and uplift others in my community.',
 			name: 'Rahul Singh',
 			designation: 'Community Leader',
-			src: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=600&h=800&facepad=2', // man
+			src: 'https://plus.unsplash.com/premium_photo-1693000696650-e73643956033?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // man
 		},
 		{
 			quote:
 				'Masoom’s positive impact is felt far and wide. She inspires me to be bold, creative, and compassionate in everything I do.',
 			name: 'Anjali Mehta',
 			designation: 'Fashion Blogger',
-			src: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=facearea&w=600&h=800&facepad=2', // woman, fashion blogger
+			src: 'https://images.unsplash.com/photo-1628337868220-19208d39cbaf?q=80&w=764&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // woman, fashion blogger
 		},
 		{
 			quote:
@@ -63,7 +63,7 @@ export function TestimonialsSection() {
 				'Her ability to connect with people and share meaningful stories is truly special. Masoom inspires me every day.',
 			name: 'Meera Joshi',
 			designation: 'Journalist',
-			src: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=facearea&w=600&h=800&facepad=2', // woman
+			src: 'https://images.unsplash.com/photo-1651684215020-f7a5b6610f23?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // woman
 		},
 		{
 			quote:

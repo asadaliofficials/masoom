@@ -12,14 +12,14 @@ const Home = () => {
 	return (
 		<>
 			<HomeHero />
-			<AboutHome />
-			<FlashSale />
-			<BestSellerHome />
-			<TodayForYou />
-			<MasoomStyleHome />
-			<StackCards />
-			<hr style={{ opacity: '0.3' }} />
+			{/* <AboutHome /> */}
 			<LifeIsAFashion />
+			<FlashSale />
+			<MasoomStyleHome />
+			<TodayForYou />
+			{/* <BestSellerHome /> */}
+			{/* <StackCards /> */}
+			{/* <hr style={{ opacity: '0.3' }} /> */}
 		</>
 	);
 };
